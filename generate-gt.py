@@ -50,7 +50,7 @@ def create_tiff_image(args):
         draw.text((text_x, text_y), text, font=font, fill=0)  # Black text
 
         # Save as TIFF
-        image.save(image_path, format="TIFF")
+        image.save(image_path, format="TIFF", compression="tiff_lzw")
 
         # Create a GT file for this line
         with open(gt_path, "w", encoding="utf-8") as gt_file:
