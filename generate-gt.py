@@ -5,23 +5,24 @@ from tqdm import tqdm
 
 # Paths
 input_text_file = "data/training-data.txt"  # Text file with 99,621 lines
-fonts_dir = "fonts"  # Folder containing subdirectories 'print' and 'hangual'
-output_base_dir = "tam-ground-truth"  # Output base directory
+fonts_base_dir = "fonts"  # Folder containing subdirectories 'Hangual_Fonts' and 'Printed_Fonts'
+output_base_dir = "Tamil_OCR_Dataset"  # Output base directory
 
 # Ensure output base directory exists
 os.makedirs(output_base_dir, exist_ok=True)
 
-# Load fonts from subdirectories
-font_categories = {"print": [], "hangual": []}
+# Load fonts directly from Hangual_Fonts and Printed_Fonts directories
+font_categories = {"Hangual_Fonts": [], "Printed_Fonts": []}
 for category in font_categories.keys():
-    category_path = os.path.join(fonts_dir, category)
+    category_path = os.path.join(fonts_base_dir, category)
     if os.path.exists(category_path):
-        font_categories[category] = [os.path.join(category_path, f) for f in os.listdir(category_path) if
-                                     f.endswith(".ttf")]
+        font_files = [os.path.join(category_path, f) for f in os.listdir(category_path) if f.endswith(".ttf")]
+        if font_files:
+            font_categories[category] = font_files
 
 # Ensure there are fonts available
 if not any(font_categories.values()):
-    raise FileNotFoundError("No TTF font files found in 'print' or 'hangual' directories!")
+    raise FileNotFoundError("No TTF font files found in 'Hangual_Fonts' or 'Printed_Fonts' directories!")
 
 # Read input text
 print(f"Reading input text from {input_text_file}")
@@ -63,17 +64,25 @@ def create_tiff_image(args):
 # Prepare arguments for parallel processing
 tasks = []
 for category, font_paths in font_categories.items():
-    output_dir = os.path.join(output_base_dir, category)
-    os.makedirs(output_dir, exist_ok=True)
+    category_output_dir = os.path.join(output_base_dir, category)
+    os.makedirs(category_output_dir, exist_ok=True)
 
-    for idx, line in enumerate(lines):
-        line = line.strip()
-        if line:
-            for font_idx, font_path in enumerate(font_paths):
-                gt_filename = f"tam_{idx:06d}_font{font_idx:03d}.gt.txt"
-                gt_path = os.path.join(output_dir, gt_filename)
-                image_filename = f"tam_{idx:06d}_font{font_idx:03d}.tiff"
-                image_path = os.path.join(output_dir, image_filename)
+    for font_path in font_paths:
+        font_name = os.path.basename(font_path).replace(".ttf", "")
+        font_output_dir = os.path.join(category_output_dir, font_name)
+        gt_dir = os.path.join(font_output_dir, "gt")
+        images_dir = os.path.join(font_output_dir, "images")
+        os.makedirs(gt_dir, exist_ok=True)
+        os.makedirs(images_dir, exist_ok=True)
+
+        for idx, line in enumerate(lines):
+            line = line.strip()
+            if line:
+                unique_id = f"{font_name}_{idx + 1:05d}"
+                gt_filename = f"{unique_id}.gt.txt"
+                gt_path = os.path.join(gt_dir, gt_filename)
+                image_filename = f"{unique_id}.tiff"
+                image_path = os.path.join(images_dir, image_filename)
                 tasks.append((line, font_path, image_path, gt_path))
 
 # Process tasks in parallel
