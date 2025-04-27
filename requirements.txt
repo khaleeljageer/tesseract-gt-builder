@@ -1,3 +1,4 @@
 pillow
 tqdm
 open-tamil
+jiwer
