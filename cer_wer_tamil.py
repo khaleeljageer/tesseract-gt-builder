@@ -4,13 +4,11 @@ import argparse
 from jiwer import wer
 from difflib import SequenceMatcher
 
-
 def normalize(text):
     """Normalize Unicode and remove unwanted characters"""
     text = unicodedata.normalize('NFKC', text)
     text = text.strip()
     return text
-
 
 def calculate_cer(reference, hypothesis):
     """Calculate Character Error Rate (CER)"""
@@ -28,8 +26,6 @@ def calculate_cer(reference, hypothesis):
 
     return distance / len(reference)
 
-
-
 def calculate_wer(reference, hypothesis):
     """Calculate Word Error Rate (WER)"""
     reference = normalize(reference)
@@ -37,15 +33,27 @@ def calculate_wer(reference, hypothesis):
 
     return wer(reference, hypothesis)
 
+def calculate_rc(reference, hypothesis):
+    """Calculate Recognition Coverage (RC)"""
+    reference = normalize(reference)
+    hypothesis = normalize(hypothesis)
+
+    recognized_chars = len(hypothesis)
+    total_chars = len(reference)
+
+    if total_chars == 0:
+        return 100.0 if recognized_chars == 0 else 0.0
+
+    rc = (recognized_chars / total_chars) * 100
+    return rc
 
 def read_file(file_path):
     """Read a UTF-8 file"""
     with open(file_path, "r", encoding="utf-8") as f:
         return f.read()
 
-
 def main():
-    parser = argparse.ArgumentParser(description="Calculate CER and WER for Tamil OCR evaluation.")
+    parser = argparse.ArgumentParser(description="Calculate RC, CER, and WER for Tamil OCR evaluation.")
     parser.add_argument("--ground_truth", required=True, help="Path to the ground truth text file")
     parser.add_argument("--prediction", required=True, help="Path to the prediction text file")
 
@@ -54,12 +62,13 @@ def main():
     ground_truth = read_file(args.ground_truth)
     prediction = read_file(args.prediction)
 
+    rc = calculate_rc(ground_truth, prediction)
     cer = calculate_cer(ground_truth, prediction)
     wer_score = calculate_wer(ground_truth, prediction)
 
+    print(f"Recognition Coverage (RC): {rc:.2f}%")
     print(f"Character Error Rate (CER): {cer * 100:.2f}%")
     print(f"Word Error Rate (WER): {wer_score * 100:.2f}%")
-
 
 if __name__ == "__main__":
     main()
