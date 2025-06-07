@@ -5,11 +5,29 @@ data/training-data.txt where each line has no more than 7 words.
 """
 
 import os
-from tqdm import tqdm
 import time
+from pathlib import Path
+
+from tqdm import tqdm
 
 
-def process_file(input_file="wikisource-ta.txt", output_file="data/training-data.txt", words_per_line=7):
+def merge_raw_text_files(folder_path, output_filename="merged_output.txt"):
+    folder = Path(folder_path)
+    output_file = f"data/{output_filename}"
+
+    # List all .txt files excluding the output file
+    txt_files = sorted([f for f in folder.glob("*.txt") if f.name != output_filename])
+
+    with open(output_file, "w", encoding="utf-8") as outfile:
+        for file in txt_files:
+            with open(file, "r", encoding="utf-8") as infile:
+                content = infile.read().strip()  # Remove trailing newlines
+                outfile.write(content + " ")  # Append a space after each file
+
+    print(f"Merged {len(txt_files)} files into: {output_file}")
+
+
+def process_file(input_file, output_file="data/training-data.txt", words_per_line=7):
     """
     Process a text file to ensure each line has no more than the specified number of words.
 
@@ -57,13 +75,15 @@ def process_file(input_file="wikisource-ta.txt", output_file="data/training-data
         print(f"Input file: {input_file}")
         print(f"Output file: {output_file}")
         print(f"Input file had {total_words} words, now formatted into {len(lines)} lines")
-
+        os.remove(input_file)
+        print(f"File '{input_file}' deleted successfully.")
     except Exception as e:
         print(f"Error: {e}")
 
 
 if __name__ == "__main__":
     start_time = time.time()
-    process_file()
+    merge_raw_text_files(folder_path="raw_data")
+    process_file(input_file="data/merged_output.txt", output_file="data/training-data.txt")
     elapsed_time = time.time() - start_time
     print(f"Time taken: {elapsed_time:.2f} seconds")
