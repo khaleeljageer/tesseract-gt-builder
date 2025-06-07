@@ -12,22 +12,22 @@ def clean_tamil_text(text):
 
 
 # Read JSON data
-with open("/home/khaleeljageer/Downloads/select-text-from-train.json", "r",
+with open("tamil-articles-from-wikinews.json", "r",
           encoding="utf-8") as json_file:
     data = json.load(json_file)
 
 # Process and clean each item
 cleaned_lines = []
 for item in data:
-    input_text = clean_tamil_text(item.get("text", ""))
-    # input_text = clean_tamil_text(item.get("inputs", ""))
+    title = clean_tamil_text(str(item.get("title", "")))
+    text = clean_tamil_text(str(item.get("text", "")))
     # target_text = clean_tamil_text(item.get("targets", ""))
-    if input_text:
+    if title:
         # Format: input[TAB]target
         # cleaned_lines.append(input_text + " " + target_text)
-        cleaned_lines.append(" " + input_text)
+        cleaned_lines.append(title+" " + text)
 
 # Write to output file
-with open("raw_data/theekkathir.txt", "w", encoding="utf-8") as output_file:
+with open("raw_data/wikinews-ta.txt", "w", encoding="utf-8") as output_file:
     for line in cleaned_lines:
         output_file.write(line)
