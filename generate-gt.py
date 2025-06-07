@@ -1,111 +1,161 @@
 import os
-from multiprocessing import Pool, cpu_count
-from PIL import Image, ImageDraw, ImageFont
+import random
+from pathlib import Path
 from tqdm import tqdm
+import cv2
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
 
-# Paths
-input_text_file = "data/training-data.txt"  # Text file with 99,621 lines
-fonts_base_dir = "fonts"  # Folder containing subdirectories 'Hangual_Fonts' and 'Printed_Fonts'
-output_base_dir = "/home/khaleeljageer/tesseract_training/tesstrain/data/tamhng-ground-truth"  # Output base directory
-
-# Ensure output base directory exists
-os.makedirs(output_base_dir, exist_ok=True)
-
-# Load fonts directly from Hangual_Fonts and Printed_Fonts directories
-font_categories = {"Hangual_Fonts": []}
-for category in font_categories.keys():
-    category_path = os.path.join(fonts_base_dir, category)
-    if os.path.exists(category_path):
-        font_files = [os.path.join(category_path, f) for f in os.listdir(category_path) if f.endswith(".ttf")]
-        if font_files:
-            font_categories[category] = font_files
-
-# Ensure there are fonts available
-if not any(font_categories.values()):
-    raise FileNotFoundError("No TTF font files found in 'Hangual_Fonts' or 'Printed_Fonts' directories!")
-
-# Read input text
-print(f"Reading input text from {input_text_file}")
-with open(input_text_file, "r", encoding="utf-8") as file:
-    lines = file.readlines()
-
-print(f"Found {len(lines)} lines of text to process")
+# Configuration
+FONT_DIR = "fonts"
+TEXT_FILE = "data/sample.txt"
+TMP_DIR = "tmp"
+LINE_OUTPUT_DIR = "/home/khaleeljageer/tess_training/tesstrain/data/tamhng-ground-truth"
+DPI = 300
+PADDING = 8
+FONT_SIZE = 40
+A4_WIDTH_MM = 210
+A4_HEIGHT_MM = 297
+MM_PER_INCH = 25.4
+A4_WIDTH = int(A4_WIDTH_MM * DPI / MM_PER_INCH)
+A4_HEIGHT = int(A4_HEIGHT_MM * DPI / MM_PER_INCH)
+LINE_SPACING = 20
+LINES_PER_PAGE = 50
 
 
-def create_tiff_image(args):
-    text, font_path, image_path, gt_path = args
+def load_fonts(font_dir):
+    fonts = []
+    for file in os.listdir(font_dir):
+        if file.endswith((".ttf", ".otf")):
+            font_path = os.path.join(font_dir, file)
+            try:
+                font = ImageFont.truetype(font_path, FONT_SIZE)
+                fonts.append(font)
+            except Exception as e:
+                print(f"Error loading font {file}: {e}")
+    return fonts
+
+
+def create_a4_tiff_image(lines, fonts, output_path):
+    image = Image.new("L", (A4_WIDTH, A4_HEIGHT), 255)
+    draw = ImageDraw.Draw(image)
+    max_line_height = max([draw.textbbox((0, 0), "Sample", font=font)[3] for font in fonts])
+    line_height = max_line_height + LINE_SPACING
+
+    for i, line in enumerate(lines):
+        font = random.choice(fonts)
+        y = PADDING + i * line_height
+        if y + max_line_height + PADDING > A4_HEIGHT:
+            break
+        draw.text((PADDING, y), line, font=font, fill=0)
+
+    image.save(output_path, "TIFF", dpi=(DPI, DPI))
+
+
+def create_ground_truth(lines, output_path):
+    with open(output_path, "w", encoding="utf-8") as f:
+        for line in lines:
+            f.write(line + "\n")
+
+
+def segment_lines_using_projection(image_path: str, output_dir: str, gt_lines, base_name, padding: int = 3):
     try:
-        font_size = 48
-        font = ImageFont.truetype(font_path, font_size)
+        image = cv2.imread(image_path, cv2.IMREAD_GRAYSCALE)
+        height, width = image.shape
+        _, binary = cv2.threshold(image, 200, 255, cv2.THRESH_BINARY_INV)
+        projection = np.sum(binary, axis=1)
+        in_line = False
+        line_bounds = []
+        threshold = 10
 
-        # Determine text bounding box
-        bbox = font.getbbox(text)
-        text_width, text_height = int(bbox[2] - bbox[0]), int(bbox[3] - bbox[1])
+        for i, val in enumerate(projection):
+            if val > threshold and not in_line:
+                start = i
+                in_line = True
+            elif val <= threshold and in_line:
+                end = i
+                in_line = False
+                line_bounds.append((start, end))
 
-        # Create image with padding
-        image = Image.new("L", (text_width + 20, text_height + 8), 255) # White background
-        draw = ImageDraw.Draw(image)
-        text_x = (image.width - text_width) // 2
-        text_y = (image.height - text_height) // 2
-        draw.text((text_x, text_y), text, font=font, fill=0)  # Black text
+        Path(output_dir).mkdir(parents=True, exist_ok=True)
+        for idx, (y1, y2) in enumerate(line_bounds):
+            y1_pad = max(0, y1 - padding)
+            y2_pad = min(height, y2 + padding)
+            line_crop = image[y1_pad:y2_pad, :]
+            _, line_thresh = cv2.threshold(line_crop, 200, 255, cv2.THRESH_BINARY)
+            coords = cv2.findNonZero(255 - line_thresh)
+            if coords is not None:
+                x, y, w, h = cv2.boundingRect(coords)
+                x1 = max(0, x - padding)
+                x2 = min(line_crop.shape[1], x + w + padding)
+                trimmed = line_crop[:, x1:x2]
+            else:
+                trimmed = line_crop
 
-        # Save as TIFF
-        image.save(image_path, format="TIFF", compression="tiff_lzw", dpi=(300, 300))
-
-        # Create a GT file for this line
-        with open(gt_path, "w", encoding="utf-8") as gt_file:
-            gt_file.write(text)
-
-        return True, None
+            line_text = gt_lines[idx] if idx < len(gt_lines) else ""
+            if line_text.strip():
+                image_out_path = Path(output_dir) / f"{base_name}_line_{idx + 1:03d}.tiff"
+                gt_out_path = Path(output_dir) / f"{base_name}_line_{idx + 1:03d}.gt.txt"
+                cv2.imwrite(str(image_out_path), trimmed)
+                with open(gt_out_path, "w", encoding="utf-8") as f:
+                    f.write(line_text.strip())
     except Exception as e:
-        return False, str(e)
+        print(f"Error processing {image_path}: {e}")
 
 
-# Prepare arguments for parallel processing
-tasks = []
-for category, font_paths in font_categories.items():
-    # category_output_dir = os.path.join(output_base_dir, category)
-    os.makedirs(output_base_dir, exist_ok=True)
+def validate_output(directory):
+    all_files = os.listdir(directory)
+    image_files = {f[:-5] for f in all_files if f.endswith(".tiff")}
+    gt_files = {f[:-7] for f in all_files if f.endswith(".gt.txt")}
 
-    for font_path in font_paths:
-        font_name = os.path.basename(font_path).replace(".ttf", "")
-        # font_output_dir = os.path.join(category_output_dir, font_name)
-        font_output_dir=output_base_dir
-        # gt_dir = os.path.join(font_output_dir, "gt")
-        gt_dir = font_output_dir
-        # images_dir = os.path.join(font_output_dir, "images")
-        images_dir = font_output_dir
-        # os.makedirs(gt_dir, exist_ok=True)
-        # os.makedirs(images_dir, exist_ok=True)
+    missing_images = gt_files - image_files
+    missing_gts = image_files - gt_files
 
-        for idx, line in enumerate(lines):
-            line = line.strip()
-            if line:
-                unique_id = f"{font_name}_{idx + 1:05d}"
-                gt_filename = f"{unique_id}.gt.txt"
-                gt_path = os.path.join(gt_dir, gt_filename)
-                image_filename = f"{unique_id}.tif"
-                image_path = os.path.join(images_dir, image_filename)
-                tasks.append((line, font_path, image_path, gt_path))
+    if missing_images:
+        print("Missing TIFF images for:")
+        for name in sorted(missing_images):
+            print(f"  {name}.gt.txt")
 
-# Process tasks in parallel
-core = cpu_count() - 1
-print(f"Processing {len(tasks)} tasks using {core} CPU cores")
-with Pool(core) as pool:
-    results = list(
-        tqdm(pool.imap(create_tiff_image, tasks), total=len(tasks), desc="Generating TIFF files", unit="images"))
+    if missing_gts:
+        print("Missing GT files for:")
+        for name in sorted(missing_gts):
+            print(f"  {name}.tiff")
 
-# Summarize results
-success_count = sum(1 for success, _ in results if success)
-error_details = [(idx, font_path, error) for (success, error), (line, font_path, image_path, gt_path) in
-                 zip(results, tasks) if not success]
+    if not missing_images and not missing_gts:
+        print("Validation successful: all GT and TIFF files matched.")
 
-print("\nTIFF and GT file generation completed!")
-print(f"Successfully processed: {success_count} images")
-if error_details:
-    print(f"Errors encountered: {len(error_details)} images")
-    print("First few errors:")
-    for i, (line_idx, font_name, error) in enumerate(error_details[:5]):
-        print(f"  Line {line_idx}, Font '{font_name}': {error}")
-    if len(error_details) > 5:
-        print(f"  ... and {len(error_details) - 5} more errors")
+
+def main():
+    os.makedirs(TMP_DIR, exist_ok=True)
+    os.makedirs(LINE_OUTPUT_DIR, exist_ok=True)
+    fonts = load_fonts(FONT_DIR)
+    if not fonts:
+        print("No valid fonts found.")
+        return
+
+    with open(TEXT_FILE, "r", encoding="utf-8") as f:
+        all_lines = [line.strip() for line in f.readlines() if line.strip()]
+
+    total_pages = len(all_lines) // LINES_PER_PAGE + (1 if len(all_lines) % LINES_PER_PAGE else 0)
+
+    for page_num in tqdm(range(total_pages), desc="Processing Pages"):
+        start = page_num * LINES_PER_PAGE
+        page_lines = all_lines[start:start + LINES_PER_PAGE]
+        base_name = f"page_{page_num + 1:06d}"
+        image_path = os.path.join(TMP_DIR, base_name + ".tiff")
+        gt_path = os.path.join(TMP_DIR, base_name + ".gt.txt")
+
+        try:
+            create_a4_tiff_image(page_lines, fonts, image_path)
+            create_ground_truth(page_lines, gt_path)
+            segment_lines_using_projection(image_path, LINE_OUTPUT_DIR, page_lines, base_name)
+        except Exception as e:
+            print(f"[ERROR] Failed processing {base_name}: {e}")
+
+    import shutil
+    shutil.rmtree(TMP_DIR)
+    validate_output(LINE_OUTPUT_DIR)
+
+
+if __name__ == "__main__":
+    main()
