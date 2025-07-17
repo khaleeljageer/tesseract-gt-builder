@@ -1,4 +1,7 @@
-pillow
-tqdm
+pillow~=11.2.1
+tqdm~=4.67.1
 open-tamil
-jiwer
+jiwer~=3.1.0
+matplotlib~=3.10.3
+opencv-python~=4.11.0.86
+numpy~=2.2.6
