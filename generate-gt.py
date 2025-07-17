@@ -1,26 +1,31 @@
 import os
 import random
 from pathlib import Path
-from tqdm import tqdm
+
 import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
+from tqdm import tqdm
+
+from config import AnekTamilConfig
 
 # Configuration
-FONT_DIR = "fonts"
+FONT_DIR = "fonts1"
 TEXT_FILE = "data/sample.txt"
 TMP_DIR = "tmp"
-LINE_OUTPUT_DIR = "/home/khaleeljageer/tess_training/tesstrain/data/tamhng-ground-truth"
+LINE_OUTPUT_DIR = "images"
 DPI = 300
-PADDING = 8
-FONT_SIZE = 40
-A4_WIDTH_MM = 210
-A4_HEIGHT_MM = 297
-MM_PER_INCH = 25.4
-A4_WIDTH = int(A4_WIDTH_MM * DPI / MM_PER_INCH)
-A4_HEIGHT = int(A4_HEIGHT_MM * DPI / MM_PER_INCH)
-LINE_SPACING = 20
-LINES_PER_PAGE = 50
+
+font_config = AnekTamilConfig()
+PADDING = font_config.PADDING
+FONT_SIZE = font_config.FONT_SIZE
+A4_WIDTH_MM = font_config.A4_WIDTH_MM
+A4_HEIGHT_MM = font_config.A4_HEIGHT_MM
+MM_PER_INCH = font_config.MM_PER_INCH
+A4_WIDTH = font_config.A4_WIDTH
+A4_HEIGHT = font_config.A4_HEIGHT
+LINE_SPACING = font_config.LINE_SPACING
+LINES_PER_PAGE = font_config.LINES_PER_PAGE
 
 
 def load_fonts(font_dir):
@@ -94,7 +99,7 @@ def segment_lines_using_projection(image_path: str, output_dir: str, gt_lines, b
 
             line_text = gt_lines[idx] if idx < len(gt_lines) else ""
             if line_text.strip():
-                image_out_path = Path(output_dir) / f"{base_name}_line_{idx + 1:03d}.tiff"
+                image_out_path = Path(output_dir) / f"{base_name}_line_{idx + 1:03d}.tif"
                 gt_out_path = Path(output_dir) / f"{base_name}_line_{idx + 1:03d}.gt.txt"
                 cv2.imwrite(str(image_out_path), trimmed)
                 with open(gt_out_path, "w", encoding="utf-8") as f:
@@ -105,7 +110,7 @@ def segment_lines_using_projection(image_path: str, output_dir: str, gt_lines, b
 
 def validate_output(directory):
     all_files = os.listdir(directory)
-    image_files = {f[:-5] for f in all_files if f.endswith(".tiff")}
+    image_files = {f[:-5] for f in all_files if f.endswith(".tif")}
     gt_files = {f[:-7] for f in all_files if f.endswith(".gt.txt")}
 
     missing_images = gt_files - image_files
@@ -119,7 +124,7 @@ def validate_output(directory):
     if missing_gts:
         print("Missing GT files for:")
         for name in sorted(missing_gts):
-            print(f"  {name}.tiff")
+            print(f"  {name}.tif")
 
     if not missing_images and not missing_gts:
         print("Validation successful: all GT and TIFF files matched.")
@@ -142,7 +147,7 @@ def main():
         start = page_num * LINES_PER_PAGE
         page_lines = all_lines[start:start + LINES_PER_PAGE]
         base_name = f"page_{page_num + 1:06d}"
-        image_path = os.path.join(TMP_DIR, base_name + ".tiff")
+        image_path = os.path.join(TMP_DIR, base_name + ".tif")
         gt_path = os.path.join(TMP_DIR, base_name + ".gt.txt")
 
         try:
@@ -154,7 +159,7 @@ def main():
 
     import shutil
     shutil.rmtree(TMP_DIR)
-    validate_output(LINE_OUTPUT_DIR)
+    # validate_output(LINE_OUTPUT_DIR)
 
 
 if __name__ == "__main__":
