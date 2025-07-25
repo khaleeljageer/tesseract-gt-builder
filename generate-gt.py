@@ -1,5 +1,6 @@
 import os
 import random
+import shutil
 from pathlib import Path
 
 import cv2
@@ -7,16 +8,16 @@ import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 from tqdm import tqdm
 
-from config import AnekTamilConfig
+from config import DefaultTamilConfig
 
 # Configuration
 FONT_DIR = "fonts1"
-TEXT_FILE = "data/sample.txt"
+TEXT_FILE = "data/training-data.txt"
 TMP_DIR = "tmp"
-LINE_OUTPUT_DIR = "images"
+LINE_OUTPUT_DIR = "/home/khaleeljageer/tess_train/tesstrain/data/tam_new-ground-truth"
 DPI = 300
 
-font_config = AnekTamilConfig()
+font_config = DefaultTamilConfig()
 PADDING = font_config.PADDING
 FONT_SIZE = font_config.FONT_SIZE
 A4_WIDTH_MM = font_config.A4_WIDTH_MM
@@ -133,33 +134,39 @@ def validate_output(directory):
 def main():
     os.makedirs(TMP_DIR, exist_ok=True)
     os.makedirs(LINE_OUTPUT_DIR, exist_ok=True)
+
     fonts = load_fonts(FONT_DIR)
     if not fonts:
         print("No valid fonts found.")
         return
 
     with open(TEXT_FILE, "r", encoding="utf-8") as f:
-        all_lines = [line.strip() for line in f.readlines() if line.strip()]
+        all_lines = [line.strip() for line in f if line.strip()]
 
-    total_pages = len(all_lines) // LINES_PER_PAGE + (1 if len(all_lines) % LINES_PER_PAGE else 0)
+    total_lines = len(all_lines)
+    total_fonts = len(fonts)
+
+    print(f"[INFO] Total lines: {total_lines}, Fonts: {total_fonts}")
+    total_pages = total_lines // LINES_PER_PAGE + (1 if total_lines % LINES_PER_PAGE else 0)
 
     for page_num in tqdm(range(total_pages), desc="Processing Pages"):
         start = page_num * LINES_PER_PAGE
         page_lines = all_lines[start:start + LINES_PER_PAGE]
+        assigned_fonts = [fonts[i % total_fonts] for i in range(start, start + len(page_lines))]
+
         base_name = f"page_{page_num + 1:06d}"
         image_path = os.path.join(TMP_DIR, base_name + ".tif")
         gt_path = os.path.join(TMP_DIR, base_name + ".gt.txt")
 
         try:
-            create_a4_tiff_image(page_lines, fonts, image_path)
+            # Draw each line with its assigned font
+            create_a4_tiff_image(page_lines, assigned_fonts, image_path)
             create_ground_truth(page_lines, gt_path)
             segment_lines_using_projection(image_path, LINE_OUTPUT_DIR, page_lines, base_name)
         except Exception as e:
             print(f"[ERROR] Failed processing {base_name}: {e}")
 
-    import shutil
     shutil.rmtree(TMP_DIR)
-    # validate_output(LINE_OUTPUT_DIR)
 
 
 if __name__ == "__main__":

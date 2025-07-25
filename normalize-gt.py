@@ -27,7 +27,7 @@ def merge_raw_text_files(folder_path, output_filename="merged_output.txt"):
     print(f"Merged {len(txt_files)} files into: {output_file}")
 
 
-def process_file(input_file, output_file="data/training-data.txt", words_per_line=7):
+def process_file(input_file, output_file="data/training-data.txt", words_per_line=6):
     """
     Process a text file to ensure each line has no more than the specified number of words.
 

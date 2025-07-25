@@ -3,7 +3,7 @@ import matplotlib.font_manager as fm
 import mplcairo
 
 # Path to a Tamil-supporting font (replace with your font path)
-font_path = 'fonts/Printed_Fonts/NotoSerifTamil.ttf'  # Example: Noto Sans Tamil
+font_path = 'fonts/NotoSerifTamil.ttf'  # Example: Noto Sans Tamil
 # Register the font
 tamil_font = fm.FontProperties(fname=font_path)
 
