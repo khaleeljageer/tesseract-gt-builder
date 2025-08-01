@@ -6,8 +6,6 @@ import re
 def clean_tamil_text(text):
     # Remove English alphabets and digits
     text = re.sub(r'[a-zA-Z]', '', text)
-    # Optionally remove special characters except basic punctuation
-    text = re.sub(r'[^\u0B80-\u0BFF\s.,:;!?()\[\]\'"–-]', '', text)
     return text.strip()
 
 

@@ -1,59 +1,120 @@
-# Tamil Text Processor and Image Generator
+# Tesseract GT Builder for Tamil OCR
 
-This project processes Tamil text files and generates ground truth (GT) files and TIFF images for each line of text using various fonts.
+This project provides a comprehensive suite of tools to generate ground truth (GT) data for Tesseract OCR for the Tamil language. It includes scripts for text normalization, image and GT file generation, data verification, and OCR evaluation.
 
-## Requirements
+## Features
 
-- Python 3.x
-- pip
+-   **Text Normalization:** Pre-processes raw text files into a clean, trainable format.
+-   **Ground Truth Generation:** Creates TIFF images and corresponding `.gt.txt` files for each line of text.
+-   **Font Flexibility:** Uses a variety of Tamil fonts to generate diverse training data.
+-   **Data Verification:** Includes a script to verify the integrity of the generated dataset.
+-   **OCR Evaluation:** Provides tools to calculate Character Error Rate (CER) and Word Error Rate (WER).
+-   **Frequency Analysis:** Scripts to analyze character and word frequencies in the dataset.
+
+## Workflow
+
+The project follows a clear workflow:
+
+1.  **Data Preparation:** Raw text files (from `raw_data/` or other sources like JSON) are processed. `json2text.py` can be used to convert JSON data to text.
+2.  **Text Normalization:** The `normalize-gt.py` script merges and normalizes the text data, creating `data/training-data.txt`.
+3.  **GT Generation:** The `generate-gt.py` script takes the normalized text and generates `.tif` images and `.gt.txt` files in the `gt/` directory.
+4.  **Verification:** The `verify.py` script can be adapted to check the consistency of the generated files in the `gt/` directory.
+5.  **Evaluation:** After training a Tesseract model with the generated data, the `cer_wer_tamil.py` script can be used to evaluate its performance.
+6.  **Analysis:** `find_cfr.py` and `cfr_graph.py` can be used to analyze the character and word frequencies of the dataset.
 
 ## Installation
 
-1. Clone the repository:
+1.  Clone the repository:
     ```sh
-    git clone https://github.com/khaleeljageer/tamil-text-processor.git
-    cd tamil-text-processor
+    git clone https://github.com/khaleeljageer/tesseract-gt-builder.git
+    cd tesseract-gt-builder
     ```
 
-2. Install the required Python packages:
+2.  Install the required Python packages:
     ```sh
     pip install -r requirements.txt
     ```
 
 ## Usage
 
-### Normalize Text File
+### 1. Prepare Your Data
 
-The `normalize-gt.py` script reads a Tamil text file (`wikisource-ta.txt`) and processes it to ensure each line has no more than 7 words. The output is saved to `data/training-data.txt`.
+-   Place your raw `.txt` files in the `raw_data/` directory.
+-   If you have JSON data, you can use `json2text.py` to convert it to text. You might need to modify the script to fit your JSON structure.
 
-To run the script:
+### 2. Normalize the Text
+
+Run the `normalize-gt.py` script to create the training data file:
+
 ```sh
 python normalize-gt.py
 ```
 
-### Generate Ground Truth and TIFF Images
+This will create `data/training-data.txt`.
 
-The `generate-gt.py` script reads the processed text file (`data/training-data.txt`) and generates TIFF images and GT files for each line of text using various fonts from the `fonts` directory. The output is saved to the `tam-ground-truth` directory.
+### 3. Generate Ground Truth Data
 
-To run the script:
+Run the `generate-gt.py` script to generate the images and GT files:
+
 ```sh
 python generate-gt.py
 ```
 
+The output will be saved in the `gt/` directory.
+
+### 4. Verify the Generated Data
+
+You can use the `verify.py` script to check for missing or empty files. You may need to modify the `dataset_base_dir` variable in the script to point to the `gt/` directory.
+
+### 5. Evaluate Your OCR Model
+
+After training your model, you can evaluate it using `cer_wer_tamil.py`:
+
+```sh
+python cer_wer_tamil.py --ground_truth /path/to/your/ground-truth.txt --prediction /path/to/your/ocr-output.txt
+```
+
+### 6. Analyze the Dataset
+
+To analyze the character and word frequencies in your dataset:
+
+```sh
+python find_cfr.py
+```
+
+To generate a graph of the character frequencies:
+
+```sh
+python cfr_graph.py
+```
+
 ## Project Structure
 
-- `normalize-gt.py`: Script to normalize the text file.
-- `generate-gt.py`: Script to generate TIFF images and GT files.
-- `requirements.txt`: List of required Python packages.
-- `data/`: Directory containing the processed text file.
-- `fonts/`: Directory containing TTF font files.
-- `tam-ground-truth/`: Directory where the generated TIFF images and GT files are saved.
+-   `config.py`: Configuration for the data generation process.
+-   `generate-gt.py`: Main script to generate TIFF images and GT files.
+-   `normalize-gt.py`: Script to normalize the text data.
+-   `verify.py`: Script to verify the generated dataset.
+-   `cer_wer_tamil.py`: Script to calculate CER and WER.
+-   `find_cfr.py`: Script to find character and word frequencies.
+-   `cfr_graph.py`: Script to generate a graph of character frequencies.
+-   `json2text.py`: Utility to convert JSON to text.
+-   `requirements.txt`: List of required Python packages.
+-   `data/`: Directory for training data.
+-   `raw_data/`: Directory for raw text files.
+-   `fonts/`: Directory containing TTF font files.
+-   `gt/`: Directory where the generated TIFF images and GT files are saved.
+-   `cer_wer/`: Directory containing sample files for CER/WER calculation.
+-   `model/`: Directory for trained models.
 
 ## Dependencies
 
-- `pillow`: Python Imaging Library (PIL) fork.
-- `tqdm`: A fast, extensible progress bar for Python.
-- `open-tamil`: Tamil text processing library.
+-   Pillow
+-   tqdm
+-   open-tamil
+-   jiwer
+-   matplotlib
+-   opencv-python
+-   numpy
 
 ## License
 
