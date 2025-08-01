@@ -11,10 +11,10 @@ from tqdm import tqdm
 from config import DefaultTamilConfig
 
 # Configuration
-FONT_DIR = "fonts1"
-TEXT_FILE = "data/training-data.txt"
+FONT_DIR = "fonts"
+TEXT_FILE = "data/sample.txt"
 TMP_DIR = "tmp"
-LINE_OUTPUT_DIR = "/home/khaleeljageer/tess_train/tesstrain/data/tam_new-ground-truth"
+LINE_OUTPUT_DIR = "gt"
 DPI = 300
 
 font_config = DefaultTamilConfig()
