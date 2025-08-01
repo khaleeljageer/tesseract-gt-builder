@@ -170,3 +170,10 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 .idea/misc.xml
+
+# Generated files
+*.tif
+*.gt.txt
+tmp/
+gt/
+data/merged_output.txt

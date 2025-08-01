@@ -20,7 +20,7 @@ The project follows a clear workflow:
 3.  **GT Generation:** The `generate-gt.py` script takes the normalized text and generates `.tif` images and `.gt.txt` files in the `gt/` directory.
 4.  **Verification:** The `verify.py` script can be adapted to check the consistency of the generated files in the `gt/` directory.
 5.  **Evaluation:** After training a Tesseract model with the generated data, the `cer_wer_tamil.py` script can be used to evaluate its performance.
-6.  **Analysis:** `find_cfr.py` and `cfr_graph.py` can be used to analyze the character and word frequencies of the dataset.
+6.  **Analysis:** `find_cfr.py` can be used to analyze the character and word frequencies of the dataset and generate a graph of the character frequencies.
 
 ## Installation
 
@@ -76,17 +76,15 @@ python cer_wer_tamil.py --ground_truth /path/to/your/ground-truth.txt --predicti
 
 ### 6. Analyze the Dataset
 
-To analyze the character and word frequencies in your dataset:
+To analyze the character and word frequencies in your dataset, run:
 
 ```sh
 python find_cfr.py
 ```
 
-To generate a graph of the character frequencies:
+This will also generate a `char_freq_graph.png` file with a graph of the top 10 character frequencies.
 
-```sh
-python cfr_graph.py
-```
+
 
 ## Project Structure
 
@@ -95,8 +93,7 @@ python cfr_graph.py
 -   `normalize-gt.py`: Script to normalize the text data.
 -   `verify.py`: Script to verify the generated dataset.
 -   `cer_wer_tamil.py`: Script to calculate CER and WER.
--   `find_cfr.py`: Script to find character and word frequencies.
--   `cfr_graph.py`: Script to generate a graph of character frequencies.
+-   `find_cfr.py`: Script to find character and word frequencies and generate a frequency graph.
 -   `json2text.py`: Utility to convert JSON to text.
 -   `requirements.txt`: List of required Python packages.
 -   `data/`: Directory for training data.
