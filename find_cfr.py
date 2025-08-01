@@ -1,6 +1,8 @@
 from tamil import utf8
 from collections import Counter
-
+import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
+import mplcairo
 
 def load_tamil_text(file_path):
     """Load text from a file and return it as a string."""
@@ -40,6 +42,39 @@ def print_top_frequencies(counter, title, n=10):
     for item, freq in counter.most_common(n):
         print(f"{item}: {freq} occurrences")
 
+def plot_top_frequencies(counter, title, n=10, output_filename="char_freq_graph.png"):
+    """Plot the top n items from a Counter object and save to a file."""
+    top_items = counter.most_common(n)
+    chars = [item[0] for item in top_items]
+    freqs = [item[1] for item in top_items]
+    
+    # Path to a Tamil-supporting font
+    font_path = 'fonts/NotoSerifTamil.ttf'
+    try:
+        tamil_font = fm.FontProperties(fname=font_path)
+    except RuntimeError:
+        print(f"Warning: Font not found at {font_path}. Using default font.")
+        tamil_font = fm.FontProperties()
+
+
+    mplcairo.set_options(raqm=True)
+
+    plt.figure(figsize=(10, 6))
+    plt.bar(chars, freqs, color='blue')
+
+    plt.xlabel('Characters', fontproperties=tamil_font)
+    plt.ylabel('Frequency')
+    plt.title(title, fontproperties=tamil_font)
+
+    for i, v in enumerate(freqs):
+        plt.text(i, v + 0.05, str(v), ha='center', fontproperties=tamil_font)
+
+    plt.xticks(chars, fontproperties=tamil_font)
+
+    plt.tight_layout()
+    plt.savefig(output_filename, dpi=300)
+    print(f"\nGraph saved to {output_filename}")
+
 
 def main():
     # Specify your Tamil dataset file path here
@@ -57,6 +92,9 @@ def main():
     # Print results
     print_top_frequencies(char_freq, "Top 10 Character Frequencies")
     print_top_frequencies(word_freq, "Top 10 Word Frequencies")
+
+    # Plot character frequencies
+    plot_top_frequencies(char_freq, "Top 10 Character Frequencies", n=10)
 
 
 if __name__ == "__main__":
