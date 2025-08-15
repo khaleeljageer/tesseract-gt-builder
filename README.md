@@ -113,6 +113,33 @@ This will also generate a `char_freq_graph.png` file with a graph of the top 10 
 -   opencv-python
 -   numpy
 
+## Citation
+
+If you use this repository or the associated dataset in your research, please cite:
+
+**Dataset:**
+```
+@dataset{tamilocr_dataset_2025,
+author = {Syedkhaleel Jageer},
+title = {Synthetic OCR Dataset: 105,738 Tamil Text Lines Rendered in 27 Diverse Fonts with Corresponding Ground Truth Annotations},
+year = {2025},
+publisher = {Zenodo},
+doi = {10.5281/zenodo.16881612},
+url = {https://doi.org/10.5281/zenodo.16881612}
+}
+```
+
+**Code Repository:**
+```
+@misc{jageer2025tesseractGTBuilder,
+author = {Syedkhaleel Jageer},
+title = {{Tesseract-GT-Builder: Tools to generate ground-truth data for Tesseract OCR (Tamil)}},
+howpublished = {\url{https://github.com/khaleeljageer/tesseract-gt-builder}},
+year = {2025},
+note = {Accessed: August 15, 2025}
+}
+```
+
 ## License
 
 This project is licensed under the MIT License.
