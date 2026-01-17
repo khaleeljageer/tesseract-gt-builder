@@ -7,7 +7,7 @@ This project provides a comprehensive suite of tools to generate ground truth (G
 -   **Text Normalization:** Pre-processes raw text files into a clean, trainable format.
 -   **Ground Truth Generation:** Creates TIFF images and corresponding `.gt.txt` files for each line of text.
 -   **Font Flexibility:** Uses a variety of Tamil fonts to generate diverse training data.
--   **Data Verification:** Includes a script to verify the integrity of the generated dataset.
+-   **Data Verification:** Includes a sample script to verify the integrity of the generated dataset.
 -   **OCR Evaluation:** Provides tools to calculate Character Error Rate (CER) and Word Error Rate (WER).
 -   **Frequency Analysis:** Scripts to analyze character and word frequencies in the dataset.
 
@@ -18,7 +18,7 @@ The project follows a clear workflow:
 1.  **Data Preparation:** Raw text files (from `raw_data/` or other sources like JSON) are processed. `json2text.py` can be used to convert JSON data to text.
 2.  **Text Normalization:** The `normalize-gt.py` script merges and normalizes the text data, creating `data/training-data.txt`.
 3.  **GT Generation:** The `generate-gt.py` script takes the normalized text and generates `.tif` images and `.gt.txt` files in the `gt/` directory.
-4.  **Verification:** The `verify.py` script can be adapted to check the consistency of the generated files in the `gt/` directory.
+4.  **Verification:** The `verify.py` script is a sample that can be adapted to check the consistency of the generated files.
 5.  **Evaluation:** After training a Tesseract model with the generated data, the `cer_wer_tamil.py` script can be used to evaluate its performance.
 6.  **Analysis:** `find_cfr.py` can be used to analyze the character and word frequencies of the dataset and generate a graph of the character frequencies.
 
@@ -40,7 +40,7 @@ The project follows a clear workflow:
 ### 1. Prepare Your Data
 
 -   Place your raw `.txt` files in the `raw_data/` directory.
--   If you have JSON data, you can use `json2text.py` to convert it to text. You might need to modify the script to fit your JSON structure.
+-   If you have JSON data, you can use `json2text.py` to convert it to text. You might need to modify the script to fit your JSON structure and specify the correct input file name. The script currently expects a file named `tamil-articles-from-wikinews.json` which is not included in this repository.
 
 ### 2. Normalize the Text
 
@@ -54,6 +54,8 @@ This will create `data/training-data.txt`.
 
 ### 3. Generate Ground Truth Data
 
+The `generate-gt.py` script uses `data/sample.txt` by default. To use the newly generated `data/training-data.txt`, you need to modify the `TEXT_FILE` variable in `generate-gt.py`.
+
 Run the `generate-gt.py` script to generate the images and GT files:
 
 ```sh
@@ -64,7 +66,7 @@ The output will be saved in the `gt/` directory.
 
 ### 4. Verify the Generated Data
 
-You can use the `verify.py` script to check for missing or empty files. You may need to modify the `dataset_base_dir` variable in the script to point to the `gt/` directory.
+The `verify.py` script is a sample script designed for a specific directory structure. You will need to modify it significantly to work with the output of `generate-gt.py`.
 
 ### 5. Evaluate Your OCR Model
 
@@ -91,7 +93,7 @@ This will also generate a `char_freq_graph.png` file with a graph of the top 10 
 -   `config.py`: Configuration for the data generation process.
 -   `generate-gt.py`: Main script to generate TIFF images and GT files.
 -   `normalize-gt.py`: Script to normalize the text data.
--   `verify.py`: Script to verify the generated dataset.
+-   `verify.py`: Sample script to verify the generated dataset.
 -   `cer_wer_tamil.py`: Script to calculate CER and WER.
 -   `find_cfr.py`: Script to find character and word frequencies and generate a frequency graph.
 -   `json2text.py`: Utility to convert JSON to text.
@@ -110,6 +112,7 @@ This will also generate a `char_freq_graph.png` file with a graph of the top 10 
 -   open-tamil
 -   jiwer
 -   matplotlib
+-   mplcairo
 -   opencv-python
 -   numpy
 
