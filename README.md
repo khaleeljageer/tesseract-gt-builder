@@ -116,6 +116,10 @@ This will also generate a `char_freq_graph.png` file with a graph of the top 10 
 -   opencv-python
 -   numpy
 
+## License
+
+This project is licensed under the GNU General Public License v3.0. See [LICENSE](LICENSE).
+
 ## Citation
 
 If you use this repository or the associated dataset in your research, please cite:
@@ -142,7 +146,3 @@ year = {2025},
 note = {Accessed: August 15, 2025}
 }
 ```
-
-## License
-
-This project is licensed under the MIT License.
