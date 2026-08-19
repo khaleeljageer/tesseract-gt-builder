@@ -79,7 +79,22 @@ def deduplicate(lines, seen=None):
     return out
 
 
-def select(pool, sources=None, n_lines=None, seed=0, dedup=True):
+def has_tamil(line):
+    """True if the line contains at least one Tamil character.
+
+    Fixed-width chunking occasionally emits a line made entirely of
+    standalone punctuation, when the source text contains a run of such
+    tokens (4 lines in 192,347). These are useless as OCR training data, and
+    they also break page segmentation: with no full-height glyphs, the
+    hyphens, colons and baseline marks land in separate horizontal bands, so
+    the projection profile reports more bands than lines and the whole page
+    is rejected. One such line therefore costs 50.
+    """
+    return any("஀" <= c <= "௿" for c in line)
+
+
+def select(pool, sources=None, n_lines=None, seed=0, dedup=True,
+           require_tamil=True):
     """Build one variant's line list.
 
     sources  restrict to these source stems (None = all)
@@ -101,6 +116,9 @@ def select(pool, sources=None, n_lines=None, seed=0, dedup=True):
     for stem in stems:
         chunk = pool[stem]
         lines.extend(deduplicate(chunk, seen) if dedup else chunk)
+
+    if require_tamil:
+        lines = [ln for ln in lines if has_tamil(ln)]
 
     random.Random(seed).shuffle(lines)
 
