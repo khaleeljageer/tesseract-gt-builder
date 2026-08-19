@@ -191,6 +191,4 @@ results/**/corpus.txt
 results/**/*.tif
 results/**/*.traineddata
 results/**/*.log
-gt/
 gt_pages/
-tmp/
