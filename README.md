@@ -181,11 +181,11 @@ not under this repository's licence:
 
 | Source | Licence |
 |---|---|
-| Tamil Wikisource | CC BY-SA |
+| Tamil Wikisource | CC BY-SA 4.0 |
 | [`aitamilnadu/tamil_stories`](https://huggingface.co/datasets/aitamilnadu/tamil_stories) | Apache-2.0 |
-| Theekkathir (theekkathir.in) | CC BY-SA 4.0 |
-| Tamil Wikinews | CC BY-SA |
-| Maattru | CC BY-SA |
+| Theekkathir ([theekkathir.in](https://theekkathir.in)) | CC BY-SA 4.0 |
+| Tamil Wikinews | CC BY-SA 4.0 |
+| Maattru ([maattru.in](https://maattru.in)) | CC BY-SA 4.0 |
 
 The generated corpus is released under CC BY-SA 4.0.
 
