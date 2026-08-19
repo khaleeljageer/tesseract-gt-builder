@@ -1,7 +1,13 @@
 """
 Tamil Text Processor
-This script reads wikisource-ta.txt from the current directory and creates
-data/training-data.txt where each line has no more than 7 words.
+
+Merges every .txt file in raw_data/ into a single stream and writes
+data/training-data.txt, one line per fixed-width chunk of 12 words.
+
+Twelve is what produced the released corpus. For provenance-preserving
+corpus construction (per-source line pools, deterministic sampling,
+deduplication) use experiments/corpus.py instead: this script concatenates
+the sources and discards which line came from where.
 """
 
 import os

@@ -177,3 +177,20 @@ cython_debug/
 tmp/
 gt/
 data/merged_output.txt
+
+# Experiment outputs. Ablation sweeps write multi-GB of rendered crops,
+# models and predictions; exclude the bulk but keep the record --
+# result.json, journal.jsonl, manifests and code snapshots are small and
+# are what makes a sweep reconstructible.
+results/**/gt/
+results/**/gt_pages/
+results/**/pred/
+results/**/model/
+results/**/tessdata/
+results/**/corpus.txt
+results/**/*.tif
+results/**/*.traineddata
+results/**/*.log
+gt/
+gt_pages/
+tmp/
