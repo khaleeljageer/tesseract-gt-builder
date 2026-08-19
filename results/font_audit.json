@@ -1,0 +1,775 @@
+{
+  "shaping": {
+    "pillow": "12.1.1",
+    "raqm": true,
+    "raqm_version": "0.10.3",
+    "harfbuzz_version": "12.3.0"
+  },
+  "corpus_codepoints": 102,
+  "corpus_occurrences": 18338029,
+  "fonts": [
+    {
+      "file": "Aazhi.ttf",
+      "stem": "Aazhi",
+      "copyright": "Copyright (c) 2020 by Chalkpiece Foundation. All rights reserved.",
+      "family": "Aazhi",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "manufacturer": "Chalkpiece Foundation",
+      "designer": "Chalkpiece Foundation",
+      "license": "Chalkpiece Foundation",
+      "cmap_size": 304,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "AnekTamil.ttf",
+      "stem": "AnekTamil",
+      "copyright": "Copyright 2021 The Anek Project Authors (https://github.com/EkType/Anek)",
+      "family": "Anek Tamil Medium",
+      "subfamily": "Regular",
+      "version": "Version 1.003",
+      "manufacturer": "Ek Type",
+      "designer": "Aadarsh Rajan (Tamil), Yesha Goshar (Latin)",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL",
+      "license_url": "https://scripts.sil.org/OFL",
+      "cmap_size": 325,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "latn",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "Arima.ttf",
+      "stem": "Arima",
+      "copyright": "Copyright 2020 The Arima Project Authors (https://github.com/NDISCOVER/Arima-Font)",
+      "family": "Arima Thin",
+      "subfamily": "Regular",
+      "version": "Version 1.101;gftools[0.9.23]",
+      "manufacturer": "NDISCOVER",
+      "designer": "Joana Correia and Natanael Gama",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 1120,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "latn",
+        "mlm2",
+        "mlym",
+        "taml"
+      ],
+      "missing_codepoints": [
+        9711
+      ],
+      "missing_count": 1,
+      "missing_occurrences": 9,
+      "missing_share": 4.907833878984486e-07
+    },
+    {
+      "file": "Catamaran.ttf",
+      "stem": "Catamaran",
+      "copyright": "Copyright 2020 The Catamaran Project Authors (https://github.com/VanillaandCream/Catamaran-Tamil)",
+      "family": "Catamaran Thin",
+      "subfamily": "Regular",
+      "version": "Version 2.000",
+      "designer": "Pria Ravichandran",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 410,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "Gnani.ttf",
+      "stem": "Gnani",
+      "copyright": "Copyright (c) 2019 by Gnani Sankaran Family & Chalkpiece Foundation. All rights reserved.",
+      "family": "Gnani",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "manufacturer": "AzhaguThamizh",
+      "designer": "Gnani Sankaran",
+      "license": "Gnani Family and Chalkpiece Foundation",
+      "cmap_size": 304,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "Hemalatha.ttf",
+      "stem": "Hemalatha",
+      "family": "Bharathi 25 Hemalatha",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "originally Developed by Chalkpiece Foundation for Bharathi Puthagalayam",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "cmap_size": 304,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "HindMadurai.ttf",
+      "stem": "HindMadurai",
+      "copyright": "Copyright (c) 2015 Indian Type Foundry (info@indiantypefoundry.com)",
+      "family": "Hind Madurai",
+      "subfamily": "Regular",
+      "version": "Version 1.001;PS 1.0;hotconv 1.0.86;makeotf.lib2.5.63406; ttfautohint (v1.5.33-1714) -l 8 -r 50 -G 200 -x 13 -D latn -f taml -w G -W -c -X \"\"",
+      "manufacturer": "Indian Type Foundry",
+      "designer": "Jyotish Sonowal",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 405,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "Indumathi.ttf",
+      "stem": "Indumathi",
+      "family": "Bharathi 11 Indumathi",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "originally Developed by Bharathi Puthagalayam",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "Kalayarasi.ttf",
+      "stem": "Kalayarasi",
+      "family": "Bharathi 09 Kalayarasi",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "Bharathi Puthagalayam",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "Kavivanar.ttf",
+      "stem": "Kavivanar",
+      "copyright": "Copyright (c) 2015, Tharique Azeez (http://thariqueazeez.com|zeezat@gmail.com)",
+      "family": "Kavivanar",
+      "subfamily": "Regular",
+      "version": "Version 1.88",
+      "manufacturer": "Tharique Azeez",
+      "designer": "Tharique Azeez",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 435,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8204,
+        8226,
+        8230,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 8,
+      "missing_occurrences": 89,
+      "missing_share": 4.8533023914402145e-06
+    },
+    {
+      "file": "MuktaMalar.ttf",
+      "stem": "MuktaMalar",
+      "copyright": "Copyright (c) 2016, Ek Type. All rights reserved.",
+      "family": "Mukta Malar",
+      "subfamily": "Regular",
+      "version": "Version 2.538;PS 1.000;hotconv 16.6.51;makeotf.lib2.5.65220; ttfautohint (v1.6)",
+      "manufacturer": "Ek Type",
+      "designer": "Aadarsh Rajan, Girish Dalvi, Yashodeep Gholap",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: http://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 533,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "latn",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "Pavanam.ttf",
+      "stem": "Pavanam",
+      "copyright": "Copyright (c) 2015, Tharique Azeez (http://thariqueazeez.com | zeezat@gmail.com). Copyright (c) 2012, vernon adams (vern@newtypography.co.uk)",
+      "family": "Pavanam",
+      "subfamily": "Regular",
+      "version": "Version 1.86; ttfautohint (v1.3) -l 8 -r 50 -G 200 -x 14 -D latn -f none -m \"\" -w G -t -X \"\"",
+      "manufacturer": "Tharique Azeez",
+      "designer": "Tharique Azeez",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is copied available with a FAQ at: http://scripts.sil.org/OFL",
+      "license_url": "http://scripts.sil.org/OFL",
+      "cmap_size": 435,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8204,
+        8226,
+        8230,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 8,
+      "missing_occurrences": 89,
+      "missing_share": 4.8533023914402145e-06
+    },
+    {
+      "file": "Siva_01.ttf",
+      "stem": "Siva_01",
+      "family": "Siva 01",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "Siva_02.ttf",
+      "stem": "Siva_02",
+      "family": "Siva 02",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "originally Developed by Perumalraj based on the handwriting of M. Sivalingam",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Perumalraj D 8220471077",
+      "cmap_size": 304,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "Sudeeptha.ttf",
+      "stem": "Sudeeptha",
+      "family": "Bharathi 02 Sudeeptha",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "originally Developed by Chalkpiece Foundation from the handwriting of the following student for Bharathi Puthagalayam\nM. Sudeepta, II Std, Panchayat Union Middle School. Manickamangalam, Valangaiman Block, Thiruvarur Dist.",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "cmap_size": 304,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 4,
+      "missing_occurrences": 18,
+      "missing_share": 9.815667757968972e-07
+    },
+    {
+      "file": "TAU-Barathi.ttf",
+      "stem": "TAU-Barathi",
+      "copyright": "The font developed by Modular Infotech Pvt. Ltd., Pune, for Government of Tamil Nadu through Tamil Virtual Acadamy for free distribution.",
+      "family": "TAU-Barathi",
+      "subfamily": "Regular",
+      "version": "Version 1.00",
+      "cmap_size": 137,
+      "tamil_block_covered": 71,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml"
+      ],
+      "missing_codepoints": [
+        65,
+        161,
+        178,
+        183,
+        245,
+        3365,
+        8226,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 10,
+      "missing_occurrences": 45,
+      "missing_share": 2.453916939492243e-06
+    },
+    {
+      "file": "TAU-Ezhil.ttf",
+      "stem": "TAU-Ezhil",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( S.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Ezhil",
+      "subfamily": "Regular",
+      "version": "FontLab Studio5.2 :TAU-Ezhil :19-5-2017",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana (naanaas@gmail.com)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Kabilar.ttf",
+      "stem": "TAU-Kabilar",
+      "copyright": "The font developed by Modular Infotech Pvt. Ltd., Pune, for Government of Tamil Nadu through Tamil Virtual Acadamy for free distribution.",
+      "family": "TAU-Kabilar",
+      "subfamily": "Regular",
+      "version": "Version 1.00",
+      "cmap_size": 137,
+      "tamil_block_covered": 71,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml"
+      ],
+      "missing_codepoints": [
+        65,
+        161,
+        178,
+        183,
+        245,
+        3365,
+        8226,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 10,
+      "missing_occurrences": 45,
+      "missing_share": 2.453916939492243e-06
+    },
+    {
+      "file": "TAU-Kambar.ttf",
+      "stem": "TAU-Kambar",
+      "copyright": "The font developed by Modular Infotech Pvt. Ltd., Pune, for Government of Tamil Nadu through Tamil Virtual Acadamy for free distribution.",
+      "family": "TAU-Kambar",
+      "subfamily": "Regular",
+      "version": "Version 1.00",
+      "cmap_size": 137,
+      "tamil_block_covered": 71,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml"
+      ],
+      "missing_codepoints": [
+        65,
+        161,
+        178,
+        183,
+        245,
+        3365,
+        8226,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 10,
+      "missing_occurrences": 45,
+      "missing_share": 2.453916939492243e-06
+    },
+    {
+      "file": "TAU-Malar.ttf",
+      "stem": "TAU-Malar",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Malar",
+      "subfamily": "Unicode",
+      "version": "Version 5.2",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana  (Narayanan)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Marutham.ttf",
+      "stem": "TAU-Marutham",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Marutham",
+      "subfamily": "Unicode",
+      "version": "Version 5.2",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana (naanaas@gmail.com)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Mullai.ttf",
+      "stem": "TAU-Mullai",
+      "copyright": "Copyright (c) 2017 originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Mullai",
+      "subfamily": "Unicode",
+      "version": "Version 5.91",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana (naanaas@gmail.com)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Neythal.ttf",
+      "stem": "TAU-Neythal",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Neythal",
+      "subfamily": "Unicode",
+      "version": "Version 5.2",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana  (naanaas@gmail.com)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Nilavu.ttf",
+      "stem": "TAU-Nilavu",
+      "copyright": "originally Developed byTamil Virtual Academy- Chennai,http://tamilvu.org/ created by N.S.Nana  ( NS.Narayanan) naanaas@gmail.com / www.naanaasdesigns.com",
+      "family": "TAU-Nilavu",
+      "subfamily": "Unicode",
+      "version": "Version 5.2",
+      "manufacturer": "Tamil Virtual Academy / N.S.Nana",
+      "designer": "N.S.Nana (naanaas@gmail.com)",
+      "license": "Tamilnadu Virtual Academy/ order no:10336/20/12/2016",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    },
+    {
+      "file": "TAU-Valluvar.ttf",
+      "stem": "TAU-Valluvar",
+      "copyright": "The font developed by Modular Infotech Pvt. Ltd., Pune, for Government of Tamil Nadu through Tamil Virtual Acadamy for free distribution.",
+      "family": "TAU-Valluvar",
+      "subfamily": "Regular",
+      "version": "Version 1.00",
+      "cmap_size": 137,
+      "tamil_block_covered": 71,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml"
+      ],
+      "missing_codepoints": [
+        65,
+        161,
+        178,
+        183,
+        245,
+        3365,
+        8226,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 10,
+      "missing_occurrences": 45,
+      "missing_share": 2.453916939492243e-06
+    },
+    {
+      "file": "TiroTamil.ttf",
+      "stem": "TiroTamil",
+      "copyright": "Copyright 2020 The Indigo Project Authors (https://github.com/TiroTypeworks/Indigo)",
+      "family": "Tiro Tamil",
+      "subfamily": "Regular",
+      "version": "Version 1.52",
+      "manufacturer": "Tiro Typeworks Ltd.",
+      "designer": "Tamil: Fernando Mello & Fiona Ross. Latin: John Hudson.",
+      "license": "This Font Software is licensed under the SIL Open Font License, Version 1.1. This license is available with a FAQ at: https://scripts.sil.org/OFL",
+      "license_url": "https://scripts.sil.org/OFL",
+      "cmap_size": 451,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "latn",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        9711
+      ],
+      "missing_count": 2,
+      "missing_occurrences": 10,
+      "missing_share": 5.453148754427207e-07
+    },
+    {
+      "file": "Yogeshwaran.ttf",
+      "stem": "Yogeshwaran",
+      "family": "Bharathi 07 Yogeshwaran",
+      "subfamily": "Regular",
+      "version": "Version 1.001",
+      "copyright": "Originaly Developed by Perumalraj",
+      "manufacturer": "Bharathi Puthagalayam",
+      "designer": "Chalkpiece Foundation",
+      "cmap_size": 303,
+      "tamil_block_covered": 72,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        3365,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 5,
+      "missing_occurrences": 30,
+      "missing_share": 1.6359446263281621e-06
+    }
+  ]
+}
