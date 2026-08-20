@@ -70,6 +70,42 @@ def load_fonts(font_dir, size, names=None):
     return fonts
 
 
+def common_coverage(font_dir, names=None):
+    """Codepoints every selected typeface can render.
+
+    Round-robin assignment means any line may land on any font, so a line is
+    only safe if every font covers all of its characters. Filtering on this
+    set makes the corpus robust to reseeding and to adding fonts: when
+    Sundaram_0810 arrived it was the first face lacking a Tamil codepoint the
+    corpus uses (U+0BB6, TAMIL LETTER SHA), and only luck kept the two
+    affected lines off it.
+    """
+    from fontTools.ttLib import TTFont
+
+    paths = sorted(p for p in Path(font_dir).iterdir()
+                   if p.suffix.lower() in (".ttf", ".otf"))
+    if names is not None:
+        wanted = set(names)
+        paths = [p for p in paths if p.stem in wanted]
+
+    common = None
+    for path in paths:
+        tt = TTFont(str(path), fontNumber=0, lazy=True)
+        cmap = set(tt.getBestCmap().keys())
+        tt.close()
+        common = cmap if common is None else (common & cmap)
+    return common or set()
+
+
+def renderable(lines, coverage):
+    """Split lines into those every font can render and those it cannot."""
+    ok, bad = [], []
+    for ln in lines:
+        safe = all(c.isspace() or ord(c) in coverage for c in ln)
+        (ok if safe else bad).append(ln)
+    return ok, bad
+
+
 def render_page(lines, page_fonts, out_path, cfg):
     """Draw one A4 page, one line per row, using the supplied font pairing."""
     image = Image.new("L", (cfg.A4_WIDTH, cfg.A4_HEIGHT), 255)

@@ -8,11 +8,11 @@ mean anything:
                   Without the fix, "more fonts" also means "more data" and
                   the result is uninterpretable.
 
-  Exp 4 (size)    font count fixed at 27, line count varies.
+  Exp 4 (size)    font count fixed at 29, line count varies.
 
   Exp 5 (domain)  line count fixed at the size of the SMALLER register arm,
                   source set varies. The corpus holds 167,245 literary lines
-                  against 24,488 newsprint lines; comparing them at natural
+                  against 34,269 newsprint lines; comparing them at natural
                   size would measure volume, not register.
 
 Every variant is evaluated on the same held-out real-document test set, which
@@ -44,8 +44,8 @@ from runner import Variant, run_grid  # noqa: E402
 # Fixed quantities shared across grids.
 
 FONT_ABLATION_LINES = 50_000   # held constant across the font grid
-SIZE_ABLATION_FONTS = None     # None = all 27
-DOMAIN_ABLATION_LINES = 24_000 # capped to the newsprint arm (24,488 available)
+SIZE_ABLATION_FONTS = None     # None = all 29
+DOMAIN_ABLATION_LINES = 34_000 # capped to the newsprint arm (34,269 available)
 SEED = 0
 
 
@@ -53,7 +53,7 @@ def font_subset(all_fonts, k, seed=SEED):
     """Pick k fonts deterministically, spread across the sorted set.
 
     Taking a contiguous prefix would bias the subset toward one foundry
-    (the TAU-* family alone is 10 of the 27). Even spacing over the sorted
+    (the TAU-* family alone is 10 of the 29). Even spacing over the sorted
     list gives a subset that is reproducible and typographically spread.
     """
     if k >= len(all_fonts):
@@ -65,7 +65,7 @@ def font_subset(all_fonts, k, seed=SEED):
 def grid_fonts(all_fonts):
     """Experiment 3: does typographic diversity drive the gain?"""
     out = []
-    for k in (5, 10, 27):
+    for k in (5, 10, 29):
         sub = font_subset(all_fonts, k)
         out.append(Variant(
             experiment="fonts",
@@ -86,7 +86,7 @@ def grid_size(pool):
     """Experiment 4: how much corpus is actually needed?"""
     available = sum(len(v) for v in pool.values())
     out = []
-    for n in (10_000, 50_000, 105_738):
+    for n in (10_000, 50_000, 198_880):
         if n > available:
             print(f"[warn] skipping size={n:,}: only {available:,} lines available")
             continue
@@ -94,7 +94,7 @@ def grid_size(pool):
             experiment="size",
             name=f"n{n // 1000:03d}k",
             hypothesis=(
-                f"With all 27 fonts, {n:,} training lines gives lower CER than "
+                f"With all 29 fonts, {n:,} training lines gives lower CER than "
                 f"fewer lines, with diminishing returns; the curve tells "
                 f"reusers how much of the corpus they need."),
             n_lines=n,
@@ -119,7 +119,7 @@ def grid_domain(pool):
             name=register,
             hypothesis=(
                 f"A model trained only on {register} text ({DOMAIN_ABLATION_LINES:,} "
-                f"lines, 27 fonts) underperforms on the other register, showing "
+                f"lines, 29 fonts) underperforms on the other register, showing "
                 f"that source register — not just volume — shapes the model."),
             n_lines=DOMAIN_ABLATION_LINES,
             sources=present,

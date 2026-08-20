@@ -217,6 +217,7 @@ forms used for loanwords.}}
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--raw-dir", default="raw_data")
+    ap.add_argument("--font-dir", default="fonts")
     ap.add_argument("--json", default="results/corpus_stats.json")
     ap.add_argument("--latex", default="../paper/tables/corpus_stats.tex")
     ap.add_argument("--figure", default="../paper/figures/grapheme_freq.pdf")
@@ -225,8 +226,20 @@ def main():
     pool = corpus_mod.build_pool(args.raw_dir)
     per_source = [report(v, k) for k, v in
                   sorted(pool.items(), key=lambda kv: -len(kv[1]))]
-    all_lines = [l for v in pool.values() for l in v]
-    full = report(all_lines, "full")
+
+    # The headline statistics must describe the corpus that is actually
+    # released, not the raw pool: deduplication, the Tamil-content filter and
+    # the typeface-coverage filter all remove lines, and coverage claims made
+    # against the pool would overstate what a model can be trained on.
+    released = corpus_mod.select(pool, n_lines=None, seed=0, dedup=True)
+    try:
+        import render as render_mod
+        coverage = render_mod.common_coverage(args.font_dir)
+        released, _dropped = render_mod.renderable(released, coverage)
+    except Exception as exc:
+        print(f"[warn] typeface-coverage filter skipped ({exc}); "
+              f"statistics describe the pre-coverage set")
+    full = report(released, "released")
 
     print(f"{'source':<34} {'lines':>9} {'graphemes':>12} {'247':>8} {'grantha':>8}")
     print("-" * 76)
@@ -235,7 +248,7 @@ def main():
               f"{r['syllabary_247']['covered']:>4}/247 "
               f"{r['grantha']['covered']:>4}/{r['grantha']['total']}")
     print("-" * 76)
-    print(f"{'FULL':<34} {full['lines']:>9,} {full['graphemes']:>12,} "
+    print(f"{'RELEASED':<34} {full['lines']:>9,} {full['graphemes']:>12,} "
           f"{full['syllabary_247']['covered']:>4}/247 "
           f"{full['grantha']['covered']:>4}/{full['grantha']['total']}")
 
@@ -252,9 +265,11 @@ def main():
     for u, n in full["syllabary_247"]["rarest"]:
         print(f"    {u}   {n:>8,}")
 
-    dedup_removed = len(all_lines) - len(corpus_mod.deduplicate(all_lines))
-    print(f"\nExact duplicate lines: {dedup_removed:,} "
-          f"({dedup_removed / len(all_lines) * 100:.2f}%)")
+    raw_lines = [l for v in pool.values() for l in v]
+    dedup_removed = len(raw_lines) - len(corpus_mod.deduplicate(raw_lines))
+    print(f"\nRaw pool: {len(raw_lines):,} lines; exact duplicates removed: "
+          f"{dedup_removed:,} ({dedup_removed / len(raw_lines) * 100:.2f}%)")
+    print(f"Released after all filters: {full['lines']:,} lines")
 
     counts = full.pop("_counts")
     for r in per_source:

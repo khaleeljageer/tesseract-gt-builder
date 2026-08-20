@@ -5,8 +5,8 @@
     "raqm_version": "0.10.3",
     "harfbuzz_version": "12.3.0"
   },
-  "corpus_codepoints": 102,
-  "corpus_occurrences": 18338029,
+  "corpus_codepoints": 104,
+  "corpus_occurrences": 19263301,
   "fonts": [
     {
       "file": "Aazhi.ttf",
@@ -26,14 +26,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "AnekTamil.ttf",
@@ -56,14 +57,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "Arima.ttf",
@@ -87,11 +89,12 @@
         "taml"
       ],
       "missing_codepoints": [
+        664,
         9711
       ],
-      "missing_count": 1,
-      "missing_occurrences": 9,
-      "missing_share": 4.907833878984486e-07
+      "missing_count": 2,
+      "missing_occurrences": 11,
+      "missing_share": 5.710340091763089e-07
     },
     {
       "file": "Catamaran.ttf",
@@ -111,15 +114,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "Gnani.ttf",
@@ -139,14 +143,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "Hemalatha.ttf",
@@ -165,14 +170,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "HindMadurai.ttf",
@@ -194,14 +200,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "Indumathi.ttf",
@@ -220,15 +227,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "Kalayarasi.ttf",
@@ -247,15 +255,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "Kavivanar.ttf",
@@ -277,6 +286,7 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8204,
         8226,
@@ -286,9 +296,43 @@
         8377,
         9711
       ],
-      "missing_count": 8,
-      "missing_occurrences": 89,
-      "missing_share": 4.8533023914402145e-06
+      "missing_count": 9,
+      "missing_occurrences": 314,
+      "missing_share": 1.6300425352850997e-05
+    },
+    {
+      "file": "Korkai.otf",
+      "stem": "Korkai",
+      "copyright": "Roja Muthiah Research Library, Onemai Foundation",
+      "family": "Korkai",
+      "subfamily": "Regular",
+      "version": "Version 1.002;Glyphs 3.4.1 (3436)",
+      "designer": "Muthu Nedumaran, Ranjith Roozo, Prapanja Anandkumar, Abirami Ramasamy, Vignesh Sundaresan, Krishnapriya C P, Narendran K, Sundar Ganesan.",
+      "license": "OFL",
+      "license_url": "https://opensource.org/license/ofl-1-1",
+      "cmap_size": 280,
+      "tamil_block_covered": 71,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "DFLT",
+        "taml",
+        "tml2"
+      ],
+      "missing_codepoints": [
+        36,
+        178,
+        189,
+        190,
+        245,
+        664,
+        3365,
+        8242,
+        8243,
+        9711
+      ],
+      "missing_count": 10,
+      "missing_occurrences": 26,
+      "missing_share": 1.3497167489621847e-06
     },
     {
       "file": "MuktaMalar.ttf",
@@ -311,14 +355,15 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
     },
     {
       "file": "Pavanam.ttf",
@@ -340,6 +385,7 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8204,
         8226,
@@ -349,9 +395,9 @@
         8377,
         9711
       ],
-      "missing_count": 8,
-      "missing_occurrences": 89,
-      "missing_share": 4.8533023914402145e-06
+      "missing_count": 9,
+      "missing_occurrences": 314,
+      "missing_share": 1.6300425352850997e-05
     },
     {
       "file": "Siva_01.ttf",
@@ -371,15 +417,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "Siva_02.ttf",
@@ -398,15 +445,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "Sudeeptha.ttf",
@@ -425,14 +473,49 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         9711
       ],
-      "missing_count": 4,
-      "missing_occurrences": 18,
-      "missing_share": 9.815667757968972e-07
+      "missing_count": 5,
+      "missing_occurrences": 20,
+      "missing_share": 1.0382436530478344e-06
+    },
+    {
+      "file": "Sundaram_0810.ttf",
+      "stem": "Sundaram_0810",
+      "copyright": "Copyright (c) 2003, Modular Infotech, Pune, INDIA.",
+      "family": "SUNDARAM-0810",
+      "subfamily": "Regular",
+      "version": "Version 1.00",
+      "cmap_size": 125,
+      "tamil_block_covered": 68,
+      "has_gsub": true,
+      "gsub_scripts": [
+        "taml"
+      ],
+      "missing_codepoints": [
+        65,
+        161,
+        178,
+        183,
+        189,
+        190,
+        245,
+        664,
+        2998,
+        3365,
+        8226,
+        8242,
+        8243,
+        8377,
+        9711
+      ],
+      "missing_count": 15,
+      "missing_occurrences": 65,
+      "missing_share": 3.3742918724054617e-06
     },
     {
       "file": "TAU-Barathi.ttf",
@@ -453,15 +536,16 @@
         178,
         183,
         245,
+        664,
         3365,
         8226,
         8242,
         8243,
         9711
       ],
-      "missing_count": 10,
-      "missing_occurrences": 45,
-      "missing_share": 2.453916939492243e-06
+      "missing_count": 11,
+      "missing_occurrences": 47,
+      "missing_share": 2.4398725846624105e-06
     },
     {
       "file": "TAU-Ezhil.ttf",
@@ -481,15 +565,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Kabilar.ttf",
@@ -510,15 +595,16 @@
         178,
         183,
         245,
+        664,
         3365,
         8226,
         8242,
         8243,
         9711
       ],
-      "missing_count": 10,
-      "missing_occurrences": 45,
-      "missing_share": 2.453916939492243e-06
+      "missing_count": 11,
+      "missing_occurrences": 47,
+      "missing_share": 2.4398725846624105e-06
     },
     {
       "file": "TAU-Kambar.ttf",
@@ -539,15 +625,16 @@
         178,
         183,
         245,
+        664,
         3365,
         8226,
         8242,
         8243,
         9711
       ],
-      "missing_count": 10,
-      "missing_occurrences": 45,
-      "missing_share": 2.453916939492243e-06
+      "missing_count": 11,
+      "missing_occurrences": 47,
+      "missing_share": 2.4398725846624105e-06
     },
     {
       "file": "TAU-Malar.ttf",
@@ -567,15 +654,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Marutham.ttf",
@@ -595,15 +683,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Mullai.ttf",
@@ -623,15 +712,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Neythal.ttf",
@@ -651,15 +741,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Nilavu.ttf",
@@ -679,15 +770,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     },
     {
       "file": "TAU-Valluvar.ttf",
@@ -708,15 +800,16 @@
         178,
         183,
         245,
+        664,
         3365,
         8226,
         8242,
         8243,
         9711
       ],
-      "missing_count": 10,
-      "missing_occurrences": 45,
-      "missing_share": 2.453916939492243e-06
+      "missing_count": 11,
+      "missing_occurrences": 47,
+      "missing_share": 2.4398725846624105e-06
     },
     {
       "file": "TiroTamil.ttf",
@@ -737,12 +830,13 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         9711
       ],
-      "missing_count": 2,
-      "missing_occurrences": 10,
-      "missing_share": 5.453148754427207e-07
+      "missing_count": 3,
+      "missing_occurrences": 12,
+      "missing_share": 6.229461918287006e-07
     },
     {
       "file": "Yogeshwaran.ttf",
@@ -761,15 +855,16 @@
         "tml2"
       ],
       "missing_codepoints": [
+        664,
         3365,
         8242,
         8243,
         8377,
         9711
       ],
-      "missing_count": 5,
-      "missing_occurrences": 30,
-      "missing_share": 1.6359446263281621e-06
+      "missing_count": 6,
+      "missing_occurrences": 34,
+      "missing_share": 1.7650142101813183e-06
     }
   ]
 }
