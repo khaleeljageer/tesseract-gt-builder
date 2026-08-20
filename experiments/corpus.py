@@ -25,12 +25,14 @@ from pathlib import Path
 
 WORDS_PER_LINE = 12
 
-# Register grouping used by the domain ablation (Experiment 5). "maattru" is
-# excluded from both arms: at 614 lines it cannot meaningfully shift either,
-# and it is not cleanly one register or the other.
+# Register grouping used by the domain ablation (Experiment 5). Maattru is
+# contemporary journalism -- politics, society, science, cinema -- so it sits
+# with the newspaper sources rather than with Wikisource's classical texts
+# and the fiction collection. It joined the newsprint arm when its corpus
+# grew from 614 to 9,781 lines; below that it could not shift either arm.
 REGISTERS = {
     "literary": ["wikisource-ta", "stories"],
-    "newsprint": ["theekkathir_content_tamil_only", "wikinews-ta"],
+    "newsprint": ["theekkathir_content_tamil_only", "wikinews-ta", "maattru"],
 }
 
 

@@ -10,13 +10,12 @@ things differ, and both are the point of this script:
    random is never seeded. The v1 corpus was therefore produced by unseeded
    random sampling with replacement: font usage spans roughly 8% between the
    least- and most-used typeface, and the corpus cannot be regenerated.
-   Here every line i is rendered in font i mod 27, exactly balanced and
+   Here every line i is rendered in font i mod N, exactly balanced and
    reproducible.
 
-2. LINE SELECTION. The reduction from the full pool to 105,738 lines was
-   previously undocumented. Here it is a seeded shuffle followed by
-   truncation, so the exact line set is a pure function of (SEED, N_LINES)
-   and the source texts.
+2. LINE SELECTION. Previously undocumented. Lines are deduplicated,
+   filtered to those every typeface can render, then shuffled under a fixed
+   seed, so the line set is a pure function of (SEED, N_LINES, sources).
 
 Shuffling before truncating matters: the sources are concatenated in size
 order, so taking a prefix without shuffling would draw almost entirely from
@@ -39,9 +38,9 @@ import corpus as corpus_mod  # noqa: E402
 import render as render_mod  # noqa: E402
 
 SEED = 0
-N_LINES = 105_738          # matches the v1 release
+N_LINES = None             # None = every usable line
 OUT_DIR = Path("gt")
-CORPUS_TXT = Path("data/corpus-105738.txt")
+CORPUS_TXT = Path("data/corpus.txt")
 
 
 def main():
@@ -62,8 +61,13 @@ def main():
                               seed=args.seed, dedup=True)
     uniq = len(corpus_mod.select(pool, n_lines=None, seed=args.seed, dedup=True))
 
+    coverage = render_mod.common_coverage(args.font_dir)
+    lines, unrenderable = render_mod.renderable(lines, coverage)
+
     print(f"  raw pool          {raw:,} lines")
     print(f"  after dedup       {uniq:,} lines  ({raw - uniq:,} duplicates removed)")
+    print(f"  font-coverage     {len(unrenderable):,} lines dropped "
+          f"(a character no typeface set can render)")
     print(f"  selected          {len(lines):,} lines  (seed={args.seed})")
 
     # Provenance of the selection, so the composition is reportable.
@@ -109,6 +113,7 @@ def main():
         "deduplicated_lines": uniq,
         "selection": "seeded shuffle then truncate (experiments/corpus.py:select)",
         "font_assignment": "round-robin, line i -> font i mod n",
+        "unrenderable_dropped": len(unrenderable),
         "provenance": dict(provenance),
         "manifest": manifest,
         "validation": check,
