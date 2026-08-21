@@ -194,4 +194,7 @@ results/**/*.log
 # ...but keep the headline model's training log: the paper reports its
 # error curve and wall-clock, and it is the only record of them.
 !results/training/*.log
+# The dictionary-less build is one arm of the DAWG comparison in the paper;
+# keep it alongside the log rather than only the combined model.
+!results/training/*.traineddata
 gt_pages/
