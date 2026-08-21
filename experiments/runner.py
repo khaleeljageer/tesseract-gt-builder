@@ -28,6 +28,10 @@ from tamil_ocr_eval import score_pair, aggregate, bootstrap_ci, confusion_counts
 RESULTS = Path("results")
 JOURNAL = RESULTS / "journal.jsonl"
 
+# Computed once: the codepoints every typeface can render. Shared by all
+# variants so the candidate line pool is identical across the grid.
+_COVERAGE = render.common_coverage("fonts")
+
 
 @dataclass
 class Variant:
@@ -36,10 +40,12 @@ class Variant:
     name: str                       # unique, becomes the directory name
     hypothesis: str                 # what this variant is meant to show
     n_lines: int
-    font_names: list = None         # None = all 27
+    font_names: list = None         # None = all 29
     sources: list = None            # None = all
     seed: int = 0
-    max_iterations: int = 10000
+    # Must match the headline model's budget (\S6) or Table 1 and the
+    # ablation tables are not on the same footing.
+    max_iterations: int = 100_000
     start_model: str = "tam"
 
     def dir(self):
@@ -104,7 +110,20 @@ def run_variant(v, pool, test_dir, tessdata_dir, force=False, keep_images=False)
     print(f"    {v.hypothesis}")
 
     # 1. corpus slice
-    lines = corpus.select(pool, sources=v.sources, n_lines=v.n_lines, seed=v.seed)
+    #
+    # The typeface-coverage filter uses the FULL font set, not the variant's
+    # subset, deliberately. Filtering per-variant would give each variant a
+    # slightly different candidate pool, so the font ablation would vary two
+    # things at once. Holding the pool fixed means only the tested variable
+    # moves, and it matches how the released corpus was built.
+    lines = corpus.select(pool, sources=v.sources, n_lines=None, seed=v.seed)
+    lines, _unrenderable = render.renderable(lines, _COVERAGE)
+    if v.n_lines is not None:
+        if v.n_lines > len(lines):
+            raise ValueError(
+                f"{v.experiment}/{v.name} wants {v.n_lines:,} lines but only "
+                f"{len(lines):,} survive filtering for sources={v.sources}")
+        lines = lines[: v.n_lines]
     corpus.write_corpus(lines, vdir / "corpus.txt")
 
     # 2. render
