@@ -84,9 +84,14 @@ def grid_fonts(all_fonts):
 
 def grid_size(pool):
     """Experiment 4: how much corpus is actually needed?"""
-    available = sum(len(v) for v in pool.values())
+    # Post-filter count, not the raw pool: deduplication, the Tamil-content
+    # filter and typeface coverage all remove lines before a variant sees them.
+    from runner import _COVERAGE
+    from render import renderable
+    available = len(renderable(corpus.select(pool, n_lines=None, seed=SEED),
+                               _COVERAGE)[0])
     out = []
-    for n in (10_000, 50_000, 198_880):
+    for n in (10_000, 50_000, 198_653):
         if n > available:
             print(f"[warn] skipping size={n:,}: only {available:,} lines available")
             continue
