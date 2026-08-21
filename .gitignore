@@ -191,4 +191,7 @@ results/**/corpus.txt
 results/**/*.tif
 results/**/*.traineddata
 results/**/*.log
+# ...but keep the headline model's training log: the paper reports its
+# error curve and wall-clock, and it is the only record of them.
+!results/training/*.log
 gt_pages/
