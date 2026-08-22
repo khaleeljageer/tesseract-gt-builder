@@ -214,3 +214,10 @@ testset/pool/
 !testset/gt/*.gt.txt
 !testset/gt_prefill/
 !testset/gt_prefill/*.gt.txt
+
+# Source page scans for the test set: 164MB of photographed and scanned
+# pages of published books, newspapers and government documents. The 300
+# line crops drawn from them are committed; the full pages are not, both for
+# size and because redistributing whole pages is a different question from
+# quoting lines of them for evaluation. Back these up outside git.
+raw_scans/

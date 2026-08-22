@@ -72,9 +72,33 @@ anchors your reading, which is why `gt/` starts empty and this is opt-in.
 
 ## Source scans
 
-Currently at `~/Downloads/Scan(1)/Scan/`. **Move them somewhere durable and
-record the path here** — the pool cannot be rebuilt without them, and a
-Downloads directory is not an archive.
+`raw_scans/` in this repository — 300 page images across the five strata,
+gitignored for size and because redistributing whole pages of published books
+is a different question from quoting single lines of them for evaluation.
+**Back them up outside git**; the pool cannot be rebuilt without them.
+
+Rebuild the pool with:
+
+    for d in Books Newsprint Forms Signage Degraded; do
+      python3 make_testset.py segment --pages raw_scans/$d --out testset/pool --stratum $d
+    done
 
 `manifest.csv` has empty `device`, `dpi` and `notes` columns. Fill them in
 per source document while you still remember how each was captured.
+
+## Models
+
+`~/tessdata/` is a user-local TESSDATA_PREFIX that mirrors the system one and
+adds the model under evaluation. Pass `--tessdata $HOME/tessdata` to
+`predict`, or export TESSDATA_PREFIX.
+
+| `-l` name | Model |
+|---|---|
+| `tam` | stock Tesseract Tamil — the baseline |
+| `tamsyn` | trained on the regenerated 198,503-line corpus — **the headline model** |
+| `tam_new` | an earlier model trained on the superseded corpus; do not report |
+
+The system `tam_new.traineddata` is byte-identical to
+`model/2026-08-21/tam_new.v1-old-corpus.traineddata`. It is kept only so the
+older model can still be scored; the headline number is `tamsyn`
+(`model/2026-08-21/tam_new.traineddata`, md5 `19e26cd5…`, 6,036,818 bytes).
