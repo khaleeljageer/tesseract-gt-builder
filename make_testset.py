@@ -14,6 +14,7 @@ is remove the mechanical work so you are only typing Tamil, not cropping.
 
     # 1. segment pages into lines
     python3 make_testset.py segment --pages photos/ --out testset --stratum newsprint
+    #    (page images or PDFs; PDF pages are rasterised at 300 dpi)
 
     # 2. optionally pre-fill with a DIFFERENT engine's output to correct
     python3 make_testset.py bootstrap --out testset --model tam
@@ -34,6 +35,8 @@ import argparse
 import csv
 import hashlib
 import re
+import shutil
+import tempfile
 import subprocess
 import sys
 import unicodedata
@@ -220,6 +223,76 @@ def find_lines(binary):
     return keep
 
 
+IMAGE_SUFFIXES = (".jpg", ".jpeg", ".png", ".tif", ".tiff")
+RENDER_DPI = 300
+
+
+def _rasterise(pdf, workdir, dpi=RENDER_DPI):
+    """Render each page of a PDF to a grayscale image.
+
+    A born-digital PDF has no pixels until something renders it, and the DPI
+    that render happens at decides the recognition problem. Rasterising at
+    300 puts these pages on the same footing as the scans; taking whatever
+    the embedded JPEG happens to be (150 dpi in this material) would not.
+    """
+    if not shutil.which("pdftoppm"):
+        sys.exit("pdftoppm not found -- install poppler-utils to read PDF pages")
+    stem = re.sub(r"[^A-Za-z0-9]+", "_", pdf.stem)[:28]
+    prefix = Path(workdir) / stem
+    r = subprocess.run(["pdftoppm", "-r", str(dpi), "-gray", "-png",
+                        str(pdf), str(prefix)],
+                       capture_output=True, text=True)
+    if r.returncode != 0:
+        print(f"[warn] could not render {pdf.name}: {r.stderr.strip()[:80]}")
+        return []
+    return sorted(Path(workdir).glob(f"{stem}*.png"))
+
+
+def _collect_pages(src, workdir, dpi=RENDER_DPI):
+    """Every page to segment, as (image path, name to record, bytes to hash).
+
+    PDF pages are hashed on their rendered pixels rather than the container,
+    so the same page reaching us once as a PDF and once as a scan is still
+    caught by the duplicate guard.
+    """
+    src = Path(src)
+    out = []
+    for p in sorted(src.iterdir()):
+        if p.suffix.lower() in IMAGE_SUFFIXES:
+            out.append((p, p.name, p.read_bytes()))
+        elif p.suffix.lower() == ".pdf":
+            rendered = _rasterise(p, workdir, dpi)
+            multi = len(rendered) > 1
+            for i, img in enumerate(rendered, 1):
+                name = f"{p.name}#{i}" if multi else p.name
+                out.append((img, name, img.read_bytes()))
+    return out
+
+
+def _normalise_polarity(crop):
+    """Flip reverse-printed lines to dark-on-light.
+
+    Display typography knocks text out of a coloured panel, and 17% of the
+    lines in the signage material here are set that way. Every OCR engine
+    expects dark ink on light ground, so leaving the polarity alone would
+    measure the engine's handling of inverted images rather than its Tamil
+    recognition. The flip is recorded per line in the manifest so the
+    proportion can be reported rather than hidden.
+    """
+    if crop.size == 0:
+        return crop, False
+    level, _ = cv2.threshold(crop, 0, 255,
+                             cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    dark = float((crop < level).mean())
+    # Ink covers roughly a fifth of a normal line crop and the ground covers
+    # the rest, so the test is which class dominates -- not whether the crop
+    # is dark overall. An underexposed photograph of light paper sits near
+    # 0.55 and must not be flipped; knocked-out text sits above 0.80.
+    if dark <= 0.65:
+        return crop, False
+    return cv2.bitwise_not(crop), True
+
+
 def _seen_digests(out):
     """Map md5 -> source page name for every page already in the manifest."""
     manifest = out / "manifest.csv"
@@ -234,10 +307,17 @@ def _seen_digests(out):
 
 
 def segment(args):
-    pages = sorted(p for p in Path(args.pages).iterdir()
-                   if p.suffix.lower() in (".jpg", ".jpeg", ".png", ".tif", ".tiff"))
+    workdir = tempfile.mkdtemp(prefix="testset-render-")
+    try:
+        return _segment(args, workdir)
+    finally:
+        shutil.rmtree(workdir, ignore_errors=True)
+
+
+def _segment(args, workdir):
+    pages = _collect_pages(args.pages, workdir, getattr(args, "dpi", RENDER_DPI))
     if not pages:
-        sys.exit(f"no page images in {args.pages}")
+        sys.exit(f"no page images or PDFs in {args.pages}")
 
     out = Path(args.out)
     (out / "images").mkdir(parents=True, exist_ok=True)
@@ -248,7 +328,7 @@ def segment(args):
     w = csv.writer(fh)
     if new:
         w.writerow(["line_id", "source_page", "stratum", "skew_deg",
-                    "y0", "y1", "height_px", "page_md5"])
+                    "y0", "y1", "height_px", "page_md5", "inverted"])
 
     # A page contributed twice -- the same file copied into two strata, a
     # duplicated capture -- would put identical lines in the test set twice and
@@ -256,37 +336,38 @@ def segment(args):
     seen = _seen_digests(out)
 
     total = skipped = 0
-    for page in pages:
-        digest = hashlib.md5(page.read_bytes()).hexdigest()
+    for page, page_name, raw in pages:
+        digest = hashlib.md5(raw).hexdigest()
         if digest in seen:
-            print(f"  {page.name:<34} duplicate of {seen[digest]}, skipped")
+            print(f"  {page_name:<34} duplicate of {seen[digest]}, skipped")
             skipped += 1
             continue
-        seen[digest] = page.name
+        seen[digest] = page_name
 
         gray = cv2.imread(str(page), cv2.IMREAD_GRAYSCALE)
         if gray is None:
-            print(f"[warn] unreadable {page.name}")
+            print(f"[warn] unreadable {page_name}")
             continue
         gray, angle = deskew(gray)
         binary = binarise(gray)
         bands = find_lines(binary)
-        stem = re.sub(r"[^A-Za-z0-9]+", "_", page.stem)[:28]
+        stem = re.sub(r"[^A-Za-z0-9]+", "_", Path(page_name).stem)[:28]
 
         for i, (y0, y1) in enumerate(bands, 1):
             crop = gray[max(0, y0 - PAD):min(gray.shape[0], y1 + PAD), :]
             cols = np.where((binarise(crop) > 0).sum(axis=0) > 0)[0]
             if cols.size:
                 crop = crop[:, max(0, cols[0] - PAD):min(crop.shape[1], cols[-1] + PAD)]
+            crop, inverted = _normalise_polarity(crop)
             lid = f"{stem}_l{i:03d}"
             cv2.imwrite(str(out / "images" / f"{lid}.tif"), crop)
             gt = out / "gt" / f"{lid}.gt.txt"
             if not gt.exists():
                 gt.write_text("", encoding="utf-8")
-            w.writerow([lid, page.name, args.stratum, f"{angle:.2f}",
-                        y0, y1, y1 - y0, digest])
+            w.writerow([lid, page_name, args.stratum, f"{angle:.2f}",
+                        y0, y1, y1 - y0, digest, int(inverted)])
             total += 1
-        print(f"  {page.name:<34} skew {angle:+5.2f}°  {len(bands):>3} lines")
+        print(f"  {page_name:<34} skew {angle:+5.2f}°  {len(bands):>3} lines")
 
     fh.close()
     if skipped:
@@ -393,6 +474,8 @@ def main():
     s.add_argument("--out", default="testset")
     s.add_argument("--stratum", default="unspecified",
                    help="newsprint | book | form | signage | degraded")
+    s.add_argument("--dpi", type=int, default=RENDER_DPI,
+                   help="resolution to rasterise PDF pages at (default 300)")
     s.set_defaults(func=segment)
 
     b = sub.add_parser("bootstrap", help="pre-fill transcriptions for correction")
