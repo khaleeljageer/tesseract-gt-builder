@@ -1,0 +1,80 @@
+# Real-document test set
+
+300 hand-transcribed lines of printed Tamil, drawn from 287 source pages.
+This is the material the headline number is measured on. Nothing here comes
+from the generation pipeline — see `paper/TESTSET.md` for why that matters.
+
+## Layout
+
+    images/        300 line crops, one per file (.tif)
+    gt/            300 transcriptions — EMPTY, yours to fill in
+    gt_prefill/    stock-`tam` output for the same 300 lines
+    manifest.csv   provenance for every drawn line
+    reserve.csv    300 replacements, in draw order
+    pool/          all 4,994 candidate lines (not committed)
+
+## How it was built
+
+    for d in Books Newsprint Forms Signage Degraded; do
+      python3 make_testset.py segment --pages <scans>/$d --out testset/pool --stratum $d
+    done
+    python3 make_testset.py sample --pool testset/pool --out testset --seed 0
+
+Seed 0. Same seed and same pool reproduces the same 300 lines exactly.
+
+## Allocation
+
+| Stratum | Lines | Pages | Material |
+|---|---|---|---|
+| newsprint | 80 | 80 | Tamil newspaper column crops, photographed |
+| books | 80 | 76 | Photographed book pages |
+| forms | 60 | 58 | Government forms and minutes, born-digital PDF at 300 dpi |
+| signage | 40 | 40 | Tamil Nadu government announcements booklet, 2011–12 |
+| degraded | 40 | 33 | Aged booklet scans — show-through, low contrast |
+
+## What the sampler rejected, and what it did not
+
+Rejections are **mechanical only**: blank crops, crops too short or too tall
+against their stratum's median, aspect ratios too square to be a line, and
+crops carrying a fragment of a neighbouring line (page curl, which deskewing
+does not correct). Nothing was rejected for being hard to read. Filtering on
+whether an engine can read a line would select for easy lines and make the
+headline figure optimistic.
+
+Reversed lines — light text knocked out of a coloured panel — are kept and
+flipped to dark-on-light at crop time. `manifest.csv` records which: 8 of
+the 300 drawn lines (5 signage, 3 books), against 120 of the 4,994 in the
+pool. Report the proportion; do not hide it.
+
+## Two cautions
+
+**The signage material is born-digital.** 31 of its 40 pages are vector text
+rasterised at 300 dpi, not captures, and stock `tam` already reads them
+better than any other stratum. It is a real out-of-set typography test —
+the face is `VANAVILAvvaiyar`, a legacy non-Unicode font absent from the 29
+used for training — but it does not test capture degradation. Describe it as
+a government publication in a legacy typeface, not as photographed signage.
+
+**Do not extract ground truth from the source PDFs.** They are
+legacy-encoded: `pdftotext` yields `jäœ ts®¢Á¤ Jiw`, not
+`தமிழ் வளர்ச்சித் துறை`. Transcribe visually.
+
+## On `gt_prefill/`
+
+Stock `tam` output for each line, 268 of 300 non-empty. It is there to be
+corrected against the image, not accepted. Copy a file into `gt/` only after
+you have read it against its crop; anything you do not check is not data.
+
+Prefilling with the model under evaluation would be circular. Stock `tam` is
+the baseline, so an error you fail to catch flatters the baseline and
+understates the fine-tuned model — the conservative direction. It still
+anchors your reading, which is why `gt/` starts empty and this is opt-in.
+
+## Source scans
+
+Currently at `~/Downloads/Scan(1)/Scan/`. **Move them somewhere durable and
+record the path here** — the pool cannot be rebuilt without them, and a
+Downloads directory is not an archive.
+
+`manifest.csv` has empty `device`, `dpi` and `notes` columns. Fill them in
+per source document while you still remember how each was captured.

@@ -16,13 +16,16 @@ is remove the mechanical work so you are only typing Tamil, not cropping.
     python3 make_testset.py segment --pages photos/ --out testset --stratum newsprint
     #    (page images or PDFs; PDF pages are rasterised at 300 dpi)
 
-    # 2. optionally pre-fill with a DIFFERENT engine's output to correct
+    # 2. draw a stratified sample of the size you intend to transcribe
+    python3 make_testset.py sample --pool pool --out testset --seed 0
+
+    # 3. optionally pre-fill with a DIFFERENT engine's output to correct
     python3 make_testset.py bootstrap --out testset --model tam
 
-    # 3. check your transcriptions are complete and well-formed
+    # 4. check your transcriptions are complete and well-formed
     python3 make_testset.py check --out testset
 
-    # 4. measure your own transcription error floor (see --help for detail)
+    # 5. measure your own transcription error floor (see --help for detail)
     python3 make_testset.py agreement --pass1 testset/gt --pass2 testset/gt_pass2
 
 On bootstrapping: pre-filling with the model you intend to evaluate is
@@ -32,8 +35,10 @@ entirely, and read every line against the image.
 """
 
 import argparse
+import collections
 import csv
 import hashlib
+import random
 import re
 import shutil
 import tempfile
@@ -377,6 +382,192 @@ def _segment(args, workdir):
     print(f"Provenance appended to {manifest}")
 
 
+DEFAULT_ALLOCATION = {          # paper/TESTSET.md
+    "newsprint": 80,
+    "books": 80,
+    "forms": 60,
+    "signage": 40,
+    "degraded": 40,
+}
+
+# Mechanical rejects only. Filtering on whether an engine can read a line
+# would select for easy lines and make the headline figure optimistic, so
+# nothing here consults a recogniser: these catch crops that are artifacts of
+# segmentation rather than lines of text.
+MIN_ASPECT = 3.0        # a line of text is far wider than it is tall
+MIN_INK = 0.03          # below this the crop is blank or a rule
+HEIGHT_BAND = (0.55, 2.2)   # multiples of the stratum's median crop height
+MAX_BLEED = 0.25        # share of a crop's ink outside its own main band
+
+
+def _bleed(gray):
+    """Share of the crop's ink that belongs to a neighbouring line.
+
+    Deskewing corrects a page's rotation but not its curvature, and a
+    photographed book curves near the spine and the outer edge. A crop taken
+    there holds one full line plus a sliver of the next, which has no single
+    correct transcription. Rare -- about 2% of crops here, all from
+    photographed books -- but they are the ones a transcriber would stall on.
+    """
+    binary = binarise(gray)
+    proj = _profile(binary)
+    level = _otsu_level(proj)
+    if level is None:
+        return 0.0
+    bands = _runs(proj, level)
+    if not bands:
+        return 0.0
+    ink = sorted(proj[s:e].sum() for s, e in bands)
+    total = sum(ink)
+    return 1.0 - ink[-1] / total if total else 0.0
+
+
+def _crop_metrics(path):
+    g = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
+    if g is None or g.size == 0:
+        return None
+    h, w = g.shape
+    level, _ = cv2.threshold(g, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    return h, w, w / h, float((g < level).mean()), _bleed(g)
+
+
+def _reject(metrics, median_h):
+    h, w, aspect, ink, bleed = metrics
+    if ink < MIN_INK:
+        return "blank"
+    if aspect < MIN_ASPECT:
+        return "not-a-line"
+    if h < median_h * HEIGHT_BAND[0]:
+        return "clipped"
+    if h > median_h * HEIGHT_BAND[1]:
+        return "merged"
+    if bleed > MAX_BLEED:
+        return "bleed"
+    return None
+
+
+def _round_robin(by_page, rng):
+    """Draw lines cycling through source pages.
+
+    Taking the first N lines of a stratum would concentrate the sample on a
+    handful of pages, and a page is where capture conditions are constant --
+    one bad exposure would then dominate the stratum. Cycling spreads the
+    sample across every page the stratum has.
+    """
+    pages = sorted(by_page)
+    rng.shuffle(pages)
+    queues = {}
+    for p in pages:
+        lines = list(by_page[p])
+        rng.shuffle(lines)
+        queues[p] = lines
+    order = []
+    while any(queues[p] for p in pages):
+        for p in pages:
+            if queues[p]:
+                order.append(queues[p].pop())
+    return order
+
+
+def sample(args):
+    pool, out = Path(args.pool), Path(args.out)
+    pool_manifest = pool / "manifest.csv"
+    if not pool_manifest.exists():
+        sys.exit(f"no manifest in {pool} -- run `segment` into it first")
+
+    alloc = dict(DEFAULT_ALLOCATION)
+    if args.alloc:
+        alloc = {}
+        for part in args.alloc.split(","):
+            k, _, v = part.partition("=")
+            alloc[k.strip().lower()] = int(v)
+
+    rows = list(csv.DictReader(open(pool_manifest, encoding="utf-8")))
+    by_stratum = collections.defaultdict(list)
+    for r in rows:
+        by_stratum[r["stratum"].lower()].append(r)
+
+    missing = [s for s in alloc if s not in by_stratum]
+    if missing:
+        sys.exit(f"no lines in the pool for stratum: {', '.join(missing)}")
+
+    rng = random.Random(args.seed)
+    (out / "images").mkdir(parents=True, exist_ok=True)
+    (out / "gt").mkdir(parents=True, exist_ok=True)
+
+    chosen, reserve = [], []
+    print(f"{'stratum':12} {'pool':>6} {'usable':>7} {'drawn':>6} {'pages':>6}   rejects")
+    for stratum, want in alloc.items():
+        candidates = by_stratum[stratum]
+        metrics = {}
+        for r in candidates:
+            m = _crop_metrics(pool / "images" / f"{r['line_id']}.tif")
+            if m:
+                metrics[r["line_id"]] = m
+        heights = sorted(m[0] for m in metrics.values())
+        median_h = heights[len(heights) // 2] if heights else 0
+
+        usable, rejects = [], collections.Counter()
+        for r in candidates:
+            m = metrics.get(r["line_id"])
+            if not m:
+                rejects["unreadable"] += 1
+                continue
+            why = _reject(m, median_h)
+            if why:
+                rejects[why] += 1
+            else:
+                usable.append(r)
+
+        by_page = collections.defaultdict(list)
+        for r in usable:
+            by_page[r["source_page"]].append(r["line_id"])
+        order = _round_robin(by_page, rng)
+        index = {r["line_id"]: r for r in usable}
+
+        if len(order) < want:
+            print(f"[warn] {stratum}: only {len(order)} usable lines, wanted {want}")
+        take = order[:want]
+        chosen.extend((stratum, index[i]) for i in take)
+        reserve.extend((stratum, index[i]) for i in order[want:want + want])
+
+        pages = len({index[i]["source_page"] for i in take})
+        detail = " ".join(f"{k}={v}" for k, v in sorted(rejects.items())) or "none"
+        print(f"{stratum:12} {len(candidates):>6} {len(order):>7} {len(take):>6} "
+              f"{pages:>6}   {detail}")
+
+    fields = ["line_id", "stratum", "source_page", "pool_line_id", "skew_deg",
+              "height_px", "inverted", "device", "dpi", "notes"]
+
+    def write(path, items, copy_images):
+        with open(path, "w", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=fields)
+            w.writeheader()
+            for stratum, r in items:
+                lid = r["line_id"]
+                if copy_images:
+                    shutil.copyfile(pool / "images" / f"{lid}.tif",
+                                    out / "images" / f"{lid}.tif")
+                    gt = out / "gt" / f"{lid}.gt.txt"
+                    if not gt.exists():
+                        gt.write_text("", encoding="utf-8")
+                w.writerow({"line_id": lid, "stratum": stratum,
+                            "source_page": r["source_page"], "pool_line_id": lid,
+                            "skew_deg": r["skew_deg"], "height_px": r["height_px"],
+                            "inverted": r.get("inverted", "0"),
+                            "device": "", "dpi": "", "notes": ""})
+
+    write(out / "manifest.csv", chosen, True)
+    write(out / "reserve.csv", reserve, False)
+
+    print(f"\n{len(chosen)} lines in {out}/images, transcriptions waiting in {out}/gt")
+    print(f"Provenance in {out}/manifest.csv -- device, dpi and notes are yours to fill in")
+    print(f"{len(reserve)} replacements listed in {out}/reserve.csv, in draw order:")
+    print("  reject a line while transcribing, delete its image and gt, and take")
+    print("  the next one from its stratum rather than choosing a replacement.")
+    print(f"\nSeed {args.seed}. Re-running with the same seed and pool reproduces this sample.")
+
+
 def bootstrap(args):
     out = Path(args.out)
     imgs = sorted((out / "images").glob("*.tif"))
@@ -477,6 +668,16 @@ def main():
     s.add_argument("--dpi", type=int, default=RENDER_DPI,
                    help="resolution to rasterise PDF pages at (default 300)")
     s.set_defaults(func=segment)
+
+    sm = sub.add_parser("sample", help="draw a stratified sample from a segmented pool")
+    sm.add_argument("--pool", required=True,
+                    help="directory `segment` wrote every candidate line into")
+    sm.add_argument("--out", default="testset")
+    sm.add_argument("--seed", type=int, default=0)
+    sm.add_argument("--alloc", default="",
+                    help="lines per stratum, e.g. 'newsprint=80,books=80'; "
+                         "defaults to the allocation in paper/TESTSET.md")
+    sm.set_defaults(func=sample)
 
     b = sub.add_parser("bootstrap", help="pre-fill transcriptions for correction")
     b.add_argument("--out", default="testset")

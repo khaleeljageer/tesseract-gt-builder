@@ -198,3 +198,19 @@ results/**/*.log
 # keep it alongside the log rather than only the combined model.
 !results/training/*.traineddata
 gt_pages/
+
+# Test-set candidate pool: 160MB of line crops, rebuildable from the source
+# scans with `make_testset.py segment`. The drawn sample IS committed.
+tesseract-gt-builder/testset/pool/
+testset/pool/
+
+# The real-document test set is the exception to the rules above. Those
+# exclude the ~200k synthetic training crops, which regenerate from a seed;
+# these 300 line images are captures of real pages and their transcriptions
+# are typed by hand. Neither can be reconstructed, so both are committed.
+!testset/images/
+!testset/images/*.tif
+!testset/gt/
+!testset/gt/*.gt.txt
+!testset/gt_prefill/
+!testset/gt_prefill/*.gt.txt
