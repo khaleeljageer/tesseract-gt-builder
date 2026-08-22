@@ -32,6 +32,7 @@ entirely, and read every line against the image.
 
 import argparse
 import csv
+import hashlib
 import re
 import subprocess
 import sys
@@ -41,7 +42,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-MIN_LINE_HEIGHT = 12        # px; below this a band is noise, not a line
+MIN_LINE_HEIGHT = 8         # px; below this a band is noise, not a line
 MIN_INK_FRACTION = 0.002    # a band must carry at least this share of dark px
 PAD = 6
 
@@ -73,42 +74,137 @@ def deskew(gray):
 
 def binarise(gray):
     """Adaptive threshold: photographs have uneven illumination, so a global
-    cutoff loses one side of the page."""
-    return cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
-                                 cv2.THRESH_BINARY_INV, 31, 15)
+    cutoff loses one side of the page.
 
-
-def find_lines(binary):
-    """Horizontal projection with smoothing, then merge diacritic bands.
-
-    Merging matters for Tamil: the pulli and vowel signs sit above the letter
-    bodies and can form their own band, exactly the effect that costs the
-    synthetic pipeline 0.075% of its pages.
+    The block size scales with the image, because this script sees both
+    2300-px full-page scans and 160-px paragraph crops, and a fixed block is
+    wrong for one of them. The median blur and opening remove the speckle that
+    aged paper leaves behind, which would otherwise fill the inter-line
+    valleys the projection profile depends on.
     """
-    proj = (binary > 0).sum(axis=1).astype(float)
-    if proj.max() == 0:
-        return []
-    k = max(3, binary.shape[0] // 400)
-    proj = np.convolve(proj, np.ones(k) / k, mode="same")
+    g = cv2.medianBlur(gray, 3)
+    block = max(15, (min(gray.shape) // 30) | 1)
+    bw = cv2.adaptiveThreshold(g, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,
+                               cv2.THRESH_BINARY_INV, block, 15)
+    return cv2.morphologyEx(bw, cv2.MORPH_OPEN, np.ones((2, 2), np.uint8))
 
-    thresh = max(1.0, proj.max() * 0.06)
-    bands, inside, start = [], False, 0
+
+def _profile(binary):
+    proj = (binary > 0).sum(axis=1).astype(float)
+    k = max(3, binary.shape[0] // 150)
+    return np.convolve(proj, np.ones(k) / k, mode="same")
+
+
+def _otsu_level(proj):
+    """Threshold the projection by Otsu rather than a fixed fraction of its
+    peak. A fixed fraction fails on real pages: photographed paper leaves a
+    non-zero floor of dark pixels in every row, so the valleys between lines
+    never fall below a 6%-of-peak cut and the whole text block is returned as
+    one band. Otsu finds the cut from the profile's own two modes."""
+    if proj.max() <= 0:
+        return None
+    norm = (255 * proj / proj.max()).astype(np.uint8)
+    t, _ = cv2.threshold(norm, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
+    return t / 255.0 * proj.max()
+
+
+def _extend(seeds, proj, low):
+    """Grow Otsu seeds to the full extent of each line.
+
+    Otsu isolates the dense core of a line -- roughly the x-height band -- and
+    clips ascenders, descenders and the Tamil vowel signs that sit above and
+    below it. Growing each seed down to a fixed lower level instead merges
+    neighbours wherever the leading is tight. So the boundary between two
+    consecutive seeds is placed at the valley floor of the projection, and
+    each band is then trimmed inward past rows that carry no ink.
+    """
+    if not seeds:
+        return []
+    n = len(proj)
+    cuts = [0]
+    for i in range(len(seeds) - 1):
+        a, b = seeds[i][1], seeds[i + 1][0]
+        cuts.append(a + int(np.argmin(proj[a:b])) if b > a else a)
+    cuts.append(n)
+    out = []
+    for i in range(len(seeds)):
+        s, e = cuts[i], cuts[i + 1]
+        while s < e and proj[s] <= low:
+            s += 1
+        while e > s and proj[e - 1] <= low:
+            e -= 1
+        if e > s:
+            out.append([s, e])
+    return out
+
+
+def _runs(proj, thresh):
+    out, inside, start = [], False, 0
     for i, v in enumerate(proj):
         if v > thresh and not inside:
             start, inside = i, True
         elif v <= thresh and inside:
-            bands.append([start, i])
+            out.append([start, i])
             inside = False
     if inside:
-        bands.append([start, len(proj)])
+        out.append([start, len(proj)])
+    return out
+
+
+def _split_tall(band, proj, median_h):
+    """Cut a band that spans several lines at the projection minima."""
+    s, e = band
+    h = e - s
+    if median_h <= 0 or h < median_h * 1.6:
+        return [band]
+    n = max(2, int(h / median_h + 0.35))
+    seg = proj[s:e]
+    cuts = []
+    for j in range(1, n):
+        c = int(round(j * h / n))
+        w = max(2, int(median_h * 0.3))
+        lo, hi = max(1, c - w), min(h - 1, c + w)
+        if hi <= lo:
+            continue
+        cuts.append(s + lo + int(np.argmin(seg[lo:hi])))
+    pts = [s] + sorted(set(cuts)) + [e]
+    return [[pts[i], pts[i + 1]] for i in range(len(pts) - 1)
+            if pts[i + 1] - pts[i] > 2]
+
+
+def find_lines(binary):
+    """Horizontal projection profile -> one band per text line.
+
+    Merging short bands into their neighbour matters for Tamil: the pulli and
+    vowel signs sit above the letter bodies and can form a band of their own,
+    exactly the effect that costs the synthetic pipeline 0.075% of its pages.
+    """
+    proj = _profile(binary)
+    level = _otsu_level(proj)
+    if level is None:
+        return []
+    seeds = _runs(proj, level)
+    if not seeds:
+        return []
+    bands = _extend(seeds, proj, level * 0.20)
     if not bands:
         return []
 
-    heights = sorted(b[1] - b[0] for b in bands)
-    median_h = heights[len(heights) // 2]
+    hs = sorted(b[1] - b[0] for b in bands)
+    median_h = hs[len(hs) // 2]
+    split = []
+    for b in bands:
+        split.extend(_split_tall(b, proj, median_h))
+    bands = split
+    hs = sorted(b[1] - b[0] for b in bands)
+    median_h = hs[len(hs) // 2]
+
     merged = [bands[0]]
     for s, e in bands[1:]:
-        if s - merged[-1][1] < median_h * 0.45:     # diacritic band
+        gap = s - merged[-1][1]
+        short = ((e - s) < median_h * 0.6
+                 or (merged[-1][1] - merged[-1][0]) < median_h * 0.6)
+        if gap < median_h * 0.5 and short:      # diacritic band
             merged[-1][1] = e
         else:
             merged.append([s, e])
@@ -116,12 +212,25 @@ def find_lines(binary):
     total_ink = (binary > 0).sum()
     keep = []
     for s, e in merged:
-        if e - s < MIN_LINE_HEIGHT:
+        if e - s < max(MIN_LINE_HEIGHT, median_h * 0.45):
             continue
         if (binary[s:e] > 0).sum() < total_ink * MIN_INK_FRACTION:
             continue
         keep.append((s, e))
     return keep
+
+
+def _seen_digests(out):
+    """Map md5 -> source page name for every page already in the manifest."""
+    manifest = out / "manifest.csv"
+    if not manifest.exists():
+        return {}
+    seen = {}
+    with open(manifest, encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            if row.get("page_md5"):
+                seen.setdefault(row["page_md5"], row["source_page"])
+    return seen
 
 
 def segment(args):
@@ -139,10 +248,22 @@ def segment(args):
     w = csv.writer(fh)
     if new:
         w.writerow(["line_id", "source_page", "stratum", "skew_deg",
-                    "y0", "y1", "height_px"])
+                    "y0", "y1", "height_px", "page_md5"])
 
-    total = 0
+    # A page contributed twice -- the same file copied into two strata, a
+    # duplicated capture -- would put identical lines in the test set twice and
+    # silently double their weight in the aggregate CER. Refuse it.
+    seen = _seen_digests(out)
+
+    total = skipped = 0
     for page in pages:
+        digest = hashlib.md5(page.read_bytes()).hexdigest()
+        if digest in seen:
+            print(f"  {page.name:<34} duplicate of {seen[digest]}, skipped")
+            skipped += 1
+            continue
+        seen[digest] = page.name
+
         gray = cv2.imread(str(page), cv2.IMREAD_GRAYSCALE)
         if gray is None:
             print(f"[warn] unreadable {page.name}")
@@ -163,11 +284,13 @@ def segment(args):
             if not gt.exists():
                 gt.write_text("", encoding="utf-8")
             w.writerow([lid, page.name, args.stratum, f"{angle:.2f}",
-                        y0, y1, y1 - y0])
+                        y0, y1, y1 - y0, digest])
             total += 1
         print(f"  {page.name:<34} skew {angle:+5.2f}°  {len(bands):>3} lines")
 
     fh.close()
+    if skipped:
+        print(f"\n{skipped} duplicate page(s) skipped")
     print(f"\n{total} line images written to {out}/images")
     print(f"Empty transcriptions waiting in {out}/gt")
     print(f"Provenance appended to {manifest}")
