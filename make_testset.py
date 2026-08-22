@@ -22,10 +22,13 @@ is remove the mechanical work so you are only typing Tamil, not cropping.
     # 3. optionally pre-fill with a DIFFERENT engine's output to correct
     python3 make_testset.py bootstrap --out testset --model tam
 
-    # 4. check your transcriptions are complete and well-formed
+    # 4. recognise the same lines with each model you are comparing
+    python3 make_testset.py predict --out testset --pred_dir preds_stock --model tam
+
+    # 5. check your transcriptions are complete and well-formed
     python3 make_testset.py check --out testset
 
-    # 5. measure your own transcription error floor (see --help for detail)
+    # 6. measure your own transcription error floor (see --help for detail)
     python3 make_testset.py agreement --pass1 testset/gt --pass2 testset/gt_pass2
 
 On bootstrapping: pre-filling with the model you intend to evaluate is
@@ -42,6 +45,7 @@ import random
 import re
 import shutil
 import tempfile
+import os
 import subprocess
 import sys
 import unicodedata
@@ -50,6 +54,7 @@ from pathlib import Path
 import cv2
 import numpy as np
 
+PSM_SINGLE_LINE = "7"       # one line of text, no layout analysis
 MIN_LINE_HEIGHT = 8         # px; below this a band is noise, not a line
 MIN_INK_FRACTION = 0.002    # a band must carry at least this share of dark px
 PAD = 6
@@ -587,6 +592,47 @@ def bootstrap(args):
           "its image and correct it. Anything you do not check is not data.")
 
 
+def predict(args):
+    """Recognise every test-set line with one model, into its own directory."""
+    out, dest = Path(args.out), Path(args.pred_dir)
+    dest.mkdir(parents=True, exist_ok=True)
+    imgs = sorted((out / "images").glob("*.tif"))
+    if not imgs:
+        sys.exit(f"no line images in {out}/images")
+
+    env = dict(os.environ, OMP_THREAD_LIMIT="1")
+    if args.tessdata:
+        env["TESSDATA_PREFIX"] = args.tessdata
+
+    done = failed = 0
+    for img in imgs:
+        target = dest / f"{img.stem}.gt.txt"
+        if target.exists() and not args.force:
+            done += 1
+            continue
+        r = subprocess.run(
+            ["tesseract", str(img), "stdout", "-l", args.model,
+             "--psm", PSM_SINGLE_LINE],
+            capture_output=True, text=True, env=env)
+        if r.returncode != 0:
+            failed += 1
+            if failed <= 3:
+                print(f"[warn] {img.name}: {r.stderr.strip()[:80]}")
+            target.write_text("", encoding="utf-8")
+            continue
+        target.write_text(" ".join(r.stdout.split()), encoding="utf-8")
+        done += 1
+
+    empty = sum(1 for p in dest.glob("*.gt.txt")
+                if not p.read_text(encoding="utf-8").strip())
+    print(f"{done} lines recognised with '{args.model}' into {dest}"
+          + (f", {failed} failed" if failed else ""))
+    print(f"{empty} produced no output")
+    print(f"\nScore with:\n"
+          f"  python3 tamil_ocr_eval.py --gt_dir {out}/gt --pred_dir {dest} \\\n"
+          f"      --bootstrap 2000 --confusions 30 --json results/{args.model}.json")
+
+
 def check(args):
     out = Path(args.out)
     imgs = {p.stem for p in (out / "images").glob("*.tif")}
@@ -684,6 +730,17 @@ def main():
     b.add_argument("--model", default="tam",
                    help="use stock 'tam', NOT the model you are evaluating")
     b.set_defaults(func=bootstrap)
+
+    pr = sub.add_parser("predict", help="recognise the test set with one model")
+    pr.add_argument("--out", default="testset")
+    pr.add_argument("--pred_dir", required=True,
+                    help="where to write predictions, e.g. preds_stock")
+    pr.add_argument("--model", required=True, help="tesseract -l value")
+    pr.add_argument("--tessdata", default="",
+                    help="TESSDATA_PREFIX to read the model from")
+    pr.add_argument("--force", action="store_true",
+                    help="re-recognise lines already predicted")
+    pr.set_defaults(func=predict)
 
     c = sub.add_parser("check", help="completeness and encoding check")
     c.add_argument("--out", default="testset")
