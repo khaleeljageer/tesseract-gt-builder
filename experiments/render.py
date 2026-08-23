@@ -23,6 +23,7 @@ Behaviour is otherwise identical, with two deliberate corrections:
 """
 
 import json
+import random
 import shutil
 from pathlib import Path
 
@@ -41,6 +42,24 @@ HEIGHT_PROBE = "ஆழ்ந்த கூஜா ஜஸ்ரீ"
 BINARY_THRESHOLD = 200      # grayscale cutoff for inverse binarisation
 PROJECTION_THRESHOLD = 10   # row-sum above which a row counts as ink
 CROP_PADDING = 3
+
+# Share of the finished crop that the ink is allowed to occupy.
+#
+# Cropping every training line tight to its ink teaches the model that text
+# runs to both edges of the image. Real segmentation does not deliver that: a
+# rule, a speck of show-through or a neighbouring column defeats the column
+# trim, and a form label or a heading then sits in a crop several times its
+# own width. Measured as characters per unit of aspect ratio, the real test
+# set runs from 1.2 at the 5th percentile to 3.9 at the 95th; tight-cropped
+# synthetic lines start at 2.2 and never reach the sparse end, which is
+# exactly the range where the v2 model scored 39.5% CER against stock
+# Tesseract's 19.3%.
+#
+# So target a fill fraction rather than a fixed margin. The cube keeps most
+# lines near-tight and puts a thin tail down at a third of the width, which
+# is the shape of the real distribution rather than a uniform smear.
+CROP_FILL_MIN = 0.32
+CROP_FILL_SKEW = 3          # higher = more of the mass near tight-cropped
 
 
 def load_fonts(font_dir, size, names=None):
@@ -126,13 +145,14 @@ def render_page(lines, page_fonts, out_path, cfg):
     return drawn
 
 
-def segment_page(image_path, out_dir, gt_lines, base_name, fonts_used):
+def segment_page(image_path, out_dir, gt_lines, base_name, fonts_used, rng=None):
     """Recover line crops from the rendered page by horizontal projection.
 
     Deliberately re-derives the lines from pixels rather than reusing the
     layout coordinates, so training crops carry the same geometry a segmenter
     produces at inference time. Returns the number of crops written.
     """
+    rng = rng or random.Random(base_name)
     image = cv2.imread(str(image_path), cv2.IMREAD_GRAYSCALE)
     if image is None:
         print(f"[warn] unreadable page {image_path}")
@@ -152,6 +172,23 @@ def segment_page(image_path, out_dir, gt_lines, base_name, fonts_used):
     if in_line:
         bands.append((start, height))
 
+    # Merge a band back into its neighbour when the gap between them is small
+    # against the typical line height. The pulli and the vowel signs sit above
+    # the letter bodies, and on a short line there is too little ink beneath
+    # them to bridge the gap, so they break away as a band of their own. With
+    # every line twelve words long that cost 0.075% of pages; once the corpus
+    # contains one- and two-word lines it costs 11%.
+    if len(bands) > 1:
+        heights = sorted(b - a for a, b in bands)
+        median_h = heights[len(heights) // 2]
+        merged = [list(bands[0])]
+        for a, b in bands[1:]:
+            if a - merged[-1][1] < median_h * 0.45:
+                merged[-1][1] = b
+            else:
+                merged.append([a, b])
+        bands = [tuple(x) for x in merged]
+
     if len(bands) != len(gt_lines):
         # Never silently misalign an image with the wrong transcription.
         print(f"[warn] {base_name}: {len(bands)} bands for {len(gt_lines)} lines; "
@@ -170,7 +207,11 @@ def segment_page(image_path, out_dir, gt_lines, base_name, fonts_used):
         coords = cv2.findNonZero(255 - thresh)
         if coords is not None:
             x, _, w, _ = cv2.boundingRect(coords)
-            crop = crop[:, max(0, x - CROP_PADDING):min(crop.shape[1], x + w + CROP_PADDING)]
+            fill = 1.0 - (1.0 - CROP_FILL_MIN) * rng.random() ** CROP_FILL_SKEW
+            slack = max(0, int(w / fill) - w)
+            left = CROP_PADDING + int(slack * rng.random())
+            right = CROP_PADDING + slack - (left - CROP_PADDING)
+            crop = crop[:, max(0, x - left):min(crop.shape[1], x + w + right)]
 
         stem = f"{base_name}_line_{idx + 1:03d}"
         cv2.imwrite(str(out_dir / f"{stem}.tif"), crop)
@@ -217,7 +258,8 @@ def generate(lines, out_dir, font_dir="fonts", font_names=None,
         img_path = page_dir / f"{base}.tif"
 
         drawn = render_page(page_lines, page_fonts, img_path, cfg)
-        written = segment_page(img_path, out_dir, drawn, base, page_fonts)
+        written = segment_page(img_path, out_dir, drawn, base, page_fonts,
+                               rng=random.Random(f"{seed}:{base}"))
         total += written
         for (name, _), line in zip(page_fonts, drawn):
             font_counts[name] += 1

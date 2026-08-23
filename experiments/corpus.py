@@ -25,6 +25,23 @@ from pathlib import Path
 
 WORDS_PER_LINE = 12
 
+# A typeset paragraph ends with a line that is not full. Chunking one global
+# word stream into equal 12-word pieces produces a corpus in which every line
+# fills its measure, and a model trained on it has never seen a heading, a
+# form label, or the last line of a paragraph. Evaluated on real documents it
+# invents text to fill the empty part of the crop: on the quarter of the test
+# set whose lines occupy least of their crop it scored 39.5% CER against
+# stock Tesseract's 19.3%, while on well-filled lines the two were within a
+# point of each other.
+#
+# So lay text out the way a typesetter does. Sentences are grouped into
+# paragraphs, each paragraph is broken into lines of at most WORDS_PER_LINE,
+# and the remainder becomes a short final line. Paragraph length is sampled,
+# which makes the length of that final line uniform over 1..WORDS_PER_LINE
+# rather than fixed.
+SENTENCE_END = "\u0BD0.!?\u2026"      # Tamil texts punctuate with . ! ? …
+PARAGRAPH_SENTENCES = (2, 8)        # inclusive range, sampled per paragraph
+
 # Register grouping used by the domain ablation (Experiment 5). Maattru is
 # contemporary journalism -- politics, society, science, cinema -- so it sits
 # with the newspaper sources rather than with Wikisource's classical texts
@@ -41,23 +58,71 @@ def normalize_line(text: str) -> str:
     return " ".join(unicodedata.normalize("NFC", text).split())
 
 
-def build_pool(raw_dir="raw_data", words_per_line=WORDS_PER_LINE):
-    """Chunk every source into fixed-width lines, keeping provenance.
+def sentences(words):
+    """Split a word stream at sentence-final punctuation."""
+    out, current = [], []
+    for word in words:
+        current.append(word)
+        if word and word[-1] in SENTENCE_END:
+            out.append(current)
+            current = []
+    if current:
+        out.append(current)
+    return out
+
+
+def paragraph_lines(words, words_per_line=WORDS_PER_LINE, rng=None,
+                    para_range=PARAGRAPH_SENTENCES):
+    """Lay a word stream out as paragraphs of full lines plus a short one.
+
+    The short final line is the point: it is what a model needs to have seen
+    to recognise a heading or the end of a paragraph without hallucinating
+    across the blank remainder of the crop.
+    """
+    rng = rng or random.Random(0)
+    lines = []
+    pool = sentences(words)
+    i = 0
+    while i < len(pool):
+        take = rng.randint(*para_range)
+        para = [w for sentence in pool[i:i + take] for w in sentence]
+        i += take
+        if not para:
+            continue
+        for j in range(0, len(para), words_per_line):
+            chunk = para[j:j + words_per_line]
+            if chunk:
+                lines.append(" ".join(chunk))
+    return lines
+
+
+def build_pool(raw_dir="raw_data", words_per_line=WORDS_PER_LINE, seed=0,
+               paragraphs=True):
+    """Chunk every source into lines, keeping provenance.
 
     Returns {source_stem: [line, ...]}. Sources are read in sorted order and
     chunked independently, so a given source always yields the same lines in
-    the same order regardless of what else is present.
+    the same order regardless of what else is present. Each source gets its
+    own seeded generator, for the same reason.
+
+    With paragraphs=False the old fixed-width chunking is used, which is what
+    produced the v1 and v2 corpora; it is kept so those remain reproducible.
     """
     pool = {}
     for path in sorted(Path(raw_dir).glob("*.txt")):
         words = path.read_text(encoding="utf-8").split()
-        lines = [
-            normalize_line(" ".join(words[i:i + words_per_line]))
-            for i in range(0, len(words), words_per_line)
-        ]
-        # Drop any trailing short chunk so every line has equal word count.
-        if lines and len(lines[-1].split()) < words_per_line:
-            lines.pop()
+        if paragraphs:
+            rng = random.Random(f"{seed}:{path.stem}")
+            lines = [normalize_line(x)
+                     for x in paragraph_lines(words, words_per_line, rng)]
+        else:
+            lines = [
+                normalize_line(" ".join(words[i:i + words_per_line]))
+                for i in range(0, len(words), words_per_line)
+            ]
+            # Drop any trailing short chunk so every line has equal word count.
+            if lines and len(lines[-1].split()) < words_per_line:
+                lines.pop()
         pool[path.stem] = lines
     return pool
 
