@@ -6,3 +6,4 @@ opencv-python~=4.11.0.86
 numpy~=2.2.6
 mplcairo~=0.6.1
 fonttools~=4.55.0
+python-bidi

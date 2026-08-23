@@ -9,7 +9,7 @@ about 28 hours for a stage that is embarrassingly parallel.
 
 This script does exactly what the Makefile's two pattern rules do --
 
-    %.box:   generate_line_box.py -i <img> -t <img>.gt.txt > <img>.box
+    %.box:   $(GENERATE_BOX_SCRIPT) -i <img> -t <img>.gt.txt > <img>.box
     %.lstmf: tesseract <img> <stem> --psm 13 lstm.train
 
 -- across a process pool, then exits. Afterwards `make training` finds every
@@ -31,6 +31,25 @@ from concurrent.futures import ProcessPoolExecutor, as_completed
 from pathlib import Path
 
 PSM = "13"          # tesstrain default: raw line, no layout analysis
+
+# The Makefile picks the box generator from LANG_TYPE, and getting this wrong
+# is silent: character-level boxes are produced, training runs, and the model
+# is merely worse. For Indic and RTL scripts tesstrain uses WordStr boxes --
+# one record carrying the whole line -- instead of one record per character,
+# because Tamil's combining vowel signs do not correspond to the units the
+# character-level generator emits. generate_line_box.py groups a mark with
+# the previous letter only when its canonical combining class is non-zero,
+# and every Tamil vowel sign has class 0 (they are spacing marks, category
+# Mc), so it splits லி into ல + ி while keeping க் whole.
+#
+# LANG_TYPE also sets --pass_through_recoder for combine_lang_model, which
+# this script does not control: pass LANG_TYPE=Indic to `make training` too,
+# or the recoder will be rebuilt in decomposing form.
+BOX_SCRIPTS = {
+    "Indic": "generate_wordstr_box.py",
+    "RTL": "generate_wordstr_box.py",
+    "": "generate_line_box.py",
+}
 
 
 def one(args):
@@ -75,8 +94,14 @@ def main():
     ap.add_argument("--jobs", type=int, default=max(1, (os.cpu_count() or 2) - 2))
     ap.add_argument("--tesstrain-dir",
                     default=os.environ.get("TESSTRAIN_DIR", ""))
-    ap.add_argument("--box-script", default="generate_line_box.py")
+    ap.add_argument("--lang-type", default="Indic", choices=sorted(BOX_SCRIPTS),
+                    help="as in tesstrain's Makefile; selects the box "
+                         "generator. Tamil is Indic (default)")
+    ap.add_argument("--box-script", default=None,
+                    help="override the generator LANG_TYPE would select")
     args = ap.parse_args()
+    if args.box_script is None:
+        args.box_script = BOX_SCRIPTS[args.lang_type]
 
     if not args.tesstrain_dir:
         sys.exit("set TESSTRAIN_DIR or pass --tesstrain-dir")
@@ -92,6 +117,7 @@ def main():
     todo = [p for p in images
             if not (p.with_suffix(".lstmf").exists()
                     and p.with_suffix(".lstmf").stat().st_size > 0)]
+    print(f"LANG_TYPE={args.lang_type or '(blank)'} -> {args.box_script}")
     print(f"{len(images):,} images, {len(images) - len(todo):,} already done, "
           f"{len(todo):,} to process on {args.jobs} workers")
     if not todo:
@@ -128,7 +154,10 @@ def main():
     n = len(list(gt_dir.glob("*.lstmf")))
     print(f"\n{n:,} .lstmf files now in {gt_dir}")
     print("Next: cd $TESSTRAIN_DIR && make training MODEL_NAME=... "
-          "GROUND_TRUTH_DIR=... MAX_ITERATIONS=...")
+          f"GROUND_TRUTH_DIR=... MAX_ITERATIONS=... LANG_TYPE={args.lang_type}")
+    if args.lang_type:
+        print(f"      LANG_TYPE={args.lang_type} is not optional there -- it also "
+              "sets --pass_through_recoder.")
     return 0
 
 
