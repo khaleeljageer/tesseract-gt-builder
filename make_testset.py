@@ -54,7 +54,13 @@ from pathlib import Path
 import cv2
 import numpy as np
 
-PSM_SINGLE_LINE = "7"       # one line of text, no layout analysis
+# 13 = raw line: a single text line with Tesseract's layout heuristics
+# bypassed. 7 also claims to mean "single line", but keeps enough of those
+# heuristics to bail out entirely on a tenth of the real crops here --
+# returning nothing at all for lines that read fine at 13. It is also what
+# prepare_lstmf.py feeds the trainer, so 13 keeps inference and training
+# consistent.
+PSM_SINGLE_LINE = "13"
 MIN_LINE_HEIGHT = 8         # px; below this a band is noise, not a line
 MIN_INK_FRACTION = 0.002    # a band must carry at least this share of dark px
 PAD = 6
@@ -639,7 +645,7 @@ def bootstrap(args):
         if gt.exists() and gt.read_text(encoding="utf-8").strip():
             continue
         r = subprocess.run(
-            ["tesseract", str(img), "stdout", "-l", args.model, "--psm", "7"],
+            ["tesseract", str(img), "stdout", "-l", args.model, "--psm", PSM_SINGLE_LINE],
             capture_output=True, text=True)
         text = " ".join(r.stdout.split()) if r.returncode == 0 else ""
         gt.write_text(text, encoding="utf-8")
@@ -731,6 +737,8 @@ def predict(args):
     imgs = sorted((out / "images").glob("*.tif"))
     if not imgs:
         sys.exit(f"no line images in {out}/images")
+    # tamil_ocr_eval pairs <stem>.gt.txt references with <stem>.txt
+    # hypotheses; writing predictions as .gt.txt leaves every pair unmatched.
 
     env = dict(os.environ, OMP_THREAD_LIMIT="1")
     if args.tessdata:
@@ -738,7 +746,7 @@ def predict(args):
 
     done = failed = 0
     for img in imgs:
-        target = dest / f"{img.stem}.gt.txt"
+        target = dest / f"{img.stem}.txt"
         if target.exists() and not args.force:
             done += 1
             continue
@@ -755,7 +763,7 @@ def predict(args):
         target.write_text(" ".join(r.stdout.split()), encoding="utf-8")
         done += 1
 
-    empty = sum(1 for p in dest.glob("*.gt.txt")
+    empty = sum(1 for p in dest.glob("*.txt")
                 if not p.read_text(encoding="utf-8").strip())
     print(f"{done} lines recognised with '{args.model}' into {dest}"
           + (f", {failed} failed" if failed else ""))
