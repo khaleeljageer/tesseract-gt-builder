@@ -60,22 +60,53 @@ MIN_INK_FRACTION = 0.002    # a band must carry at least this share of dark px
 PAD = 6
 
 
-def deskew(gray):
+SKEW_LIMIT = 15.0           # degrees searched either side of horizontal
+
+
+def _alignment(binary):
+    """How sharply the row profile alternates between text and gap.
+
+    Maximal when baselines are horizontal, because that is when the ink of
+    each line stacks into one row band instead of smearing across several.
+    """
+    profile = (binary > 0).sum(axis=1).astype(float)
+    return float(((profile[1:] - profile[:-1]) ** 2).sum())
+
+
+def deskew(gray, limit=SKEW_LIMIT):
     """Rotate so text baselines are horizontal.
 
     Photographed pages are rarely square to the sensor, and a few degrees of
     skew smears the horizontal projection until adjacent lines merge.
+
+    The angle is found by searching for the rotation that maximises
+    `_alignment`, which is the quantity line segmentation actually depends
+    on. The obvious alternative -- the angle of `minAreaRect` over the
+    foreground -- assumes the text block is a filled rectangle, and a sparse
+    government form is not one: it returned -11.8 degrees for a page that was
+    within a degree of straight, and rotating by that wrecked every line on
+    it.
     """
-    inv = cv2.bitwise_not(gray)
-    _, bw = cv2.threshold(inv, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-    coords = cv2.findNonZero(bw)
-    if coords is None:
-        return gray, 0.0
-    angle = cv2.minAreaRect(coords)[-1]
-    if angle < -45:
-        angle += 90
-    elif angle > 45:
-        angle -= 90
+    scale = min(1.0, 900 / max(gray.shape))
+    small = cv2.resize(gray, None, fx=scale, fy=scale) if scale < 1 else gray
+    binary = binarise(small)
+    centre = (small.shape[1] // 2, small.shape[0] // 2)
+
+    def at(angle):
+        m = cv2.getRotationMatrix2D(centre, angle, 1.0)
+        return _alignment(cv2.warpAffine(binary, m, (small.shape[1], small.shape[0]),
+                                         flags=cv2.INTER_NEAREST))
+
+    best, angle = at(0.0), 0.0
+    for candidate in np.arange(-limit, limit + 1e-6, 1.0):
+        score = at(candidate)
+        if score > best:
+            best, angle = score, candidate
+    for candidate in np.arange(angle - 1.0, angle + 1.0 + 1e-6, 0.1):
+        score = at(candidate)
+        if score > best:
+            best, angle = score, candidate
+
     if abs(angle) < 0.15:
         return gray, 0.0
     h, w = gray.shape
@@ -403,6 +434,8 @@ MIN_ASPECT = 3.0        # a line of text is far wider than it is tall
 MIN_INK = 0.03          # below this the crop is blank or a rule
 HEIGHT_BAND = (0.55, 2.2)   # multiples of the stratum's median crop height
 MAX_BLEED = 0.25        # share of a crop's ink outside its own main band
+RULE_ROW_FILL = 0.75    # a row this dark across its width is a rule, not text
+MIN_TEXT_BAND = 6       # px of text left after the rules are discounted
 
 
 def _bleed(gray):
@@ -427,19 +460,43 @@ def _bleed(gray):
     return 1.0 - ink[-1] / total if total else 0.0
 
 
+def _text_band(gray):
+    """Height in px of the text left once rules and solid panels are ignored.
+
+    A crop can be full of ink and still hold no text: a table row is mostly
+    horizontal rules, and the rounded edge of a knocked-out panel is a solid
+    block. Both pass an ink-fraction test comfortably. Discount any row that
+    is dark across most of its width -- text never is, not even the densest
+    row of a Tamil line -- and measure what remains.
+
+    The floor here is deliberately low. Type size varies within a document,
+    and a threshold set high enough to catch a half-clipped line would also
+    discard the legitimately small print in the forms. Only crops with
+    essentially no text are rejected; a partly clipped line is left for the
+    transcriber to reject by eye, which is what `replace` is for.
+    """
+    binary = binarise(gray) > 0
+    fill = binary.mean(axis=1)
+    text_rows = np.where(fill <= RULE_ROW_FILL, fill, 0.0)
+    inked = np.where(text_rows > 0.05)[0]
+    return int(inked[-1] - inked[0] + 1) if inked.size else 0
+
+
 def _crop_metrics(path):
     g = cv2.imread(str(path), cv2.IMREAD_GRAYSCALE)
     if g is None or g.size == 0:
         return None
     h, w = g.shape
     level, _ = cv2.threshold(g, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-    return h, w, w / h, float((g < level).mean()), _bleed(g)
+    return h, w, w / h, float((g < level).mean()), _bleed(g), _text_band(g)
 
 
 def _reject(metrics, median_h):
-    h, w, aspect, ink, bleed = metrics
+    h, w, aspect, ink, bleed, text_band = metrics
     if ink < MIN_INK:
         return "blank"
+    if text_band < MIN_TEXT_BAND:
+        return "no-text"
     if aspect < MIN_ASPECT:
         return "not-a-line"
     if h < median_h * HEIGHT_BAND[0]:
@@ -592,6 +649,81 @@ def bootstrap(args):
           "its image and correct it. Anything you do not check is not data.")
 
 
+def replace(args):
+    """Swap rejected lines for the next reserves of the same stratum.
+
+    A line that cannot be transcribed -- clipped, or holding no readable text
+    -- has to leave the set, and what replaces it must not be chosen. Picking
+    a replacement by eye selects for legibility and quietly makes the test
+    set easier. reserve.csv fixes the order in advance; this takes the next
+    unused entry from the same stratum, so the swap is as blind as the draw.
+    """
+    out, pool = Path(args.out), Path(args.pool)
+    manifest, reserve = out / "manifest.csv", out / "reserve.csv"
+    for f in (manifest, reserve):
+        if not f.exists():
+            sys.exit(f"missing {f}")
+
+    rows = list(csv.DictReader(open(manifest, encoding="utf-8")))
+    fields = list(rows[0].keys())
+    bench = list(csv.DictReader(open(reserve, encoding="utf-8")))
+    current = {r["line_id"] for r in rows}
+    index = {r["line_id"]: r for r in rows}
+
+    unknown = [x for x in args.lines if x not in current]
+    if unknown:
+        sys.exit(f"not in the test set: {', '.join(unknown)}")
+
+    queue = collections.defaultdict(list)
+    for r in bench:
+        if r["line_id"] not in current:
+            queue[r["stratum"]].append(r)
+
+    transcribed = []
+    for lid in args.lines:
+        gt = out / "gt" / f"{lid}.gt.txt"
+        if gt.exists() and gt.read_text(encoding="utf-8").strip():
+            transcribed.append(lid)
+    if transcribed and not args.force:
+        sys.exit("these already have transcriptions; pass --force to drop them anyway:\n  "
+                 + "\n  ".join(transcribed))
+
+    swapped = []
+    for lid in args.lines:
+        stratum = index[lid]["stratum"]
+        if not queue[stratum]:
+            print(f"[warn] {lid}: no reserve left for stratum {stratum}, dropped")
+            rows = [r for r in rows if r["line_id"] != lid]
+            continue
+        new = queue[stratum].pop(0)
+        src = pool / "images" / f"{new['line_id']}.tif"
+        if not src.exists():
+            sys.exit(f"reserve image missing: {src} -- is the pool present?")
+        shutil.copyfile(src, out / "images" / f"{new['line_id']}.tif")
+        gt = out / "gt" / f"{new['line_id']}.gt.txt"
+        if not gt.exists():
+            gt.write_text("", encoding="utf-8")
+        (out / "images" / f"{lid}.tif").unlink(missing_ok=True)
+        (out / "gt" / f"{lid}.gt.txt").unlink(missing_ok=True)
+        (out / "gt_prefill" / f"{lid}.gt.txt").unlink(missing_ok=True)
+        rows = [dict(new, **{k: r.get(k, "") for k in fields if k not in new})
+                if r["line_id"] == lid else r for r in rows]
+        swapped.append((lid, new["line_id"], stratum))
+
+    with open(manifest, "w", newline="", encoding="utf-8") as fh:
+        w = csv.DictWriter(fh, fieldnames=fields)
+        w.writeheader()
+        for r in rows:
+            w.writerow({k: r.get(k, "") for k in fields})
+
+    for old, new, stratum in swapped:
+        print(f"  {stratum:10} {old:24} -> {new}")
+    print(f"\n{len(swapped)} replaced, {len(rows)} lines in the set")
+    if swapped:
+        print("Reserve images are copied from the pool; prefill is not regenerated.")
+        print("Run `bootstrap` again if you want stock-tam guesses for the new lines.")
+
+
 def predict(args):
     """Recognise every test-set line with one model, into its own directory."""
     out, dest = Path(args.out), Path(args.pred_dir)
@@ -730,6 +862,15 @@ def main():
     b.add_argument("--model", default="tam",
                    help="use stock 'tam', NOT the model you are evaluating")
     b.set_defaults(func=bootstrap)
+
+    rp = sub.add_parser("replace", help="swap rejected lines for reserves")
+    rp.add_argument("--out", default="testset")
+    rp.add_argument("--pool", default="testset/pool")
+    rp.add_argument("--lines", nargs="+", required=True,
+                    help="line_ids to reject")
+    rp.add_argument("--force", action="store_true",
+                    help="replace even lines that already have a transcription")
+    rp.set_defaults(func=replace)
 
     pr = sub.add_parser("predict", help="recognise the test set with one model")
     pr.add_argument("--out", default="testset")

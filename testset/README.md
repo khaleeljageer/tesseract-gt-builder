@@ -1,6 +1,6 @@
 # Real-document test set
 
-300 hand-transcribed lines of printed Tamil, drawn from 287 source pages.
+300 hand-transcribed lines of printed Tamil, drawn from 295 source pages.
 This is the material the headline number is measured on. Nothing here comes
 from the generation pipeline — see `paper/TESTSET.md` for why that matters.
 
@@ -11,7 +11,7 @@ from the generation pipeline — see `paper/TESTSET.md` for why that matters.
     gt_prefill/    stock-`tam` output for the same 300 lines
     manifest.csv   provenance for every drawn line
     reserve.csv    300 replacements, in draw order
-    pool/          all 4,994 candidate lines (not committed)
+    pool/          all 5,227 candidate lines (not committed)
 
 ## How it was built
 
@@ -27,24 +27,34 @@ Seed 0. Same seed and same pool reproduces the same 300 lines exactly.
 | Stratum | Lines | Pages | Material |
 |---|---|---|---|
 | newsprint | 80 | 80 | Tamil newspaper column crops, photographed |
-| books | 80 | 76 | Photographed book pages |
-| forms | 60 | 58 | Government forms and minutes, born-digital PDF at 300 dpi |
+| books | 80 | 79 | Photographed book pages |
+| forms | 60 | 59 | Government forms and minutes, born-digital PDF at 300 dpi |
 | signage | 40 | 40 | Tamil Nadu government announcements booklet, 2011–12 |
-| degraded | 40 | 33 | Aged booklet scans — show-through, low contrast |
+| degraded | 40 | 37 | Aged booklet scans — show-through, low contrast |
 
 ## What the sampler rejected, and what it did not
 
 Rejections are **mechanical only**: blank crops, crops too short or too tall
 against their stratum's median, aspect ratios too square to be a line, and
 crops carrying a fragment of a neighbouring line (page curl, which deskewing
-does not correct). Nothing was rejected for being hard to read. Filtering on
-whether an engine can read a line would select for easy lines and make the
-headline figure optimistic.
+does not correct), and crops with no text left once horizontal rules and
+solid panels are discounted. Nothing was rejected for being hard to read.
+Filtering on whether an engine can read a line would select for easy lines
+and make the headline figure optimistic.
+
+The floors are deliberately low. Type size varies within a document, and a
+threshold set high enough to catch every half-clipped line would also discard
+the legitimately small print in the forms. Reject what you find by eye during
+transcription:
+
+    python3 make_testset.py replace --out testset --lines <id> [<id> ...]
+
+which takes the next unused entry from `reserve.csv` for the same stratum.
+Choosing a replacement yourself would select for legibility.
 
 Reversed lines — light text knocked out of a coloured panel — are kept and
-flipped to dark-on-light at crop time. `manifest.csv` records which: 8 of
-the 300 drawn lines (5 signage, 3 books), against 120 of the 4,994 in the
-pool. Report the proportion; do not hide it.
+flipped to dark-on-light at crop time. `manifest.csv` records which: 10 of
+the 300 drawn lines. Report the proportion; do not hide it.
 
 ## Two cautions
 
@@ -61,7 +71,7 @@ legacy-encoded: `pdftotext` yields `jäœ ts®¢Á¤ Jiw`, not
 
 ## On `gt_prefill/`
 
-Stock `tam` output for each line, 268 of 300 non-empty. It is there to be
+Stock `tam` output for each line, 283 of 300 non-empty. It is there to be
 corrected against the image, not accepted. Copy a file into `gt/` only after
 you have read it against its crop; anything you do not check is not data.
 
