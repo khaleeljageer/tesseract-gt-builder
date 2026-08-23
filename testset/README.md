@@ -1,6 +1,6 @@
 # Real-document test set
 
-300 hand-transcribed lines of printed Tamil, drawn from 295 source pages.
+300 hand-transcribed lines of printed Tamil, drawn from 281 source pages.
 This is the material the headline number is measured on. Nothing here comes
 from the generation pipeline — see `paper/TESTSET.md` for why that matters.
 
@@ -26,11 +26,27 @@ Seed 0. Same seed and same pool reproduces the same 300 lines exactly.
 
 | Stratum | Lines | Pages | Material |
 |---|---|---|---|
-| newsprint | 80 | 80 | Tamil newspaper column crops, photographed |
-| books | 80 | 79 | Photographed book pages |
-| forms | 60 | 59 | Government forms and minutes, born-digital PDF at 300 dpi |
-| signage | 40 | 40 | Tamil Nadu government announcements booklet, 2011–12 |
-| degraded | 40 | 37 | Aged booklet scans — show-through, low contrast |
+| newsprint | 80 | 79 | Tamil newspaper column crops, photographed |
+| books | 80 | 76 | Photographed book pages |
+| forms | 60 | 55 | Government forms and minutes, born-digital PDF at 300 dpi |
+| signage | 40 | 39 | Tamil Nadu government announcements booklet, 2011–12 |
+| degraded | 40 | 32 | Aged booklet scans — show-through, low contrast |
+
+## Provenance of this particular draw
+
+294 of the 300 lines are the original seed-0 draw, transcribed by hand
+before a bug was found in `deskew` (see the commit that fixed it). Six were
+replaced afterwards: four the transcriber found to hold no readable text,
+and two that the deskew bug had turned into diagonal smears of several form
+fields. Those six came from the corrected pool via `replace`.
+
+The remaining 294 crops therefore come from the pre-fix segmentation. That
+is deliberate: they were already transcribed, and 45 of them sit on pages
+where the two deskew implementations disagree by more than a degree, which
+is a rotation difference well inside the range of real capture skew. Only
+the two beyond five degrees were unusable, and both were replaced. Redrawing
+the other 292 to gain a fraction of a degree would have discarded the
+transcription work that is the expensive part of this set.
 
 ## What the sampler rejected, and what it did not
 

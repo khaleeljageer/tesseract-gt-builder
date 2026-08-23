@@ -221,3 +221,7 @@ testset/pool/
 # size and because redistributing whole pages is a different question from
 # quoting lines of them for evaluation. Back these up outside git.
 raw_scans/
+
+# Timestamped safety copies of hand transcriptions. Keep them locally; the
+# authoritative set is testset/gt.
+.transcription-backup-*/
