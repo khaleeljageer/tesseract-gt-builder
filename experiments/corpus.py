@@ -58,6 +58,75 @@ def normalize_line(text: str) -> str:
     return " ".join(unicodedata.normalize("NFC", text).split())
 
 
+# Five of the six malformed-sequence classes below are artifacts of the
+# 8-bit Tamil encodings (Bamini, TAB, TSCII) the source sites were typeset
+# in before they moved to Unicode. The dominant one is r-with-pulli: in those
+# fonts the glyph for the consonant ர carries the same codepoint as the vowel
+# sign ா, so a naive converter emits "ா ்" wherever the text said "ர ்".
+# It reads correctly to a human -- the glyphs are nearly identical -- which is
+# why it survives proofreading, and it is why theekkathir has the highest rate
+# of the five sources (0.017% of words against wikisource's 0.006%).
+#
+# Every one of these patterns is a mark in a position where Tamil permits no
+# mark: a vowel sign or pulli that follows another vowel sign or pulli rather
+# than a consonant. Well-formed text therefore cannot match any of them, and
+# repair_tamil is a no-op on it -- verified over all 2,418,180 words of
+# raw_data, where it repairs 103 words in 2,418,180 and leaves every other word
+# byte-identical.
+#
+# Ordering matters: RA_PULLI must run before the doubled-mark collapse, so
+# that "வாா்டு" (வ ா ா ்) becomes "வார்டு" and not "வா்டு".
+TAMIL_REPAIRS = (
+    ("\u0BBE\u0BCD", "\u0BB0\u0BCD"),   # ா ்  -> ர ்   legacy RA
+    ("\u0BC1\u0BBE", "\u0BC2"),          # ு ா  -> ூ     legacy UU
+    ("\u0BBE\u0BBE", "\u0BBE"),          # ா ா  -> ா     doubled sign
+    ("\u0BCD\u0BCD", "\u0BCD"),          # ் ்  -> ்     doubled pulli
+)
+
+TAMIL_CONSONANTS = frozenset(chr(c) for c in range(0x0B95, 0x0BBA))
+TAMIL_MARKS = frozenset(chr(c) for c in range(0x0BBE, 0x0BCE)) | {"\u0BD7"}
+
+
+def repair_tamil(text: str) -> str:
+    """Undo the legacy-encoding artifacts listed in TAMIL_REPAIRS.
+
+    Works on NFD, because ொ ோ ௌ compose a vowel sign out of two marks and
+    the artifact hides inside them: "தோ்தல்" is த + ே + ா + ் + ..., whose
+    "ா ்" is invisible in NFC but is the same defect as in "தலைவா்".
+    """
+    s = unicodedata.normalize("NFD", text)
+    for bad, good in TAMIL_REPAIRS:
+        while bad in s:
+            s = s.replace(bad, good)
+    # A pulli after a vowel sign is never legal and, unlike the patterns
+    # above, carries no recoverable intent -- it is a stray mark, as in
+    # "வேண்டு்ம்" for "வேண்டும்". Drop it.
+    out = []
+    for ch in s:
+        if ch == "\u0BCD" and out and out[-1] in TAMIL_MARKS:
+            continue
+        out.append(ch)
+    return unicodedata.normalize("NFC", "".join(out))
+
+
+def well_formed(text: str) -> bool:
+    """False if a Tamil mark still lacks a consonant to attach to.
+
+    What repair_tamil cannot fix is a word whose base consonant is simply
+    absent -- "்ளனர்", "ேலைநிறுத்தம்", "ாநாட்டின்" -- which is what a scraper
+    produces when it breaks a word across a page boundary mid-grapheme, and
+    the odd transposition ("விளைாயடுகிறாய்" for "விளையாடுகிறாய்"). Neither
+    can be recovered without the missing character, so the line is dropped:
+    43 words in 2,418,180.
+    """
+    prev = ""
+    for ch in unicodedata.normalize("NFC", text):
+        if ch in TAMIL_MARKS and prev not in TAMIL_CONSONANTS:
+            return False
+        prev = ch
+    return True
+
+
 def sentences(words):
     """Split a word stream at sentence-final punctuation."""
     out, current = [], []
@@ -97,7 +166,7 @@ def paragraph_lines(words, words_per_line=WORDS_PER_LINE, rng=None,
 
 
 def build_pool(raw_dir="raw_data", words_per_line=WORDS_PER_LINE, seed=0,
-               paragraphs=True):
+               paragraphs=True, repair=True):
     """Chunk every source into lines, keeping provenance.
 
     Returns {source_stem: [line, ...]}. Sources are read in sorted order and
@@ -107,10 +176,14 @@ def build_pool(raw_dir="raw_data", words_per_line=WORDS_PER_LINE, seed=0,
 
     With paragraphs=False the old fixed-width chunking is used, which is what
     produced the v1 and v2 corpora; it is kept so those remain reproducible.
+    repair=False likewise reproduces v1-v3, which were built before
+    repair_tamil existed.
     """
     pool = {}
     for path in sorted(Path(raw_dir).glob("*.txt")):
         words = path.read_text(encoding="utf-8").split()
+        if repair:
+            words = [repair_tamil(w) for w in words]
         if paragraphs:
             rng = random.Random(f"{seed}:{path.stem}")
             lines = [normalize_line(x)
@@ -161,7 +234,7 @@ def has_tamil(line):
 
 
 def select(pool, sources=None, n_lines=None, seed=0, dedup=True,
-           require_tamil=True):
+           require_tamil=True, require_well_formed=True):
     """Build one variant's line list.
 
     sources  restrict to these source stems (None = all)
@@ -186,6 +259,15 @@ def select(pool, sources=None, n_lines=None, seed=0, dedup=True,
 
     if require_tamil:
         lines = [ln for ln in lines if has_tamil(ln)]
+
+    # Whatever repair_tamil could not mend has to go, because the renderer
+    # will draw it and the ground truth will then describe an image of a
+    # broken glyph cluster. unicharset_extractor rejects these outright
+    # ("Invalid start of grapheme sequence"), so in v3 they contributed
+    # nothing to the unicharset and stayed in the training set as noise:
+    # 123 lines of 218,125.
+    if require_well_formed:
+        lines = [ln for ln in lines if well_formed(ln)]
 
     random.Random(seed).shuffle(lines)
 

@@ -225,3 +225,7 @@ raw_scans/
 # Timestamped safety copies of hand transcriptions. Keep them locally; the
 # authoritative set is testset/gt.
 .transcription-backup-*/
+
+# Keep the unicharset normalisation report; it is evidence for the
+# corpus-hygiene section, not a build artefact.
+!logs/unicharset_normalisation_v3.log
