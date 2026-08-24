@@ -235,3 +235,9 @@ raw_scans/
 testset/preds_i*/
 testset/preds_*/
 experiment_log.md
+
+# The second-pass transcriptions are ground truth and belong in the release,
+# like the first pass. The working .tif copies beside them do not.
+!testset/gt_pass2/
+!testset/gt_pass2/*.gt.txt
+testset/gt_pass2/*.tif
