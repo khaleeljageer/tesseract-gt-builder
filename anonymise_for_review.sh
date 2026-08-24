@@ -31,12 +31,18 @@ SRC="$(git rev-parse --show-toplevel)"
 
 # The corpus itself is 397k tracked files and belongs on the archive, not in
 # a review mirror; reviewers need the code, the test set and the results.
-EXCLUDE='gt_v2_fixedwidth/* gt/* preds_*/*'
+# Quoted, and never expanded by the shell: an unquoted gt/* here becomes
+# 218,125 arguments and git exits with "Argument list too long".
+EXCLUDE=(
+    ':(exclude)gt_v2_fixedwidth/**'
+    ':(exclude)gt/**'
+    ':(exclude)preds_*/**'
+    ':(exclude)anonymise_for_review.sh'   # names the author, in its own regex
+)
 
 echo "exporting tracked files to $OUT (excluding bulk corpus data)"
 mkdir -p "$OUT"
-# shellcheck disable=SC2086
-git archive HEAD $(printf -- ':(exclude)%s ' $EXCLUDE) | tar -x -C "$OUT"
+git archive HEAD "${EXCLUDE[@]}" | tar -x -C "$OUT"
 
 cd "$OUT"
 rm -rf .github
