@@ -229,3 +229,7 @@ raw_scans/
 # Keep the unicharset normalisation report; it is evidence for the
 # corpus-hygiene section, not a build artefact.
 !logs/unicharset_normalisation_v3.log
+
+# Per-checkpoint predictions are derived from results/*.json; regenerate
+# with make_testset.py predict rather than storing 14 x 300 files.
+testset/preds_i*/
