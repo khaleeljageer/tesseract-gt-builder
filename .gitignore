@@ -241,3 +241,8 @@ experiment_log.md
 !testset/gt_pass2/
 !testset/gt_pass2/*.gt.txt
 testset/gt_pass2/*.tif
+
+# The reporting-split second pass, same reasoning as gt_pass2.
+!testset/gt_pass2b/
+!testset/gt_pass2b/*.gt.txt
+testset/gt_pass2b/*.tif
