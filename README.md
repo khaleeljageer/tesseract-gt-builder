@@ -104,6 +104,81 @@ numerals and some punctuation, silently changing the denominator.
 > **inserted characters cost nothing**, and it used NFKC. Any figure produced
 > with it should be recomputed.
 
+## Fine-tuning
+
+```bash
+python3 prepare_lstmf.py --gt-dir gt --jobs 10          # LANG_TYPE=Indic by default
+
+cd $TESSTRAIN_DIR && make training \
+  MODEL_NAME=tam_v3 START_MODEL=tam LANG_TYPE=Indic \
+  TESSDATA=/usr/share/tesseract-ocr/5/tessdata \
+  GROUND_TRUTH_DIR=$PWD/gt MAX_ITERATIONS=100000
+
+python3 build_dawgs.py \
+  --checkpoint $TESSTRAIN_DIR/data/tam_v3/checkpoints/tam_v3_4.959_1059_1400.checkpoint \
+  --traineddata $TESSTRAIN_DIR/data/tam_v3/tam_v3.traineddata \
+  --out model/tam_v3.traineddata
+```
+
+### Three defaults that will cost you the model
+
+Each of these is silent, each is what tesstrain does if you say nothing, and
+together they are worth more than any corpus change measured here.
+`results/checkpoint_sweep.json` has the numbers: 14 checkpoints of each of two
+training runs, scored on the 300-line test set.
+
+**`LANG_TYPE=Indic` is not optional, and it must be on the `make` line.** It
+selects two things. `generate_wordstr_box.py` in place of
+`generate_line_box.py`, which boxes the whole line rather than splitting
+syllables — `generate_line_box.py` groups a mark with its consonant only when
+the mark's canonical combining class is non-zero, and every Tamil vowel sign
+has class 0, so `லி` becomes `ல` + `ி`. And `--pass_through_recoder` in
+`combine_lang_model`, which keeps the pre-trained code space instead of
+rebuilding it. The second matters more. Without it the model gets
+`null_char=106` where stock tam has `2`, so `--continue_from` resumes stock's
+weights into a code space they were never trained for: 40.6% CER after 100
+iterations, 35.2% after 200, and 18,000 iterations of climbing to reach 12%,
+against stock's 8.9%. With it, 200 iterations already scores 8.8%. Check with
+`combine_tessdata -l` before you train for a day.
+
+**`make training` exports the best *training* BCER, which is the wrong model.**
+Training BCER falls monotonically — 0.797% by iteration 46,800 — while
+real-page CER turns around near iteration 700 and climbs for the rest of the
+run. The exported model scores 12.23%; iteration 1,400 of the same run scores
+8.40%. The gap is overtraining on the synthetic domain and it is worst where
+the domain gap is widest, on the sparsest quarter of crops. Sweep the
+checkpoints and choose on real pages, not on the training curve. Choose on a
+split you then do not report, or you are fitting the test set.
+
+**No wordlist file means no dictionary.** `combine_lang_model` reads
+`data/$MODEL/$MODEL.wordlist`, `.punc` and `.numbers`; nothing creates them, so
+it is handed three paths that do not exist and emits a traineddata with no
+DAWGs at all — 3.1 MB against stock's 6.0 MB. `build_dawgs.py` builds the word
+DAWG from `raw_data` and takes the punctuation and number patterns from stock.
+Building the wordlist from this corpus beats grafting stock's, and beats the
+union of the two, so match the vocabulary rather than maximising it.
+
+### Corpus hygiene
+
+`unicharset_extractor` rejects lines whose Tamil is ill-formed —
+`Invalid start of grapheme sequence` — and they then reach training as label
+noise. Almost all of it is one artifact: in Bamini, TAB and TSCII the glyph for
+`ர` sits at the codepoint Unicode gives to `ா`, so converted archives spell
+`ர ்` as `ா ்`. `corpus.repair_tamil` undoes that and three related patterns;
+every pattern it matches is illegal Tamil, so it cannot touch well-formed text
+(103 words changed in 2,418,180, the rest byte-identical). What it cannot mend
+— a word whose base consonant is simply missing — `corpus.well_formed` drops.
+
+`audit_gt.py` finds these in an already-rendered build. It does not repair
+them, because the `.tif` was rendered from the broken text and depicts the
+broken glyphs; a repaired `.gt.txt` would no longer describe its image. Repair
+belongs in `corpus.py`, before rendering.
+
+The published v3 corpus keeps its 123 affected lines (0.056%), listed in
+`corpus_defects_v3.txt`, so that it remains exactly the corpus the published
+model was trained on. Use `audit_gt.py --delete` if you would rather drop them
+and retrain.
+
 ## Ablation studies
 
 Three grids, each varying one thing and holding the rest fixed:
