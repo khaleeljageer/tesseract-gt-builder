@@ -578,5 +578,47 @@
    "cer_signage": 0.060732984293193716,
    "train_bcer": 0.00797
   }
+ },
+ "dawg_variants": {
+  "note": "Word DAWGs built against the v3 unicharset. 'stock' is stock tam's 251,899-word list, 'corpus' is 290,761 repaired words from raw_data, 'union' is both. punc and number DAWGs are stock's in every case. Variant chosen on selection_split, which picks 'corpus'.",
+  "results": {
+   "stock": {
+    "lines": 300,
+    "cer_grapheme_micro": 0.0813336164790826,
+    "cer_grapheme_macro": 0.11282857846687594,
+    "cer_codepoint_micro": 0.06539939610211365,
+    "wer_micro": 0.20365853658536584,
+    "wer_macro": 0.25943553668553676,
+    "total_graphemes": 9418,
+    "total_words": 1640
+   },
+   "corpus": {
+    "lines": 300,
+    "cer_grapheme_micro": 0.07772350817583351,
+    "cer_grapheme_macro": 0.10857901948495488,
+    "cer_codepoint_micro": 0.062448531430139995,
+    "wer_micro": 0.19573170731707318,
+    "wer_macro": 0.25720273245273245,
+    "total_graphemes": 9418,
+    "total_words": 1640
+   },
+   "union": {
+    "lines": 300,
+    "cer_grapheme_micro": 0.08080271819919303,
+    "cer_grapheme_macro": 0.11243801815890501,
+    "cer_codepoint_micro": 0.06581114466099369,
+    "wer_micro": 0.2,
+    "wer_macro": 0.2536537906537907,
+    "total_graphemes": 9418,
+    "total_words": 1640
+   }
+  },
+  "selected": "corpus"
+ },
+ "release_model": {
+  "path": "model/2026-08-24/tam_v3.traineddata",
+  "checkpoint": "tam_v3_4.959_1059_1400",
+  "iteration": 1400,
+  "word_dawg": "corpus"
  }
 }
