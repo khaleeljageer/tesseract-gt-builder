@@ -1,0 +1,2714 @@
+{
+  "aggregate": {
+    "lines": 300,
+    "cer_grapheme_micro": 0.08260777235081758,
+    "cer_grapheme_macro": 0.106381976331877,
+    "cer_codepoint_micro": 0.0661542684600604,
+    "wer_micro": 0.2176829268292683,
+    "wer_macro": 0.25585532985532994,
+    "total_graphemes": 9418,
+    "total_words": 1640
+  },
+  "per_line": [
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "books_001_l005"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 25,
+      "codepoint_edits": 2,
+      "codepoint_ref": 38,
+      "word_edits": 2,
+      "word_ref": 4,
+      "name": "books_002_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_003_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 57,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_004_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 50,
+      "codepoint_edits": 0,
+      "codepoint_ref": 80,
+      "word_edits": 0,
+      "word_ref": 9,
+      "name": "books_005_l005"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 44,
+      "codepoint_edits": 5,
+      "codepoint_ref": 71,
+      "word_edits": 3,
+      "word_ref": 6,
+      "name": "books_006_l002"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 49,
+      "codepoint_edits": 4,
+      "codepoint_ref": 78,
+      "word_edits": 3,
+      "word_ref": 7,
+      "name": "books_007_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 47,
+      "codepoint_edits": 2,
+      "codepoint_ref": 78,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "books_009_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 49,
+      "codepoint_edits": 1,
+      "codepoint_ref": 73,
+      "word_edits": 1,
+      "word_ref": 8,
+      "name": "books_010_l001"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 49,
+      "codepoint_edits": 3,
+      "codepoint_ref": 71,
+      "word_edits": 3,
+      "word_ref": 10,
+      "name": "books_011_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 45,
+      "codepoint_edits": 0,
+      "codepoint_ref": 68,
+      "word_edits": 0,
+      "word_ref": 8,
+      "name": "books_013_l005"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 45,
+      "codepoint_edits": 1,
+      "codepoint_ref": 69,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "books_014_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 19,
+      "codepoint_edits": 0,
+      "codepoint_ref": 30,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "books_015_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 42,
+      "codepoint_edits": 0,
+      "codepoint_ref": 62,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_016_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 43,
+      "codepoint_edits": 1,
+      "codepoint_ref": 64,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "books_017_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 42,
+      "codepoint_edits": 0,
+      "codepoint_ref": 67,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_018_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 44,
+      "codepoint_edits": 0,
+      "codepoint_ref": 67,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_020_l003"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 41,
+      "codepoint_edits": 1,
+      "codepoint_ref": 64,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_021_l003"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 42,
+      "codepoint_edits": 0,
+      "codepoint_ref": 63,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_022_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 42,
+      "codepoint_edits": 1,
+      "codepoint_ref": 70,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_023_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 60,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_024_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 41,
+      "codepoint_edits": 0,
+      "codepoint_ref": 65,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_024_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 37,
+      "codepoint_edits": 1,
+      "codepoint_ref": 57,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "books_025_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 55,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_026_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 33,
+      "codepoint_edits": 1,
+      "codepoint_ref": 58,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_027_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 32,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_028_l004"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 36,
+      "codepoint_edits": 4,
+      "codepoint_ref": 57,
+      "word_edits": 2,
+      "word_ref": 7,
+      "name": "books_029_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 34,
+      "codepoint_edits": 1,
+      "codepoint_ref": 53,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "books_030_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 47,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_031_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_032_l003"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 54,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_033_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 36,
+      "codepoint_edits": 0,
+      "codepoint_ref": 58,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_034_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 53,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_035_l003"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 36,
+      "codepoint_edits": 4,
+      "codepoint_ref": 55,
+      "word_edits": 3,
+      "word_ref": 7,
+      "name": "books_036_l006"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 34,
+      "codepoint_edits": 2,
+      "codepoint_ref": 54,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "books_037_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 37,
+      "codepoint_edits": 0,
+      "codepoint_ref": 57,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_038_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 36,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_039_l005"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 34,
+      "codepoint_edits": 2,
+      "codepoint_ref": 51,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "books_040_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 8,
+      "codepoint_edits": 0,
+      "codepoint_ref": 15,
+      "word_edits": 0,
+      "word_ref": 1,
+      "name": "books_041_l014"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 21,
+      "codepoint_edits": 0,
+      "codepoint_ref": 33,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "books_042_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 19,
+      "codepoint_edits": 0,
+      "codepoint_ref": 28,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "books_043_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_044_l011"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 31,
+      "codepoint_edits": 2,
+      "codepoint_ref": 50,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_045_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 39,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_046_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 18,
+      "codepoint_edits": 0,
+      "codepoint_ref": 32,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "books_047_l014"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 48,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_048_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 4,
+      "codepoint_edits": 0,
+      "codepoint_ref": 7,
+      "word_edits": 0,
+      "word_ref": 1,
+      "name": "books_048_l017"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 27,
+      "codepoint_edits": 3,
+      "codepoint_ref": 40,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "books_049_l001"
+    },
+    {
+      "grapheme_edits": 7,
+      "grapheme_ref": 29,
+      "codepoint_edits": 8,
+      "codepoint_ref": 43,
+      "word_edits": 3,
+      "word_ref": 7,
+      "name": "books_050_l005"
+    },
+    {
+      "grapheme_edits": 8,
+      "grapheme_ref": 32,
+      "codepoint_edits": 10,
+      "codepoint_ref": 48,
+      "word_edits": 3,
+      "word_ref": 6,
+      "name": "books_051_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 48,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_052_l006"
+    },
+    {
+      "grapheme_edits": 10,
+      "grapheme_ref": 35,
+      "codepoint_edits": 13,
+      "codepoint_ref": 56,
+      "word_edits": 3,
+      "word_ref": 6,
+      "name": "books_053_l006"
+    },
+    {
+      "grapheme_edits": 11,
+      "grapheme_ref": 41,
+      "codepoint_edits": 14,
+      "codepoint_ref": 62,
+      "word_edits": 4,
+      "word_ref": 7,
+      "name": "books_054_l003"
+    },
+    {
+      "grapheme_edits": 5,
+      "grapheme_ref": 30,
+      "codepoint_edits": 5,
+      "codepoint_ref": 45,
+      "word_edits": 4,
+      "word_ref": 6,
+      "name": "books_055_l005"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 35,
+      "codepoint_edits": 4,
+      "codepoint_ref": 58,
+      "word_edits": 2,
+      "word_ref": 7,
+      "name": "books_055_l008"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 29,
+      "codepoint_edits": 1,
+      "codepoint_ref": 46,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_056_l005"
+    },
+    {
+      "grapheme_edits": 8,
+      "grapheme_ref": 14,
+      "codepoint_edits": 9,
+      "codepoint_ref": 23,
+      "word_edits": 1,
+      "word_ref": 2,
+      "name": "books_057_l014"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 52,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_058_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 32,
+      "codepoint_edits": 0,
+      "codepoint_ref": 51,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_059_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 35,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_060_l011"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 35,
+      "codepoint_edits": 1,
+      "codepoint_ref": 56,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "books_061_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 49,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_062_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 40,
+      "codepoint_edits": 0,
+      "codepoint_ref": 62,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_063_l010"
+    },
+    {
+      "grapheme_edits": 51,
+      "grapheme_ref": 54,
+      "codepoint_edits": 70,
+      "codepoint_ref": 85,
+      "word_edits": 11,
+      "word_ref": 11,
+      "name": "books_064_l004"
+    },
+    {
+      "grapheme_edits": 6,
+      "grapheme_ref": 30,
+      "codepoint_edits": 6,
+      "codepoint_ref": 48,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "books_065_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "books_067_l009"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 31,
+      "codepoint_edits": 1,
+      "codepoint_ref": 52,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "books_068_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 37,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "books_069_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 32,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_070_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 21,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "books_071_l014"
+    },
+    {
+      "grapheme_edits": 32,
+      "grapheme_ref": 53,
+      "codepoint_edits": 42,
+      "codepoint_ref": 82,
+      "word_edits": 8,
+      "word_ref": 9,
+      "name": "books_072_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 45,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "books_073_l004"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 31,
+      "codepoint_edits": 5,
+      "codepoint_ref": 46,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "books_074_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 36,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_075_l005"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 41,
+      "codepoint_edits": 5,
+      "codepoint_ref": 66,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "books_076_l008"
+    },
+    {
+      "grapheme_edits": 11,
+      "grapheme_ref": 12,
+      "codepoint_edits": 19,
+      "codepoint_ref": 18,
+      "word_edits": 2,
+      "word_ref": 2,
+      "name": "books_076_l022"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 42,
+      "codepoint_edits": 1,
+      "codepoint_ref": 68,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "books_077_l010"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 32,
+      "codepoint_edits": 0,
+      "codepoint_ref": 54,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "books_078_l016"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 32,
+      "codepoint_edits": 1,
+      "codepoint_ref": 51,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "books_079_l003"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 51,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "books_080_l006"
+    },
+    {
+      "grapheme_edits": 6,
+      "grapheme_ref": 38,
+      "codepoint_edits": 6,
+      "codepoint_ref": 63,
+      "word_edits": 4,
+      "word_ref": 5,
+      "name": "degraded_001_l027"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 37,
+      "codepoint_edits": 11,
+      "codepoint_ref": 54,
+      "word_edits": 4,
+      "word_ref": 7,
+      "name": "degraded_002_l018"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 40,
+      "codepoint_edits": 0,
+      "codepoint_ref": 61,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "degraded_003_l015"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 37,
+      "codepoint_edits": 1,
+      "codepoint_ref": 57,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_004_l039"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "degraded_005_l005"
+    },
+    {
+      "grapheme_edits": 7,
+      "grapheme_ref": 31,
+      "codepoint_edits": 7,
+      "codepoint_ref": 49,
+      "word_edits": 4,
+      "word_ref": 6,
+      "name": "degraded_006_l040"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 37,
+      "codepoint_edits": 3,
+      "codepoint_ref": 58,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "degraded_007_l022"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 58,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "degraded_008_l006"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 39,
+      "codepoint_edits": 1,
+      "codepoint_ref": 58,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_009_l017"
+    },
+    {
+      "grapheme_edits": 25,
+      "grapheme_ref": 19,
+      "codepoint_edits": 42,
+      "codepoint_ref": 28,
+      "word_edits": 6,
+      "word_ref": 5,
+      "name": "degraded_009_l039"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 35,
+      "codepoint_edits": 0,
+      "codepoint_ref": 54,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "degraded_011_l029"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 36,
+      "codepoint_edits": 3,
+      "codepoint_ref": 56,
+      "word_edits": 3,
+      "word_ref": 6,
+      "name": "degraded_012_l008"
+    },
+    {
+      "grapheme_edits": 32,
+      "grapheme_ref": 9,
+      "codepoint_edits": 56,
+      "codepoint_ref": 11,
+      "word_edits": 3,
+      "word_ref": 2,
+      "name": "degraded_014_l012"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 35,
+      "codepoint_edits": 2,
+      "codepoint_ref": 55,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "degraded_015_l032"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 33,
+      "codepoint_edits": 2,
+      "codepoint_ref": 49,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "degraded_016_l028"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 38,
+      "codepoint_edits": 2,
+      "codepoint_ref": 55,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "degraded_016_l033"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 36,
+      "codepoint_edits": 3,
+      "codepoint_ref": 57,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "degraded_017_l007"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 42,
+      "codepoint_edits": 2,
+      "codepoint_ref": 64,
+      "word_edits": 2,
+      "word_ref": 7,
+      "name": "degraded_017_l036"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 35,
+      "codepoint_edits": 2,
+      "codepoint_ref": 58,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_018_l003"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 35,
+      "codepoint_edits": 1,
+      "codepoint_ref": 54,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_019_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 36,
+      "codepoint_edits": 0,
+      "codepoint_ref": 55,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "degraded_020_l002"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 38,
+      "codepoint_edits": 5,
+      "codepoint_ref": 57,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "degraded_021_l001"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 43,
+      "codepoint_edits": 2,
+      "codepoint_ref": 62,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_022_l023"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 57,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "degraded_023_l007"
+    },
+    {
+      "grapheme_edits": 5,
+      "grapheme_ref": 39,
+      "codepoint_edits": 5,
+      "codepoint_ref": 56,
+      "word_edits": 2,
+      "word_ref": 8,
+      "name": "degraded_024_l010"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 37,
+      "codepoint_edits": 2,
+      "codepoint_ref": 58,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_026_l037"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 36,
+      "codepoint_edits": 4,
+      "codepoint_ref": 57,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "degraded_026_l038"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 62,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "degraded_027_l037"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 35,
+      "codepoint_edits": 4,
+      "codepoint_ref": 52,
+      "word_edits": 3,
+      "word_ref": 7,
+      "name": "degraded_028_l014"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 44,
+      "codepoint_edits": 5,
+      "codepoint_ref": 64,
+      "word_edits": 2,
+      "word_ref": 9,
+      "name": "degraded_028_l023"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 31,
+      "codepoint_edits": 2,
+      "codepoint_ref": 49,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "degraded_029_l003"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 37,
+      "codepoint_edits": 0,
+      "codepoint_ref": 53,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "degraded_029_l021"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 35,
+      "codepoint_edits": 1,
+      "codepoint_ref": 52,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "degraded_030_l001"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 36,
+      "codepoint_edits": 1,
+      "codepoint_ref": 56,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "degraded_030_l010"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 34,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "degraded_031_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 22,
+      "codepoint_edits": 0,
+      "codepoint_ref": 33,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "degraded_032_l005"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 26,
+      "codepoint_edits": 1,
+      "codepoint_ref": 38,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "degraded_033_l013"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 25,
+      "codepoint_edits": 1,
+      "codepoint_ref": 39,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "degraded_034_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "degraded_035_l015"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 33,
+      "codepoint_edits": 5,
+      "codepoint_ref": 56,
+      "word_edits": 4,
+      "word_ref": 6,
+      "name": "degraded_040_l007"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 22,
+      "codepoint_edits": 1,
+      "codepoint_ref": 31,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "forms_001_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 43,
+      "codepoint_edits": 0,
+      "codepoint_ref": 67,
+      "word_edits": 0,
+      "word_ref": 8,
+      "name": "forms_002_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 48,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "forms_003_l028"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 48,
+      "codepoint_edits": 0,
+      "codepoint_ref": 72,
+      "word_edits": 0,
+      "word_ref": 9,
+      "name": "forms_004_l024"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 39,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "forms_005_l029"
+    },
+    {
+      "grapheme_edits": 8,
+      "grapheme_ref": 14,
+      "codepoint_edits": 8,
+      "codepoint_ref": 22,
+      "word_edits": 5,
+      "word_ref": 2,
+      "name": "forms_006_l031"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 14,
+      "codepoint_edits": 9,
+      "codepoint_ref": 21,
+      "word_edits": 5,
+      "word_ref": 3,
+      "name": "forms_007_l019"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 19,
+      "codepoint_edits": 2,
+      "codepoint_ref": 29,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "forms_008_l014"
+    },
+    {
+      "grapheme_edits": 6,
+      "grapheme_ref": 13,
+      "codepoint_edits": 8,
+      "codepoint_ref": 21,
+      "word_edits": 3,
+      "word_ref": 3,
+      "name": "forms_009_l001"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 20,
+      "codepoint_edits": 9,
+      "codepoint_ref": 30,
+      "word_edits": 5,
+      "word_ref": 5,
+      "name": "forms_010_l014"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 10,
+      "codepoint_edits": 10,
+      "codepoint_ref": 16,
+      "word_edits": 3,
+      "word_ref": 1,
+      "name": "forms_010_l032"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 21,
+      "codepoint_edits": 3,
+      "codepoint_ref": 32,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "forms_011_l018"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 26,
+      "codepoint_edits": 1,
+      "codepoint_ref": 36,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "forms_012_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 25,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "forms_013_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 45,
+      "codepoint_edits": 1,
+      "codepoint_ref": 69,
+      "word_edits": 1,
+      "word_ref": 8,
+      "name": "forms_014_l044"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 18,
+      "codepoint_edits": 0,
+      "codepoint_ref": 25,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "forms_016_l015"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 55,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "forms_016_l020"
+    },
+    {
+      "grapheme_edits": 25,
+      "grapheme_ref": 19,
+      "codepoint_edits": 36,
+      "codepoint_ref": 30,
+      "word_edits": 6,
+      "word_ref": 3,
+      "name": "forms_017_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 9,
+      "codepoint_edits": 0,
+      "codepoint_ref": 16,
+      "word_edits": 0,
+      "word_ref": 2,
+      "name": "forms_018_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 22,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "forms_019_l006"
+    },
+    {
+      "grapheme_edits": 19,
+      "grapheme_ref": 56,
+      "codepoint_edits": 19,
+      "codepoint_ref": 71,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "forms_020_l022"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 16,
+      "codepoint_edits": 2,
+      "codepoint_ref": 24,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "forms_022_l019"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 27,
+      "codepoint_edits": 9,
+      "codepoint_ref": 40,
+      "word_edits": 5,
+      "word_ref": 5,
+      "name": "forms_023_l015"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 18,
+      "codepoint_edits": 1,
+      "codepoint_ref": 28,
+      "word_edits": 1,
+      "word_ref": 2,
+      "name": "forms_024_l019"
+    },
+    {
+      "grapheme_edits": 16,
+      "grapheme_ref": 35,
+      "codepoint_edits": 17,
+      "codepoint_ref": 53,
+      "word_edits": 8,
+      "word_ref": 8,
+      "name": "forms_026_l015"
+    },
+    {
+      "grapheme_edits": 12,
+      "grapheme_ref": 11,
+      "codepoint_edits": 13,
+      "codepoint_ref": 15,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "forms_027_l021"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 18,
+      "codepoint_edits": 9,
+      "codepoint_ref": 27,
+      "word_edits": 5,
+      "word_ref": 4,
+      "name": "forms_028_l013"
+    },
+    {
+      "grapheme_edits": 12,
+      "grapheme_ref": 27,
+      "codepoint_edits": 19,
+      "codepoint_ref": 39,
+      "word_edits": 3,
+      "word_ref": 5,
+      "name": "forms_029_l004"
+    },
+    {
+      "grapheme_edits": 7,
+      "grapheme_ref": 20,
+      "codepoint_edits": 7,
+      "codepoint_ref": 31,
+      "word_edits": 4,
+      "word_ref": 3,
+      "name": "forms_030_l018"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 28,
+      "codepoint_edits": 1,
+      "codepoint_ref": 43,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "forms_031_l016"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 49,
+      "codepoint_edits": 1,
+      "codepoint_ref": 79,
+      "word_edits": 1,
+      "word_ref": 8,
+      "name": "forms_034_l016"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 17,
+      "codepoint_edits": 0,
+      "codepoint_ref": 25,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "forms_035_l027"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 45,
+      "codepoint_edits": 1,
+      "codepoint_ref": 71,
+      "word_edits": 1,
+      "word_ref": 10,
+      "name": "forms_036_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 43,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "forms_037_l010"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 11,
+      "codepoint_edits": 1,
+      "codepoint_ref": 17,
+      "word_edits": 2,
+      "word_ref": 3,
+      "name": "forms_039_l003"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 55,
+      "codepoint_edits": 2,
+      "codepoint_ref": 88,
+      "word_edits": 2,
+      "word_ref": 9,
+      "name": "forms_040_l016"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 60,
+      "codepoint_edits": 2,
+      "codepoint_ref": 93,
+      "word_edits": 3,
+      "word_ref": 9,
+      "name": "forms_041_l008"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 74,
+      "codepoint_edits": 5,
+      "codepoint_ref": 99,
+      "word_edits": 1,
+      "word_ref": 11,
+      "name": "forms_041_l013"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 16,
+      "codepoint_edits": 0,
+      "codepoint_ref": 25,
+      "word_edits": 0,
+      "word_ref": 2,
+      "name": "forms_042_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 41,
+      "codepoint_edits": 0,
+      "codepoint_ref": 60,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "forms_043_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 45,
+      "codepoint_edits": 0,
+      "codepoint_ref": 72,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "forms_043_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 43,
+      "codepoint_edits": 0,
+      "codepoint_ref": 68,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "forms_044_l021"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 16,
+      "codepoint_edits": 2,
+      "codepoint_ref": 24,
+      "word_edits": 2,
+      "word_ref": 3,
+      "name": "forms_045_l019"
+    },
+    {
+      "grapheme_edits": 43,
+      "grapheme_ref": 47,
+      "codepoint_edits": 58,
+      "codepoint_ref": 68,
+      "word_edits": 10,
+      "word_ref": 10,
+      "name": "forms_046_l015"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 32,
+      "codepoint_edits": 4,
+      "codepoint_ref": 39,
+      "word_edits": 5,
+      "word_ref": 6,
+      "name": "forms_047_l006"
+    },
+    {
+      "grapheme_edits": 7,
+      "grapheme_ref": 38,
+      "codepoint_edits": 7,
+      "codepoint_ref": 59,
+      "word_edits": 4,
+      "word_ref": 7,
+      "name": "forms_047_l023"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 43,
+      "codepoint_edits": 1,
+      "codepoint_ref": 62,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "forms_048_l019"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 29,
+      "codepoint_edits": 0,
+      "codepoint_ref": 44,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "forms_049_l021"
+    },
+    {
+      "grapheme_edits": 5,
+      "grapheme_ref": 27,
+      "codepoint_edits": 5,
+      "codepoint_ref": 37,
+      "word_edits": 3,
+      "word_ref": 5,
+      "name": "forms_049_l023"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 61,
+      "codepoint_edits": 0,
+      "codepoint_ref": 89,
+      "word_edits": 0,
+      "word_ref": 8,
+      "name": "forms_050_l018"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 54,
+      "codepoint_edits": 0,
+      "codepoint_ref": 85,
+      "word_edits": 0,
+      "word_ref": 9,
+      "name": "forms_051_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 47,
+      "codepoint_edits": 0,
+      "codepoint_ref": 69,
+      "word_edits": 0,
+      "word_ref": 9,
+      "name": "forms_052_l018"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 71,
+      "codepoint_edits": 4,
+      "codepoint_ref": 103,
+      "word_edits": 3,
+      "word_ref": 13,
+      "name": "forms_053_l019"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 40,
+      "codepoint_edits": 1,
+      "codepoint_ref": 64,
+      "word_edits": 1,
+      "word_ref": 8,
+      "name": "forms_054_l010"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 43,
+      "codepoint_edits": 2,
+      "codepoint_ref": 52,
+      "word_edits": 3,
+      "word_ref": 5,
+      "name": "forms_055_l006"
+    },
+    {
+      "grapheme_edits": 10,
+      "grapheme_ref": 29,
+      "codepoint_edits": 14,
+      "codepoint_ref": 48,
+      "word_edits": 4,
+      "word_ref": 5,
+      "name": "forms_056_l016"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 38,
+      "codepoint_edits": 1,
+      "codepoint_ref": 57,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "forms_057_l016"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 30,
+      "codepoint_edits": 1,
+      "codepoint_ref": 47,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "forms_058_l003"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 27,
+      "codepoint_edits": 5,
+      "codepoint_ref": 44,
+      "word_edits": 3,
+      "word_ref": 4,
+      "name": "forms_059_l008"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 5,
+      "codepoint_edits": 2,
+      "codepoint_ref": 7,
+      "word_edits": 1,
+      "word_ref": 1,
+      "name": "forms_060_l012"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_001_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 54,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_002_l009"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 34,
+      "codepoint_edits": 2,
+      "codepoint_ref": 52,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "newsprint_003_l013"
+    },
+    {
+      "grapheme_edits": 5,
+      "grapheme_ref": 26,
+      "codepoint_edits": 6,
+      "codepoint_ref": 41,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "newsprint_004_l011"
+    },
+    {
+      "grapheme_edits": 9,
+      "grapheme_ref": 11,
+      "codepoint_edits": 13,
+      "codepoint_ref": 16,
+      "word_edits": 3,
+      "word_ref": 1,
+      "name": "newsprint_005_l012"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 30,
+      "codepoint_edits": 1,
+      "codepoint_ref": 43,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "newsprint_006_l015"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 24,
+      "codepoint_edits": 4,
+      "codepoint_ref": 38,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_007_l005"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 20,
+      "codepoint_edits": 1,
+      "codepoint_ref": 36,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_008_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_009_l019"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 23,
+      "codepoint_edits": 1,
+      "codepoint_ref": 34,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_010_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 12,
+      "codepoint_edits": 0,
+      "codepoint_ref": 21,
+      "word_edits": 0,
+      "word_ref": 2,
+      "name": "newsprint_011_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_012_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 17,
+      "codepoint_edits": 0,
+      "codepoint_ref": 29,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "newsprint_013_l005"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 21,
+      "codepoint_edits": 1,
+      "codepoint_ref": 29,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_014_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 51,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "newsprint_015_l003"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 33,
+      "codepoint_edits": 3,
+      "codepoint_ref": 52,
+      "word_edits": 4,
+      "word_ref": 7,
+      "name": "newsprint_016_l006"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 32,
+      "codepoint_edits": 2,
+      "codepoint_ref": 48,
+      "word_edits": 3,
+      "word_ref": 6,
+      "name": "newsprint_017_l006"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 32,
+      "codepoint_edits": 4,
+      "codepoint_ref": 52,
+      "word_edits": 6,
+      "word_ref": 6,
+      "name": "newsprint_018_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 16,
+      "codepoint_edits": 1,
+      "codepoint_ref": 27,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "newsprint_019_l008"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 28,
+      "codepoint_edits": 1,
+      "codepoint_ref": 46,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "newsprint_020_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 28,
+      "codepoint_edits": 0,
+      "codepoint_ref": 45,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_021_l010"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_022_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 44,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_023_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_024_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 25,
+      "codepoint_edits": 0,
+      "codepoint_ref": 40,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_025_l012"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 38,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_026_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 37,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_027_l006"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 29,
+      "codepoint_edits": 2,
+      "codepoint_ref": 48,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "newsprint_028_l006"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 32,
+      "codepoint_edits": 3,
+      "codepoint_ref": 47,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "newsprint_029_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 47,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_030_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 16,
+      "codepoint_edits": 1,
+      "codepoint_ref": 28,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "newsprint_031_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 14,
+      "codepoint_edits": 0,
+      "codepoint_ref": 21,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "newsprint_032_l008"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 32,
+      "codepoint_edits": 1,
+      "codepoint_ref": 51,
+      "word_edits": 2,
+      "word_ref": 6,
+      "name": "newsprint_033_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 26,
+      "codepoint_edits": 1,
+      "codepoint_ref": 39,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "newsprint_034_l003"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 59,
+      "word_edits": 0,
+      "word_ref": 8,
+      "name": "newsprint_035_l015"
+    },
+    {
+      "grapheme_edits": 8,
+      "grapheme_ref": 7,
+      "codepoint_edits": 11,
+      "codepoint_ref": 10,
+      "word_edits": 2,
+      "word_ref": 1,
+      "name": "newsprint_036_l015"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 40,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_037_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 27,
+      "codepoint_edits": 2,
+      "codepoint_ref": 43,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "newsprint_038_l008"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 10,
+      "codepoint_edits": 1,
+      "codepoint_ref": 16,
+      "word_edits": 1,
+      "word_ref": 2,
+      "name": "newsprint_039_l001"
+    },
+    {
+      "grapheme_edits": 4,
+      "grapheme_ref": 11,
+      "codepoint_edits": 4,
+      "codepoint_ref": 16,
+      "word_edits": 3,
+      "word_ref": 4,
+      "name": "newsprint_040_l001"
+    },
+    {
+      "grapheme_edits": 13,
+      "grapheme_ref": 27,
+      "codepoint_edits": 15,
+      "codepoint_ref": 43,
+      "word_edits": 5,
+      "word_ref": 5,
+      "name": "newsprint_041_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 34,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_042_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_043_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 35,
+      "codepoint_edits": 0,
+      "codepoint_ref": 58,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_044_l002"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 34,
+      "codepoint_edits": 2,
+      "codepoint_ref": 57,
+      "word_edits": 1,
+      "word_ref": 2,
+      "name": "newsprint_045_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 33,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_046_l003"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 18,
+      "codepoint_edits": 1,
+      "codepoint_ref": 25,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "newsprint_047_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 56,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_048_l003"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 37,
+      "codepoint_edits": 1,
+      "codepoint_ref": 61,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "newsprint_049_l003"
+    },
+    {
+      "grapheme_edits": 35,
+      "grapheme_ref": 38,
+      "codepoint_edits": 52,
+      "codepoint_ref": 62,
+      "word_edits": 5,
+      "word_ref": 5,
+      "name": "newsprint_050_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 39,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_051_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 41,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_052_l002"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 29,
+      "codepoint_edits": 1,
+      "codepoint_ref": 42,
+      "word_edits": 1,
+      "word_ref": 6,
+      "name": "newsprint_053_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 26,
+      "codepoint_edits": 0,
+      "codepoint_ref": 40,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_054_l001"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 56,
+      "codepoint_edits": 1,
+      "codepoint_ref": 89,
+      "word_edits": 1,
+      "word_ref": 9,
+      "name": "newsprint_055_l004"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 63,
+      "codepoint_edits": 3,
+      "codepoint_ref": 97,
+      "word_edits": 6,
+      "word_ref": 11,
+      "name": "newsprint_056_l002"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 54,
+      "codepoint_edits": 2,
+      "codepoint_ref": 86,
+      "word_edits": 1,
+      "word_ref": 10,
+      "name": "newsprint_057_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 57,
+      "codepoint_edits": 1,
+      "codepoint_ref": 91,
+      "word_edits": 1,
+      "word_ref": 10,
+      "name": "newsprint_058_l003"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 61,
+      "codepoint_edits": 2,
+      "codepoint_ref": 98,
+      "word_edits": 2,
+      "word_ref": 11,
+      "name": "newsprint_059_l008"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 53,
+      "codepoint_edits": 3,
+      "codepoint_ref": 83,
+      "word_edits": 2,
+      "word_ref": 8,
+      "name": "newsprint_060_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 37,
+      "codepoint_edits": 0,
+      "codepoint_ref": 55,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "newsprint_061_l007"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 29,
+      "codepoint_edits": 2,
+      "codepoint_ref": 45,
+      "word_edits": 2,
+      "word_ref": 4,
+      "name": "newsprint_062_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 45,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_063_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 29,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_064_l003"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 34,
+      "codepoint_edits": 2,
+      "codepoint_ref": 55,
+      "word_edits": 2,
+      "word_ref": 5,
+      "name": "newsprint_065_l019"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 30,
+      "codepoint_edits": 0,
+      "codepoint_ref": 47,
+      "word_edits": 0,
+      "word_ref": 7,
+      "name": "newsprint_066_l017"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 24,
+      "codepoint_edits": 1,
+      "codepoint_ref": 35,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_067_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 20,
+      "codepoint_edits": 0,
+      "codepoint_ref": 30,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_068_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 43,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "newsprint_069_l008"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 28,
+      "codepoint_edits": 2,
+      "codepoint_ref": 40,
+      "word_edits": 2,
+      "word_ref": 4,
+      "name": "newsprint_070_l020"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 38,
+      "codepoint_edits": 0,
+      "codepoint_ref": 60,
+      "word_edits": 0,
+      "word_ref": 8,
+      "name": "newsprint_071_l007"
+    },
+    {
+      "grapheme_edits": 6,
+      "grapheme_ref": 57,
+      "codepoint_edits": 7,
+      "codepoint_ref": 86,
+      "word_edits": 4,
+      "word_ref": 10,
+      "name": "newsprint_072_l008"
+    },
+    {
+      "grapheme_edits": 3,
+      "grapheme_ref": 62,
+      "codepoint_edits": 2,
+      "codepoint_ref": 93,
+      "word_edits": 2,
+      "word_ref": 11,
+      "name": "newsprint_073_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 26,
+      "codepoint_edits": 1,
+      "codepoint_ref": 41,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "newsprint_074_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 44,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "newsprint_075_l020"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 28,
+      "codepoint_edits": 0,
+      "codepoint_ref": 46,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "newsprint_076_l018"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 30,
+      "codepoint_edits": 1,
+      "codepoint_ref": 48,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "newsprint_077_l013"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 65,
+      "codepoint_edits": 0,
+      "codepoint_ref": 101,
+      "word_edits": 0,
+      "word_ref": 12,
+      "name": "newsprint_078_l002"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 60,
+      "codepoint_edits": 1,
+      "codepoint_ref": 92,
+      "word_edits": 1,
+      "word_ref": 12,
+      "name": "newsprint_079_l001"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 66,
+      "codepoint_edits": 1,
+      "codepoint_ref": 101,
+      "word_edits": 1,
+      "word_ref": 11,
+      "name": "newsprint_080_l004"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 13,
+      "codepoint_edits": 1,
+      "codepoint_ref": 21,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "signage_001_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 40,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_002_l007"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 37,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_004_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 49,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_005_l012"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 31,
+      "codepoint_edits": 1,
+      "codepoint_ref": 43,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "signage_006_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 16,
+      "codepoint_edits": 0,
+      "codepoint_ref": 26,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_007_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 42,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_008_l015"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 33,
+      "codepoint_edits": 1,
+      "codepoint_ref": 44,
+      "word_edits": 1,
+      "word_ref": 7,
+      "name": "signage_009_l007"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 20,
+      "codepoint_edits": 1,
+      "codepoint_ref": 28,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "signage_010_l024"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 25,
+      "codepoint_edits": 2,
+      "codepoint_ref": 41,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "signage_011_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 30,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_012_l013"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 37,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_013_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 28,
+      "codepoint_edits": 0,
+      "codepoint_ref": 43,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_014_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 22,
+      "codepoint_edits": 0,
+      "codepoint_ref": 38,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_015_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 18,
+      "codepoint_edits": 0,
+      "codepoint_ref": 29,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_016_l008"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_017_l011"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 19,
+      "codepoint_edits": 1,
+      "codepoint_ref": 29,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "signage_018_l004"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 41,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_019_l008"
+    },
+    {
+      "grapheme_edits": 28,
+      "grapheme_ref": 29,
+      "codepoint_edits": 35,
+      "codepoint_ref": 45,
+      "word_edits": 5,
+      "word_ref": 5,
+      "name": "signage_020_l001"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 19,
+      "codepoint_edits": 0,
+      "codepoint_ref": 30,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_021_l005"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 21,
+      "codepoint_edits": 0,
+      "codepoint_ref": 35,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_021_l017"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 38,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_022_l004"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 22,
+      "codepoint_edits": 2,
+      "codepoint_ref": 35,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "signage_023_l002"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 9,
+      "codepoint_edits": 1,
+      "codepoint_ref": 13,
+      "word_edits": 1,
+      "word_ref": 1,
+      "name": "signage_023_l004"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 18,
+      "codepoint_edits": 3,
+      "codepoint_ref": 27,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "signage_024_l005"
+    },
+    {
+      "grapheme_edits": 2,
+      "grapheme_ref": 23,
+      "codepoint_edits": 2,
+      "codepoint_ref": 32,
+      "word_edits": 1,
+      "word_ref": 5,
+      "name": "signage_025_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 45,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "signage_026_l015"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_027_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 24,
+      "codepoint_edits": 0,
+      "codepoint_ref": 39,
+      "word_edits": 0,
+      "word_ref": 3,
+      "name": "signage_028_l014"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 23,
+      "codepoint_edits": 0,
+      "codepoint_ref": 36,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_029_l006"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 50,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_030_l009"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 31,
+      "codepoint_edits": 0,
+      "codepoint_ref": 41,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_031_l019"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 29,
+      "codepoint_edits": 1,
+      "codepoint_ref": 45,
+      "word_edits": 1,
+      "word_ref": 4,
+      "name": "signage_032_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 29,
+      "codepoint_edits": 0,
+      "codepoint_ref": 44,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_033_l011"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 45,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_034_l012"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 43,
+      "word_edits": 0,
+      "word_ref": 5,
+      "name": "signage_036_l008"
+    },
+    {
+      "grapheme_edits": 1,
+      "grapheme_ref": 22,
+      "codepoint_edits": 1,
+      "codepoint_ref": 33,
+      "word_edits": 1,
+      "word_ref": 3,
+      "name": "signage_037_l017"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 27,
+      "codepoint_edits": 0,
+      "codepoint_ref": 43,
+      "word_edits": 0,
+      "word_ref": 6,
+      "name": "signage_038_l010"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 18,
+      "codepoint_edits": 0,
+      "codepoint_ref": 28,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_039_l002"
+    },
+    {
+      "grapheme_edits": 0,
+      "grapheme_ref": 20,
+      "codepoint_edits": 0,
+      "codepoint_ref": 33,
+      "word_edits": 0,
+      "word_ref": 4,
+      "name": "signage_040_l015"
+    }
+  ]
+}
