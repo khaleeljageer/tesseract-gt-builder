@@ -233,3 +233,4 @@ raw_scans/
 # Per-checkpoint predictions are derived from results/*.json; regenerate
 # with make_testset.py predict rather than storing 14 x 300 files.
 testset/preds_i*/
+testset/preds_*/
