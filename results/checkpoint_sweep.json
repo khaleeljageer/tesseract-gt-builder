@@ -620,5 +620,120 @@
   "checkpoint": "tam_v3_4.959_1059_1400",
   "iteration": 1400,
   "word_dawg": "corpus"
- }
+ },
+ "v2_checkpoints": {
+  "100": {
+   "train_bcer": 0.30149000000000004,
+   "cer": 0.4059248248035676,
+   "wer": 0.973170731707317,
+   "cer_selection_split": 0.4287138584247258,
+   "cer_reporting_split": 0.3952254641909814,
+   "wer_reporting_split": 0.9595323741007195
+  },
+  "200": {
+   "train_bcer": 0.23375,
+   "cer": 0.351985559566787,
+   "wer": 0.8774390243902439,
+   "cer_selection_split": 0.35626453971419075,
+   "cer_reporting_split": 0.3499765954127009,
+   "wer_reporting_split": 0.8794964028776978
+  },
+  "300": {
+   "train_bcer": 0.21319,
+   "cer": 0.3833085580802718,
+   "wer": 0.8689024390243902,
+   "cer_selection_split": 0.3924891990694583,
+   "cer_reporting_split": 0.37899828366359806,
+   "wer_reporting_split": 0.8812949640287769
+  },
+  "1400": {
+   "train_bcer": 0.19039,
+   "cer": 0.21076661711616054,
+   "wer": 0.5341463414634147,
+   "cer_selection_split": 0.23496178132269857,
+   "cer_reporting_split": 0.19940708378842253,
+   "wer_reporting_split": 0.5152877697841727
+  },
+  "1800": {
+   "train_bcer": 0.10035999999999999,
+   "cer": 0.18464642174559354,
+   "wer": 0.45365853658536587,
+   "cer_selection_split": 0.1984047856430708,
+   "cer_reporting_split": 0.1781869246372289,
+   "wer_reporting_split": 0.43615107913669066
+  },
+  "2000": {
+   "train_bcer": 0.08221,
+   "cer": 0.17434699511573581,
+   "wer": 0.4304878048780488,
+   "cer_selection_split": 0.1871053506148222,
+   "cer_reporting_split": 0.16835699797160245,
+   "wer_reporting_split": 0.4136690647482014
+  },
+  "2700": {
+   "train_bcer": 0.05147,
+   "cer": 0.1538543215119983,
+   "wer": 0.3896341463414634,
+   "cer_selection_split": 0.16650049850448653,
+   "cer_reporting_split": 0.14791699173037914,
+   "wer_reporting_split": 0.3839928057553957
+  },
+  "4400": {
+   "train_bcer": 0.0263,
+   "cer": 0.13399872584412825,
+   "wer": 0.3225609756097561,
+   "cer_selection_split": 0.13924891990694582,
+   "cer_reporting_split": 0.1315337806210017,
+   "wer_reporting_split": 0.31744604316546765
+  },
+  "5300": {
+   "train_bcer": 0.01906,
+   "cer": 0.12348693990231471,
+   "wer": 0.31402439024390244,
+   "cer_selection_split": 0.130275839149219,
+   "cer_reporting_split": 0.12029957871742862,
+   "wer_reporting_split": 0.30845323741007197
+  },
+  "9200": {
+   "train_bcer": 0.01075,
+   "cer": 0.1365470375875982,
+   "wer": 0.3274390243902439,
+   "cer_selection_split": 0.14323695579926887,
+   "cer_reporting_split": 0.13340614760493055,
+   "wer_reporting_split": 0.32464028776978415
+  },
+  "18400": {
+   "train_bcer": 0.0045000000000000005,
+   "cer": 0.12008919091102145,
+   "wer": 0.2945121951219512,
+   "cer_selection_split": 0.12529079428381523,
+   "cer_reporting_split": 0.11764705882352941,
+   "wer_reporting_split": 0.2886690647482014
+  },
+  "29100": {
+   "train_bcer": 0.00301,
+   "cer": 0.12093862815884476,
+   "wer": 0.2780487804878049,
+   "cer_selection_split": 0.12163509471585245,
+   "cer_reporting_split": 0.12061163988141675,
+   "wer_reporting_split": 0.27248201438848924
+  },
+  "46600": {
+   "train_bcer": 0.0023699999999999997,
+   "cer": 0.14196220004247187,
+   "wer": 0.3152439024390244,
+   "cer_selection_split": 0.1528747092057162,
+   "cer_reporting_split": 0.13683882040880013,
+   "wer_reporting_split": 0.30035971223021585
+  },
+  "79800": {
+   "train_bcer": 0.00167,
+   "cer": 0.13516670205988532,
+   "wer": 0.29085365853658535,
+   "cer_selection_split": 0.14988368228647392,
+   "cer_reporting_split": 0.12825713839912622,
+   "wer_reporting_split": 0.2787769784172662
+  }
+ },
+ "v2_note": "v2 swept over the same test set with no DAWG, matching the v3 checkpoints, so the two curves are comparable. v2's best point anywhere on its curve is 12.01% CER at iteration 18,400; v3's is 8.09% at 700. v2 at iteration 100-300 sits at 35-41% CER, i.e. the fine-tune begins by discarding what stock knew, which is what a rebuilt code space (null_char 106 against stock's 2) predicts and what pass_through_recoder prevents."
 }
