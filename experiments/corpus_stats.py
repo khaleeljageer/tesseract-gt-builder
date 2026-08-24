@@ -136,18 +136,36 @@ def exemplar_tiers(counts, n_fonts=27):
     """
     units = [u for us in syllabary().values() for u in us]
     present = [(u, counts.get(u, 0)) for u in units]
+    # Disjoint bands, so the counts add up to 247 and a reader can subtract.
+    # Cumulative bands read as though the tail were three times larger than
+    # it is: the 20 units that never occur also satisfy "fewer than 27".
+    bands = ((0, 1, "never occur"),
+             (1, n_fonts, f"1--{n_fonts - 1} (cannot appear in every font)"),
+             (n_fonts, n_fonts * 10,
+              f"{n_fonts}--{n_fonts * 10 - 1} ($<10$ exemplars per font)"),
+             (n_fonts * 10, None, f"{n_fonts * 10} or more"))
     tiers = []
-    for thresh, label in ((1, "never occur"),
-                          (n_fonts, f"occur $<{n_fonts}$ times (cannot appear in every font)"),
-                          (n_fonts * 10, f"occur $<{n_fonts * 10}$ times ($<10$ exemplars per font)")):
-        n = sum(1 for _, c in present if c < thresh)
-        tiers.append({"threshold": thresh, "label": label, "units": n})
+    for lo, hi, label in bands:
+        n = sum(1 for _, c in present if lo <= c and (hi is None or c < hi))
+        tiers.append({"low": lo, "high": hi, "label": label, "units": n})
     rare = sorted([(u, c) for u, c in present if 0 < c < n_fonts],
                   key=lambda x: x[1])
     total = sum(c for _, c in present)
     return {"tiers": tiers, "rare_units": rare,
             "rare_share": sum(c for _, c in rare) / total if total else 0.0,
             "n_fonts": n_fonts}
+
+
+# Source stems carry underscores, which LaTeX reads as subscripts outside
+# math mode. Give each a display name rather than escaping, since the reader
+# wants the publication's name and not our filename.
+DISPLAY = {
+    "wikisource-ta": "Tamil Wikisource",
+    "stories": "\\texttt{tamil\\_stories}",
+    "theekkathir_content_tamil_only": "Theekkathir",
+    "maattru": "Maattru",
+    "wikinews-ta": "Tamil Wikinews",
+}
 
 
 def latex_coverage(tier_info, out_path):
@@ -159,7 +177,7 @@ def latex_coverage(tier_info, out_path):
 \\centering\\small
 \\begin{{tabular}}{{lr}}
 \\toprule
-Syllabary units that\\ldots & Count \\\\
+Occurrences in the corpus & Units \\\\
 \\midrule
 {body}
 \\bottomrule
@@ -183,7 +201,8 @@ def latex(full, per_source, out_path):
     rows = []
     for r in per_source:
         s = r["syllabary_247"]
-        rows.append(f"{r['label']} & {r['lines']:,} & {r['graphemes']:,} & "
+        rows.append(f"{DISPLAY.get(r['label'], r['label'])} & "
+                    f"{r['lines']:,} & {r['graphemes']:,} & "
                     f"{s['covered']}/{s['total']} \\\\")
     body = "\n".join(rows)
     s = full["syllabary_247"]

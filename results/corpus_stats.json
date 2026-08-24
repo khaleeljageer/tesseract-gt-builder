@@ -2593,19 +2593,28 @@
   "exemplar_tiers": {
     "tiers": [
       {
-        "threshold": 1,
+        "low": 0,
+        "high": 1,
         "label": "never occur",
         "units": 20
       },
       {
-        "threshold": 27,
-        "label": "occur $<27$ times (cannot appear in every font)",
-        "units": 37
+        "low": 1,
+        "high": 27,
+        "label": "1--26 (cannot appear in every font)",
+        "units": 17
       },
       {
-        "threshold": 270,
-        "label": "occur $<270$ times ($<10$ exemplars per font)",
-        "units": 51
+        "low": 27,
+        "high": 270,
+        "label": "27--269 ($<10$ exemplars per font)",
+        "units": 14
+      },
+      {
+        "low": 270,
+        "high": null,
+        "label": "270 or more",
+        "units": 196
       }
     ],
     "rare_share": 1.358429108831157e-05,
