@@ -234,3 +234,4 @@ raw_scans/
 # with make_testset.py predict rather than storing 14 x 300 files.
 testset/preds_i*/
 testset/preds_*/
+experiment_log.md

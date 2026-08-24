@@ -120,12 +120,10 @@ python3 build_dawgs.py \
   --out model/tam_v3.traineddata
 ```
 
-### Three defaults that will cost you the model
+### tesstrain settings for a syllabic script
 
-Each of these is silent, each is what tesstrain does if you say nothing, and
-together they are worth more than any corpus change measured here.
-`results/checkpoint_sweep.json` has the numbers: 14 checkpoints of each of two
-training runs, scored on the 300-line test set.
+Three settings decide whether fine-tuning helps at all. Each is silent and
+each is what tesstrain does if you say nothing.
 
 **`LANG_TYPE=Indic` is not optional, and it must be on the `make` line.** It
 selects two things. `generate_wordstr_box.py` in place of
@@ -136,19 +134,18 @@ has class 0, so `லி` becomes `ல` + `ி`. And `--pass_through_recoder` in
 `combine_lang_model`, which keeps the pre-trained code space instead of
 rebuilding it. The second matters more. Without it the model gets
 `null_char=106` where stock tam has `2`, so `--continue_from` resumes stock's
-weights into a code space they were never trained for: 40.6% CER after 100
-iterations, 35.2% after 200, and 18,000 iterations of climbing to reach 12%,
-against stock's 8.9%. With it, 200 iterations already scores 8.8%. Check with
-`combine_tessdata -l` before you train for a day.
+weights into a code space they were never trained for. The symptom is a run
+that starts far worse than the model it continued from and never catches up,
+however long you train it. With the flag, a couple of hundred iterations
+already match the start model. Check with `combine_tessdata -l` before you
+train for a day.
 
 **`make training` exports the best *training* BCER, which is the wrong model.**
-Training BCER falls monotonically — 0.797% by iteration 46,800 — while
-real-page CER turns around near iteration 700 and climbs for the rest of the
-run. The exported model scores 12.23%; iteration 1,400 of the same run scores
-8.40%. The gap is overtraining on the synthetic domain and it is worst where
-the domain gap is widest, on the sparsest quarter of crops. Sweep the
-checkpoints and choose on real pages, not on the training curve. Choose on a
-split you then do not report, or you are fitting the test set.
+Training BCER falls monotonically for the whole run while real-page CER turns
+around early and climbs from there. Sweep the checkpoints and choose on real pages, not on the training
+curve; the difference between the exported checkpoint and the best one on
+real documents was several CER points in our runs. Choose on a split you
+then do not report, or you are fitting the test set.
 
 **No wordlist file means no dictionary.** `combine_lang_model` reads
 `data/$MODEL/$MODEL.wordlist`, `.punc` and `.numbers`; nothing creates them, so
