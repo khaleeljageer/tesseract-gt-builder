@@ -1,9 +1,9 @@
 {
   "full": {
     "label": "released",
-    "lines": 218082,
-    "graphemes": 13370858,
-    "distinct_graphemes": 317,
+    "lines": 218125,
+    "graphemes": 13373479,
+    "distinct_graphemes": 363,
     "uyir": {
       "total": 12,
       "covered": 12,
@@ -31,34 +31,34 @@
         ],
         [
           "ஏ",
-          21371
+          21377
         ],
         [
           "ஒ",
-          48146
+          48150
         ],
         [
           "ஆ",
-          65232
+          65243
         ],
         [
           "உ",
-          81785
+          81795
         ],
         [
           "எ",
-          144873
+          144896
         ],
         [
           "இ",
-          159998
+          160029
         ],
         [
           "அ",
-          228631
+          228671
         ]
       ],
-      "occurrences": 774403
+      "occurrences": 774528
     },
     "aytham": {
       "total": 1,
@@ -83,50 +83,50 @@
         ],
         [
           "வ்",
-          9849
+          9850
         ],
         [
           "ழ்",
-          19833
+          19834
         ],
         [
           "ய்",
-          49439
+          49446
         ],
         [
           "ச்",
-          54700
+          54712
         ],
         [
           "ங்",
-          101494
+          101519
         ],
         [
           "ண்",
-          108901
+          108920
         ],
         [
           "ற்",
-          111991
+          112018
         ],
         [
           "ள்",
-          175182
+          175216
         ],
         [
           "ந்",
-          178378
+          178403
         ],
         [
           "ட்",
-          187850
+          187883
         ],
         [
           "ப்",
-          202968
+          203015
         ]
       ],
-      "occurrences": 3029419
+      "occurrences": 3029918
     },
     "uyirmey": {
       "total": 216,
@@ -203,7 +203,7 @@
           12
         ]
       ],
-      "occurrences": 6869081
+      "occurrences": 6870410
     },
     "grantha": {
       "total": 52,
@@ -262,7 +262,7 @@
           59
         ]
       ],
-      "occurrences": 71253
+      "occurrences": 71269
     },
     "syllabary_247": {
       "total": 247,
@@ -339,68 +339,68 @@
           12
         ]
       ],
-      "occurrences": 10674094
+      "occurrences": 10676047
     },
     "top_graphemes": [
       [
         " ",
-        2133463
+        2133887
       ],
       [
         "க",
-        499795
+        499903
       ],
       [
         "ன்",
-        355450
+        355518
       ],
       [
         "ம்",
-        346984
+        347038
       ],
       [
         "க்",
-        320920
+        320976
       ],
       [
         "த",
-        293577
+        293623
       ],
       [
         "து",
-        289705
+        289766
       ],
       [
         "ல்",
-        271918
+        271977
       ],
       [
         "த்",
-        265064
+        265112
       ],
       [
         "ர்",
-        260390
+        260373
       ],
       [
         ".",
-        260299
+        260345
       ],
       [
         "வ",
-        252945
+        252977
       ],
       [
         "அ",
-        228631
+        228671
       ],
       [
         "ப",
-        221587
+        221635
       ],
       [
         "தி",
-        205479
+        205522
       ]
     ]
   },
@@ -408,8 +408,8 @@
     {
       "label": "wikisource-ta",
       "lines": 129820,
-      "graphemes": 7986999,
-      "distinct_graphemes": 335,
+      "graphemes": 7986957,
+      "distinct_graphemes": 354,
       "uyir": {
         "total": 12,
         "covered": 12,
@@ -532,7 +532,7 @@
             119755
           ]
         ],
-        "occurrences": 1816414
+        "occurrences": 1816370
       },
       "uyirmey": {
         "total": 216,
@@ -611,7 +611,7 @@
             12
           ]
         ],
-        "occurrences": 4146918
+        "occurrences": 4146874
       },
       "grantha": {
         "total": 52,
@@ -749,7 +749,7 @@
             11
           ]
         ],
-        "occurrences": 6426460
+        "occurrences": 6426372
       },
       "top_graphemes": [
         [
@@ -758,11 +758,11 @@
         ],
         [
           "க",
-          306895
+          306894
         ],
         [
           "ம்",
-          213969
+          213968
         ],
         [
           "ன்",
@@ -774,7 +774,7 @@
         ],
         [
           "த",
-          176392
+          176391
         ],
         [
           "து",
@@ -786,15 +786,15 @@
         ],
         [
           "ர்",
-          158223
+          158181
         ],
         [
           "த்",
-          157075
+          157074
         ],
         [
           "வ",
-          155874
+          155866
         ],
         [
           ".",
@@ -810,7 +810,7 @@
         ],
         [
           "தி",
-          128594
+          128593
         ]
       ]
     },
@@ -818,7 +818,7 @@
       "label": "stories",
       "lines": 58193,
       "graphemes": 3355234,
-      "distinct_graphemes": 274,
+      "distinct_graphemes": 283,
       "uyir": {
         "total": 12,
         "covered": 11,
@@ -1026,7 +1026,7 @@
             16
           ]
         ],
-        "occurrences": 1663360
+        "occurrences": 1663341
       },
       "grantha": {
         "total": 52,
@@ -1179,7 +1179,7 @@
             16
           ]
         ],
-        "occurrences": 2639667
+        "occurrences": 2639648
       },
       "top_graphemes": [
         [
@@ -1247,8 +1247,8 @@
     {
       "label": "theekkathir_content_tamil_only",
       "lines": 23884,
-      "graphemes": 1487929,
-      "distinct_graphemes": 302,
+      "graphemes": 1487897,
+      "distinct_graphemes": 318,
       "uyir": {
         "total": 12,
         "covered": 12,
@@ -1371,7 +1371,7 @@
             24073
           ]
         ],
-        "occurrences": 321453
+        "occurrences": 321421
       },
       "uyirmey": {
         "total": 216,
@@ -1463,7 +1463,7 @@
             8
           ]
         ],
-        "occurrences": 775137
+        "occurrences": 775103
       },
       "grantha": {
         "total": 52,
@@ -1622,7 +1622,7 @@
             7
           ]
         ],
-        "occurrences": 1173030
+        "occurrences": 1172964
       },
       "top_graphemes": [
         [
@@ -1631,7 +1631,7 @@
         ],
         [
           "க",
-          61380
+          61379
         ],
         [
           "ம்",
@@ -1643,7 +1643,7 @@
         ],
         [
           "த",
-          31947
+          31946
         ],
         [
           "து",
@@ -1655,7 +1655,7 @@
         ],
         [
           "ர்",
-          30363
+          30331
         ],
         [
           "த்",
@@ -1667,7 +1667,7 @@
         ],
         [
           "தி",
-          28305
+          28304
         ],
         [
           "ப",
@@ -1675,7 +1675,7 @@
         ],
         [
           "வ",
-          26054
+          26049
         ],
         [
           "ட்",
@@ -1690,8 +1690,8 @@
     {
       "label": "maattru",
       "lines": 10734,
-      "graphemes": 706009,
-      "distinct_graphemes": 290,
+      "graphemes": 706008,
+      "distinct_graphemes": 291,
       "uyir": {
         "total": 12,
         "covered": 11,
@@ -1809,10 +1809,10 @@
           ],
           [
             "ர்",
-            13063
+            13062
           ]
         ],
-        "occurrences": 158454
+        "occurrences": 158453
       },
       "uyirmey": {
         "total": 216,
@@ -1903,7 +1903,7 @@
             6
           ]
         ],
-        "occurrences": 365528
+        "occurrences": 365527
       },
       "grantha": {
         "total": 52,
@@ -2062,7 +2062,7 @@
             6
           ]
         ],
-        "occurrences": 565196
+        "occurrences": 565194
       },
       "top_graphemes": [
         [
@@ -2111,7 +2111,7 @@
         ],
         [
           "ர்",
-          13063
+          13062
         ],
         [
           "வ",
@@ -2131,7 +2131,7 @@
       "label": "wikinews-ta",
       "lines": 2819,
       "graphemes": 199095,
-      "distinct_graphemes": 256,
+      "distinct_graphemes": 259,
       "uyir": {
         "total": 12,
         "covered": 12,
@@ -2352,7 +2352,7 @@
             5
           ]
         ],
-        "occurrences": 103577
+        "occurrences": 103574
       },
       "grantha": {
         "total": 52,
@@ -2523,7 +2523,7 @@
             5
           ]
         ],
-        "occurrences": 160116
+        "occurrences": 160113
       },
       "top_graphemes": [
         [
@@ -2576,7 +2576,7 @@
         ],
         [
           "தி",
-          3260
+          3259
         ],
         [
           "ட",
@@ -2600,25 +2600,25 @@
       },
       {
         "low": 1,
-        "high": 27,
-        "label": "1--26 (cannot appear in every font)",
+        "high": 29,
+        "label": "1--28 (cannot appear in every font)",
         "units": 17
       },
       {
-        "low": 27,
-        "high": 270,
-        "label": "27--269 ($<10$ exemplars per font)",
+        "low": 29,
+        "high": 290,
+        "label": "29--289 ($<10$ exemplars per font)",
         "units": 14
       },
       {
-        "low": 270,
+        "low": 290,
         "high": null,
-        "label": "270 or more",
+        "label": "290 or more",
         "units": 196
       }
     ],
-    "rare_share": 1.358429108831157e-05,
-    "n_fonts": 27,
+    "rare_share": 1.3581806074851487e-05,
+    "n_fonts": 29,
     "rare_units": [
       [
         "ஞோ",
