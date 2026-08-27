@@ -120,6 +120,28 @@ python3 build_dawgs.py \
   --out model/tam_v3.traineddata
 ```
 
+### Reproducing the defaults arm
+
+The same corpus trained with `LANG_TYPE` unset, which is what separates
+paragraph-aware layout from the training settings. Results in
+`results/tam_unset.json`, predictions in `preds_unset/`, training log in
+`results/training/tam_unset_training.log`.
+
+```bash
+# stage the same images with per-character boxes
+python3 prepare_lstmf.py --gt-dir gt_unset --jobs 10 --lang-type ""
+
+cd $TESSTRAIN_DIR && make training \
+  MODEL_NAME=tam_unset START_MODEL=tam LANG_TYPE= \
+  TESSDATA=/usr/share/tesseract-ocr/5/tessdata \
+  GROUND_TRUTH_DIR=$PWD/gt_unset MAX_ITERATIONS=100000
+```
+
+On the 202-line reporting split this scores 12.98% grapheme CER against the
+fixed-width corpus's 14.46% under the same defaults, and against 7.36% for
+the same corpus with the workflow corrected. Redesigning the corpus is worth
+1.48 points; correcting the workflow is worth 5.62.
+
 ### tesstrain settings for a syllabic script
 
 Three settings decide whether fine-tuning helps at all. Each is silent and
