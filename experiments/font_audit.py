@@ -1,4 +1,4 @@
-"""Audit the 27 typefaces against the corpus they are used to render.
+"""Audit the rendering typefaces against the corpus they are used to render.
 
 Answers three questions, in increasing order of how badly a "no" would hurt:
 
@@ -170,7 +170,10 @@ def latex_table(reports, out_path):
            "File & Family & Designer / foundry & Licence \\\\\n\\midrule\n"
            + "\n".join(rows) +
            "\n\\bottomrule\n\\end{tabular}\n"
-           "\\caption{The 27 typefaces used to render \\corpus. All 27 carry "
+           # Count from the rows, not a literal: the caption said 27 while
+           # the table held 29 for as long as the literal went unmaintained.
+           f"\\caption{{The {len(rows)} typefaces used to render \\corpus. "
+           f"All {len(rows)} carry "
            "GSUB tables and cover every Tamil codepoint appearing in the "
            "corpus; rendering used HarfBuzz shaping via Raqm.}\n"
            "\\label{tab:fonts}\n\\end{table*}\n")
