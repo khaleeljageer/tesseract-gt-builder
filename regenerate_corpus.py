@@ -50,18 +50,42 @@ def main():
     ap.add_argument("--seed", type=int, default=SEED)
     ap.add_argument("--out", default=str(OUT_DIR))
     ap.add_argument("--font-dir", default="fonts")
+    ap.add_argument("--fonts", default=None,
+                    help="comma-separated font file stems to use from "
+                         "--font-dir (default: every face in it)")
+    ap.add_argument("--ofl-only", action="store_true",
+                    help="render only with the faces whose own metadata "
+                         "declares the SIL Open Font License (9 of the 29; "
+                         "see experiments/font_audit.py). The output is a "
+                         "different corpus from the release, with terms a "
+                         "reuser can verify for every face.")
+    ap.add_argument("--no-repair", action="store_true",
+                    help="reproduce the released v3 corpus (Zenodo "
+                         "10.5281/zenodo.22093954, 218,125 lines): skip "
+                         "repair_tamil and the well-formedness filter, both "
+                         "of which postdate it. Without this flag the "
+                         "output is the repaired 218,082-line corpus.")
     args = ap.parse_args()
+    repair = not args.no_repair
+    font_names = args.fonts.split(",") if args.fonts else None
+    if args.ofl_only:
+        sys.path.insert(0, str(Path(__file__).resolve().parent / "experiments"))
+        from font_audit import ofl_faces
+        font_names = ofl_faces(args.font_dir)
+        print(f"OFL-only: {len(font_names)} faces: {', '.join(font_names)}")
 
     started = time.time()
     print("Building per-source line pools...")
-    pool = corpus_mod.build_pool()
+    pool = corpus_mod.build_pool(repair=repair)
     raw = sum(len(v) for v in pool.values())
 
     lines = corpus_mod.select(pool, sources=None, n_lines=args.n_lines,
-                              seed=args.seed, dedup=True)
-    uniq = len(corpus_mod.select(pool, n_lines=None, seed=args.seed, dedup=True))
+                              seed=args.seed, dedup=True,
+                              require_well_formed=repair)
+    uniq = len(corpus_mod.select(pool, n_lines=None, seed=args.seed, dedup=True,
+                                 require_well_formed=repair))
 
-    coverage = render_mod.common_coverage(args.font_dir)
+    coverage = render_mod.common_coverage(args.font_dir, font_names)
     lines, unrenderable = render_mod.renderable(lines, coverage)
 
     print(f"  raw pool          {raw:,} lines")
@@ -89,7 +113,7 @@ def main():
 
     print(f"\nRendering to {args.out}/ ...")
     manifest = render_mod.generate(
-        lines, args.out, font_dir=args.font_dir, font_names=None,
+        lines, args.out, font_dir=args.font_dir, font_names=font_names,
         assignment="round-robin", seed=args.seed)
 
     counts = manifest["font_line_counts"]
@@ -111,7 +135,9 @@ def main():
         "n_lines_requested": args.n_lines,
         "raw_pool_lines": raw,
         "deduplicated_lines": uniq,
-        "selection": "seeded shuffle then truncate (experiments/corpus.py:select)",
+        "selection": "seeded shuffle of all filtered lines, truncated only "
+                     "if --n-lines is given (experiments/corpus.py:select)",
+        "repair": repair,
         "font_assignment": "round-robin, line i -> font i mod n",
         "unrenderable_dropped": len(unrenderable),
         "provenance": dict(provenance),
