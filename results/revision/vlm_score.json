@@ -1,0 +1,518 @@
+{
+  "n_resamples": 10000,
+  "seed": 0,
+  "candidates": {
+    "gemma3_12b": {
+      "sel98": [
+        15.99,
+        37.88
+      ],
+      "complete": true
+    },
+    "gemma3_4b": {
+      "sel98": [
+        27.19,
+        52.46
+      ],
+      "complete": true
+    },
+    "qwen2_5vl_7b": {
+      "sel98": [
+        53.17,
+        87.5
+      ],
+      "complete": true
+    },
+    "qwen3-vl_8b-instruct": {
+      "sel98": [
+        31.84,
+        62.31
+      ],
+      "complete": true
+    }
+  },
+  "selection": "gemma3_12b",
+  "scores": {
+    "vlm:gemma3_12b": {
+      "all300": [
+        14.19,
+        35.55
+      ],
+      "sel98": [
+        15.99,
+        37.88
+      ],
+      "rep202": [
+        13.34,
+        34.44
+      ]
+    },
+    "vlm:gemma3_4b": {
+      "all300": [
+        32.85,
+        67.99
+      ],
+      "sel98": [
+        27.19,
+        52.46
+      ],
+      "rep202": [
+        35.51,
+        75.36
+      ]
+    },
+    "vlm:qwen2_5vl_7b": {
+      "all300": [
+        50.81,
+        85.49
+      ],
+      "sel98": [
+        53.17,
+        87.5
+      ],
+      "rep202": [
+        49.7,
+        84.53
+      ]
+    },
+    "vlm:qwen3-vl_8b-instruct": {
+      "all300": [
+        33.89,
+        66.77
+      ],
+      "sel98": [
+        31.84,
+        62.31
+      ],
+      "rep202": [
+        34.86,
+        68.88
+      ]
+    },
+    "paddle:zeroshot": {
+      "all300": [
+        6.82,
+        27.32
+      ],
+      "sel98": [
+        7.05,
+        25.57
+      ],
+      "rep202": [
+        6.71,
+        28.15
+      ]
+    },
+    "stock": {
+      "all300": [
+        8.87,
+        24.57
+      ],
+      "sel98": [
+        9.9,
+        24.05
+      ],
+      "rep202": [
+        8.38,
+        24.82
+      ]
+    },
+    "tamv3_dawg_corpus": {
+      "all300": [
+        7.77,
+        19.57
+      ],
+      "sel98": [
+        8.64,
+        21.21
+      ],
+      "rep202": [
+        7.36,
+        18.79
+      ]
+    },
+    "tamv3_i1400": {
+      "all300": [
+        8.4,
+        20.0
+      ],
+      "sel98": [
+        9.01,
+        21.4
+      ],
+      "rep202": [
+        8.11,
+        19.33
+      ]
+    }
+  },
+  "by_stratum": {
+    "vlm:gemma3_12b": {
+      "books": [
+        10.21,
+        30.84
+      ],
+      "degraded": [
+        9.67,
+        31.45
+      ],
+      "forms": [
+        14.92,
+        35.98
+      ],
+      "newsprint": [
+        20.49,
+        41.83
+      ],
+      "signage": [
+        5.9,
+        25.89
+      ]
+    },
+    "vlm:gemma3_4b": {
+      "books": [
+        20.95,
+        50.16
+      ],
+      "degraded": [
+        27.25,
+        57.86
+      ],
+      "forms": [
+        20.57,
+        44.39
+      ],
+      "newsprint": [
+        73.57,
+        143.46
+      ],
+      "signage": [
+        17.4,
+        45.54
+      ]
+    },
+    "vlm:qwen2_5vl_7b": {
+      "books": [
+        47.58,
+        88.79
+      ],
+      "degraded": [
+        48.35,
+        78.62
+      ],
+      "forms": [
+        49.67,
+        85.98
+      ],
+      "newsprint": [
+        57.74,
+        86.27
+      ],
+      "signage": [
+        36.76,
+        73.21
+      ]
+    },
+    "vlm:qwen3-vl_8b-instruct": {
+      "books": [
+        28.89,
+        67.29
+      ],
+      "degraded": [
+        27.03,
+        58.49
+      ],
+      "forms": [
+        33.28,
+        64.02
+      ],
+      "newsprint": [
+        50.06,
+        81.05
+      ],
+      "signage": [
+        26.17,
+        64.29
+      ]
+    },
+    "paddle:zeroshot": {
+      "books": [
+        7.16,
+        26.48
+      ],
+      "degraded": [
+        4.29,
+        16.98
+      ],
+      "forms": [
+        11.31,
+        41.59
+      ],
+      "newsprint": [
+        3.96,
+        16.67
+      ],
+      "signage": [
+        7.41,
+        54.46
+      ]
+    },
+    "stock": {
+      "books": [
+        7.47,
+        20.25
+      ],
+      "degraded": [
+        10.22,
+        31.45
+      ],
+      "forms": [
+        15.0,
+        40.19
+      ],
+      "newsprint": [
+        6.34,
+        22.55
+      ],
+      "signage": [
+        1.51,
+        5.36
+      ]
+    },
+    "tamv3_dawg_corpus": {
+      "books": [
+        6.68,
+        14.64
+      ],
+      "degraded": [
+        11.65,
+        23.9
+      ],
+      "forms": [
+        12.38,
+        33.18
+      ],
+      "newsprint": [
+        4.66,
+        15.69
+      ],
+      "signage": [
+        1.21,
+        4.46
+      ]
+    },
+    "tamv3_i1400": {
+      "books": [
+        7.58,
+        14.95
+      ],
+      "degraded": [
+        12.97,
+        22.64
+      ],
+      "forms": [
+        13.52,
+        35.05
+      ],
+      "newsprint": [
+        4.83,
+        16.01
+      ],
+      "signage": [
+        1.51,
+        6.25
+      ]
+    }
+  },
+  "comparisons": {
+    "vlm_vs_stock": {
+      "A": "vlm:gemma3_12b",
+      "B": "stock",
+      "cer": {
+        "diff": 4.96,
+        "a_better": 20,
+        "ci95": [
+          1.58,
+          8.59
+        ]
+      },
+      "wer": {
+        "diff": 9.62,
+        "a_better": 7,
+        "ci95": [
+          4.1,
+          15.08
+        ]
+      }
+    },
+    "release_vs_vlm": {
+      "A": "tamv3_dawg_corpus",
+      "B": "vlm:gemma3_12b",
+      "cer": {
+        "diff": -5.98,
+        "a_better": 9986,
+        "ci95": [
+          -9.64,
+          -2.28
+        ]
+      },
+      "wer": {
+        "diff": -15.65,
+        "a_better": 10000,
+        "ci95": [
+          -20.95,
+          -10.03
+        ]
+      }
+    },
+    "nodict_vs_vlm": {
+      "A": "tamv3_i1400",
+      "B": "vlm:gemma3_12b",
+      "cer": {
+        "diff": -5.23,
+        "a_better": 9971,
+        "ci95": [
+          -8.89,
+          -1.51
+        ]
+      },
+      "wer": {
+        "diff": -15.11,
+        "a_better": 10000,
+        "ci95": [
+          -20.23,
+          -9.93
+        ]
+      }
+    },
+    "paddle_zs_vs_vlm": {
+      "A": "paddle:zeroshot",
+      "B": "vlm:gemma3_12b",
+      "cer": {
+        "diff": -6.63,
+        "a_better": 10000,
+        "ci95": [
+          -9.87,
+          -3.73
+        ]
+      },
+      "wer": {
+        "diff": -6.29,
+        "a_better": 9752,
+        "ci95": [
+          -12.16,
+          -0.09
+        ]
+      }
+    }
+  },
+  "failures": {
+    "gemma3_12b": {
+      "empty": 0,
+      "non_tamil": 0,
+      "overlong": 10,
+      "truncated": 0,
+      "lines": {
+        "empty": [],
+        "non_tamil": [],
+        "overlong": [
+          "forms_011_l018",
+          "forms_017_l007",
+          "forms_027_l021",
+          "forms_029_l004",
+          "forms_060_l012",
+          "newsprint_023_l006",
+          "newsprint_026_l008",
+          "newsprint_029_l011",
+          "newsprint_068_l001",
+          "newsprint_073_l007"
+        ],
+        "truncated": []
+      },
+      "n_cleaned": 2
+    },
+    "gemma3_4b": {
+      "empty": 0,
+      "non_tamil": 1,
+      "overlong": 21,
+      "truncated": 1,
+      "lines": {
+        "empty": [],
+        "non_tamil": [
+          "newsprint_080_l004"
+        ],
+        "overlong": [
+          "books_050_l005",
+          "books_054_l003",
+          "degraded_028_l014",
+          "forms_017_l007",
+          "forms_027_l021",
+          "forms_029_l004",
+          "forms_045_l019",
+          "newsprint_005_l012",
+          "newsprint_008_l007",
+          "newsprint_023_l006",
+          "newsprint_028_l006",
+          "newsprint_029_l011",
+          "newsprint_030_l004",
+          "newsprint_033_l007",
+          "newsprint_037_l007",
+          "newsprint_041_l001",
+          "newsprint_054_l001",
+          "newsprint_065_l019",
+          "newsprint_068_l001",
+          "newsprint_072_l008",
+          "newsprint_080_l004"
+        ],
+        "truncated": [
+          "newsprint_080_l004"
+        ]
+      },
+      "n_cleaned": 8
+    },
+    "qwen2_5vl_7b": {
+      "empty": 0,
+      "non_tamil": 0,
+      "overlong": 7,
+      "truncated": 0,
+      "lines": {
+        "empty": [],
+        "non_tamil": [],
+        "overlong": [
+          "books_048_l017",
+          "forms_024_l019",
+          "forms_027_l021",
+          "forms_029_l004",
+          "newsprint_001_l002",
+          "newsprint_011_l009",
+          "newsprint_037_l007"
+        ],
+        "truncated": []
+      },
+      "n_cleaned": 0
+    },
+    "qwen3-vl_8b-instruct": {
+      "empty": 0,
+      "non_tamil": 0,
+      "overlong": 7,
+      "truncated": 1,
+      "lines": {
+        "empty": [],
+        "non_tamil": [],
+        "overlong": [
+          "books_048_l017",
+          "forms_027_l021",
+          "forms_029_l004",
+          "newsprint_031_l001",
+          "newsprint_037_l007",
+          "newsprint_072_l008",
+          "newsprint_073_l007"
+        ],
+        "truncated": [
+          "newsprint_073_l007"
+        ]
+      },
+      "n_cleaned": 0
+    }
+  }
+}

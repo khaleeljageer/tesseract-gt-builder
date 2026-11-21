@@ -1,0 +1,306 @@
+{
+  "builds": {
+    "v550": "tesseract 5.5.0",
+    "v551": "tesseract 5.5.1",
+    "v552": "tesseract 5.5.2",
+    "v552dev": "tesseract 5.5.2-146-gd4f6"
+  },
+  "models_md5": [
+    "29a33fddd38c1f32b2bef59843711d6e  tessdata/tam.traineddata",
+    "7480e621e5e36dc8028385c6d22ccf67  tessdata/tamv3dcorpus.traineddata",
+    "3732a54039ee890d371fa6f029ab033a  tessdata/tamv3i1400.traineddata",
+    ""
+  ],
+  "scores": {
+    "v550/tam": {
+      "all300": {
+        "cer": 8.87,
+        "wer": 24.57
+      },
+      "rep202": {
+        "cer": 8.38,
+        "wer": 24.82
+      },
+      "lines_score_differs_from_paper": 0,
+      "lines_text_differs_from_v550": 0
+    },
+    "v550/tamv3dcorpus": {
+      "all300": {
+        "cer": 7.77,
+        "wer": 19.57
+      },
+      "rep202": {
+        "cer": 7.36,
+        "wer": 18.79
+      },
+      "lines_score_differs_from_paper": 0,
+      "lines_text_differs_from_v550": 0
+    },
+    "v550/tamv3i1400": {
+      "all300": {
+        "cer": 8.4,
+        "wer": 20.0
+      },
+      "rep202": {
+        "cer": 8.11,
+        "wer": 19.33
+      },
+      "lines_score_differs_from_paper": 0,
+      "lines_text_differs_from_v550": 0
+    },
+    "v551/tam": {
+      "all300": {
+        "cer": 8.78,
+        "wer": 24.39
+      },
+      "rep202": {
+        "cer": 8.24,
+        "wer": 24.46
+      },
+      "lines_score_differs_from_paper": 42,
+      "lines_text_differs_from_v550": 57
+    },
+    "v551/tamv3dcorpus": {
+      "all300": {
+        "cer": 7.95,
+        "wer": 20.12
+      },
+      "rep202": {
+        "cer": 7.6,
+        "wer": 19.69
+      },
+      "lines_score_differs_from_paper": 39,
+      "lines_text_differs_from_v550": 54
+    },
+    "v551/tamv3i1400": {
+      "all300": {
+        "cer": 8.53,
+        "wer": 20.55
+      },
+      "rep202": {
+        "cer": 8.25,
+        "wer": 19.87
+      },
+      "lines_score_differs_from_paper": 44,
+      "lines_text_differs_from_v550": 58
+    },
+    "v552/tam": {
+      "all300": {
+        "cer": 8.78,
+        "wer": 24.39
+      },
+      "rep202": {
+        "cer": 8.24,
+        "wer": 24.46
+      },
+      "lines_score_differs_from_paper": 42,
+      "lines_text_differs_from_v550": 57
+    },
+    "v552/tamv3dcorpus": {
+      "all300": {
+        "cer": 7.95,
+        "wer": 20.12
+      },
+      "rep202": {
+        "cer": 7.6,
+        "wer": 19.69
+      },
+      "lines_score_differs_from_paper": 39,
+      "lines_text_differs_from_v550": 54
+    },
+    "v552/tamv3i1400": {
+      "all300": {
+        "cer": 8.53,
+        "wer": 20.55
+      },
+      "rep202": {
+        "cer": 8.25,
+        "wer": 19.87
+      },
+      "lines_score_differs_from_paper": 44,
+      "lines_text_differs_from_v550": 58
+    },
+    "v552dev/tam": {
+      "all300": {
+        "cer": 8.78,
+        "wer": 24.39
+      },
+      "rep202": {
+        "cer": 8.24,
+        "wer": 24.46
+      },
+      "lines_score_differs_from_paper": 42,
+      "lines_text_differs_from_v550": 57
+    },
+    "v552dev/tamv3dcorpus": {
+      "all300": {
+        "cer": 7.95,
+        "wer": 20.12
+      },
+      "rep202": {
+        "cer": 7.6,
+        "wer": 19.69
+      },
+      "lines_score_differs_from_paper": 39,
+      "lines_text_differs_from_v550": 54
+    },
+    "v552dev/tamv3i1400": {
+      "all300": {
+        "cer": 8.53,
+        "wer": 20.55
+      },
+      "rep202": {
+        "cer": 8.25,
+        "wer": 19.87
+      },
+      "lines_score_differs_from_paper": 44,
+      "lines_text_differs_from_v550": 58
+    }
+  },
+  "bootstrap": {
+    "v550/release_vs_stock": {
+      "cer": {
+        "diff": -1.01,
+        "a_better": 9604,
+        "ci95": [
+          -2.06,
+          0.11
+        ]
+      },
+      "wer": {
+        "diff": -6.03,
+        "a_better": 10000,
+        "ci95": [
+          -8.25,
+          -3.84
+        ]
+      }
+    },
+    "v550/nodict_vs_stock": {
+      "cer": {
+        "diff": -0.27,
+        "a_better": 6865,
+        "ci95": [
+          -1.31,
+          0.86
+        ]
+      },
+      "wer": {
+        "diff": -5.49,
+        "a_better": 10000,
+        "ci95": [
+          -8.07,
+          -3.14
+        ]
+      }
+    },
+    "v551/release_vs_stock": {
+      "cer": {
+        "diff": -0.64,
+        "a_better": 8527,
+        "ci95": [
+          -1.77,
+          0.66
+        ]
+      },
+      "wer": {
+        "diff": -4.77,
+        "a_better": 10000,
+        "ci95": [
+          -6.85,
+          -2.69
+        ]
+      }
+    },
+    "v551/nodict_vs_stock": {
+      "cer": {
+        "diff": 0.02,
+        "a_better": 5025,
+        "ci95": [
+          -1.07,
+          1.26
+        ]
+      },
+      "wer": {
+        "diff": -4.59,
+        "a_better": 10000,
+        "ci95": [
+          -6.9,
+          -2.39
+        ]
+      }
+    },
+    "v552/release_vs_stock": {
+      "cer": {
+        "diff": -0.64,
+        "a_better": 8527,
+        "ci95": [
+          -1.77,
+          0.66
+        ]
+      },
+      "wer": {
+        "diff": -4.77,
+        "a_better": 10000,
+        "ci95": [
+          -6.85,
+          -2.69
+        ]
+      }
+    },
+    "v552/nodict_vs_stock": {
+      "cer": {
+        "diff": 0.02,
+        "a_better": 5025,
+        "ci95": [
+          -1.07,
+          1.26
+        ]
+      },
+      "wer": {
+        "diff": -4.59,
+        "a_better": 10000,
+        "ci95": [
+          -6.9,
+          -2.39
+        ]
+      }
+    },
+    "v552dev/release_vs_stock": {
+      "cer": {
+        "diff": -0.64,
+        "a_better": 8527,
+        "ci95": [
+          -1.77,
+          0.66
+        ]
+      },
+      "wer": {
+        "diff": -4.77,
+        "a_better": 10000,
+        "ci95": [
+          -6.85,
+          -2.69
+        ]
+      }
+    },
+    "v552dev/nodict_vs_stock": {
+      "cer": {
+        "diff": 0.02,
+        "a_better": 5025,
+        "ci95": [
+          -1.07,
+          1.26
+        ]
+      },
+      "wer": {
+        "diff": -4.59,
+        "a_better": 10000,
+        "ci95": [
+          -6.9,
+          -2.39
+        ]
+      }
+    }
+  }
+}

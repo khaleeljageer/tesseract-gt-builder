@@ -1,0 +1,476 @@
+{
+  "model": "x4_s34",
+  "tesseract": "tesseract 5.5.0",
+  "procedure": "lstmtraining --stop_training against the run's starter traineddata (no DAWG); tesseract --psm 13",
+  "checkpoints": {
+    "100": {
+      "checkpoint": "x4_s34_19.701_100_100.checkpoint",
+      "cer_all300": 8.98,
+      "wer_all300": 24.21,
+      "cer_sel98": 10.44,
+      "wer_sel98": 25.0,
+      "cer_rep202": 8.3,
+      "wer_rep202": 23.83
+    },
+    "200": {
+      "checkpoint": "x4_s34_17.444_198_200.checkpoint",
+      "cer_all300": 8.9,
+      "wer_all300": 24.27,
+      "cer_sel98": 10.37,
+      "wer_sel98": 25.38,
+      "cer_rep202": 8.21,
+      "wer_rep202": 23.74
+    },
+    "300": {
+      "checkpoint": "x4_s34_14.331_284_300.checkpoint",
+      "cer_all300": 8.73,
+      "wer_all300": 22.68,
+      "cer_sel98": 10.17,
+      "wer_sel98": 24.43,
+      "cer_rep202": 8.05,
+      "wer_rep202": 21.85
+    },
+    "400": {
+      "checkpoint": "x4_s34_12.325_366_400.checkpoint",
+      "cer_all300": 8.99,
+      "wer_all300": 24.09,
+      "cer_sel98": 10.8,
+      "wer_sel98": 27.08,
+      "cer_rep202": 8.14,
+      "wer_rep202": 22.66
+    },
+    "500": {
+      "checkpoint": "x4_s34_11.236_442_500.checkpoint",
+      "cer_all300": 8.61,
+      "wer_all300": 22.93,
+      "cer_sel98": 9.84,
+      "wer_sel98": 24.24,
+      "cer_rep202": 8.04,
+      "wer_rep202": 22.3
+    },
+    "600": {
+      "checkpoint": "x4_s34_10.279_514_600.checkpoint",
+      "cer_all300": 8.6,
+      "wer_all300": 22.68,
+      "cer_sel98": 9.9,
+      "wer_sel98": 23.3,
+      "cer_rep202": 7.99,
+      "wer_rep202": 22.39
+    },
+    "700": {
+      "checkpoint": "x4_s34_9.719_595_700.checkpoint",
+      "cer_all300": 8.79,
+      "wer_all300": 23.11,
+      "cer_sel98": 10.37,
+      "wer_sel98": 25.95,
+      "cer_rep202": 8.05,
+      "wer_rep202": 21.76
+    },
+    "800": {
+      "checkpoint": "x4_s34_9.133_668_800.checkpoint",
+      "cer_all300": 8.78,
+      "wer_all300": 22.62,
+      "cer_sel98": 10.04,
+      "wer_sel98": 24.62,
+      "cer_rep202": 8.19,
+      "wer_rep202": 21.67
+    },
+    "900": {
+      "checkpoint": "x4_s34_8.558_737_900.checkpoint",
+      "cer_all300": 8.44,
+      "wer_all300": 21.16,
+      "cer_sel98": 9.5,
+      "wer_sel98": 22.35,
+      "cer_rep202": 7.94,
+      "wer_rep202": 20.59
+    },
+    "1000": {
+      "checkpoint": "x4_s34_8.197_802_1000.checkpoint",
+      "cer_all300": 8.84,
+      "wer_all300": 22.5,
+      "cer_sel98": 10.0,
+      "wer_sel98": 23.11,
+      "cer_rep202": 8.3,
+      "wer_rep202": 22.21
+    },
+    "1100": {
+      "checkpoint": "x4_s34_6.731_865_1100.checkpoint",
+      "cer_all300": 8.97,
+      "wer_all300": 23.17,
+      "cer_sel98": 9.87,
+      "wer_sel98": 24.62,
+      "cer_rep202": 8.55,
+      "wer_rep202": 22.48
+    },
+    "1200": {
+      "checkpoint": "x4_s34_5.638_935_1200.checkpoint",
+      "cer_all300": 9.08,
+      "wer_all300": 22.8,
+      "cer_sel98": 10.3,
+      "wer_sel98": 24.62,
+      "cer_rep202": 8.5,
+      "wer_rep202": 21.94
+    },
+    "1300": {
+      "checkpoint": "x4_s34_5.321_1003_1300.checkpoint",
+      "cer_all300": 9.13,
+      "wer_all300": 21.95,
+      "cer_sel98": 10.27,
+      "wer_sel98": 23.48,
+      "cer_rep202": 8.6,
+      "wer_rep202": 21.22
+    },
+    "1400": {
+      "checkpoint": "x4_s34_5.135_1074_1400.checkpoint",
+      "cer_all300": 9.15,
+      "wer_all300": 21.71,
+      "cer_sel98": 10.2,
+      "wer_sel98": 22.92,
+      "cer_rep202": 8.66,
+      "wer_rep202": 21.13
+    },
+    "1500": {
+      "checkpoint": "x4_s34_4.812_1143_1500.checkpoint",
+      "cer_all300": 9.3,
+      "wer_all300": 22.68,
+      "cer_sel98": 10.37,
+      "wer_sel98": 23.3,
+      "cer_rep202": 8.8,
+      "wer_rep202": 22.39
+    },
+    "1700": {
+      "checkpoint": "x4_s34_4.512_1281_1700.checkpoint",
+      "cer_all300": 8.81,
+      "wer_all300": 21.46,
+      "cer_sel98": 9.54,
+      "wer_sel98": 22.16,
+      "cer_rep202": 8.47,
+      "wer_rep202": 21.13
+    },
+    "1800": {
+      "checkpoint": "x4_s34_4.357_1342_1800.checkpoint",
+      "cer_all300": 8.94,
+      "wer_all300": 21.71,
+      "cer_sel98": 9.7,
+      "wer_sel98": 22.73,
+      "cer_rep202": 8.58,
+      "wer_rep202": 21.22
+    },
+    "2000": {
+      "checkpoint": "x4_s34_4.082_1463_2000.checkpoint",
+      "cer_all300": 8.76,
+      "wer_all300": 20.98,
+      "cer_sel98": 9.64,
+      "wer_sel98": 22.73,
+      "cer_rep202": 8.35,
+      "wer_rep202": 20.14
+    },
+    "2100": {
+      "checkpoint": "x4_s34_3.868_1520_2100.checkpoint",
+      "cer_all300": 8.71,
+      "wer_all300": 20.79,
+      "cer_sel98": 9.5,
+      "wer_sel98": 21.97,
+      "cer_rep202": 8.33,
+      "wer_rep202": 20.23
+    },
+    "2300": {
+      "checkpoint": "x4_s34_3.602_1642_2300.checkpoint",
+      "cer_all300": 8.41,
+      "wer_all300": 20.12,
+      "cer_sel98": 9.17,
+      "wer_sel98": 21.59,
+      "cer_rep202": 8.05,
+      "wer_rep202": 19.42
+    },
+    "2400": {
+      "checkpoint": "x4_s34_3.459_1699_2400.checkpoint",
+      "cer_all300": 8.75,
+      "wer_all300": 20.37,
+      "cer_sel98": 9.5,
+      "wer_sel98": 21.59,
+      "cer_rep202": 8.39,
+      "wer_rep202": 19.78
+    },
+    "2600": {
+      "checkpoint": "x4_s34_3.219_1815_2600.checkpoint",
+      "cer_all300": 8.73,
+      "wer_all300": 20.85,
+      "cer_sel98": 9.54,
+      "wer_sel98": 21.78,
+      "cer_rep202": 8.35,
+      "wer_rep202": 20.41
+    },
+    "2700": {
+      "checkpoint": "x4_s34_3.060_1867_2700.checkpoint",
+      "cer_all300": 8.94,
+      "wer_all300": 21.16,
+      "cer_sel98": 9.74,
+      "wer_sel98": 22.35,
+      "cer_rep202": 8.57,
+      "wer_rep202": 20.59
+    },
+    "3100": {
+      "checkpoint": "x4_s34_2.962_2103_3100.checkpoint",
+      "cer_all300": 8.97,
+      "wer_all300": 20.61,
+      "cer_sel98": 9.77,
+      "wer_sel98": 23.11,
+      "cer_rep202": 8.6,
+      "wer_rep202": 19.42
+    },
+    "3300": {
+      "checkpoint": "x4_s34_2.770_2206_3300.checkpoint",
+      "cer_all300": 9.03,
+      "wer_all300": 20.67,
+      "cer_sel98": 9.97,
+      "wer_sel98": 22.73,
+      "cer_rep202": 8.58,
+      "wer_rep202": 19.69
+    },
+    "5200": {
+      "checkpoint": "x4_s34_2.677_3294_5200.checkpoint",
+      "cer_all300": 9.3,
+      "wer_all300": 21.46,
+      "cer_sel98": 9.5,
+      "wer_sel98": 22.73,
+      "cer_rep202": 9.21,
+      "wer_rep202": 20.86
+    },
+    "5600": {
+      "checkpoint": "x4_s34_2.514_3510_5600.checkpoint",
+      "cer_all300": 8.93,
+      "wer_all300": 21.04,
+      "cer_sel98": 9.21,
+      "wer_sel98": 22.54,
+      "cer_rep202": 8.8,
+      "wer_rep202": 20.32
+    },
+    "5900": {
+      "checkpoint": "x4_s34_2.422_3660_5900.checkpoint",
+      "cer_all300": 8.58,
+      "wer_all300": 19.94,
+      "cer_sel98": 8.64,
+      "wer_sel98": 21.4,
+      "cer_rep202": 8.55,
+      "wer_rep202": 19.24
+    },
+    "6100": {
+      "checkpoint": "x4_s34_2.299_3756_6100.checkpoint",
+      "cer_all300": 8.88,
+      "wer_all300": 20.43,
+      "cer_sel98": 9.44,
+      "wer_sel98": 23.3,
+      "cer_rep202": 8.61,
+      "wer_rep202": 19.06
+    },
+    "6500": {
+      "checkpoint": "x4_s34_2.194_3952_6500.checkpoint",
+      "cer_all300": 8.78,
+      "wer_all300": 20.37,
+      "cer_sel98": 8.91,
+      "wer_sel98": 21.59,
+      "cer_rep202": 8.72,
+      "wer_rep202": 19.78
+    },
+    "6700": {
+      "checkpoint": "x4_s34_2.054_4052_6700.checkpoint",
+      "cer_all300": 8.78,
+      "wer_all300": 21.46,
+      "cer_sel98": 9.47,
+      "wer_sel98": 24.81,
+      "cer_rep202": 8.46,
+      "wer_rep202": 19.87
+    },
+    "6900": {
+      "checkpoint": "x4_s34_1.960_4154_6900.checkpoint",
+      "cer_all300": 9.13,
+      "wer_all300": 21.71,
+      "cer_sel98": 9.37,
+      "wer_sel98": 23.86,
+      "cer_rep202": 9.02,
+      "wer_rep202": 20.68
+    },
+    "7100": {
+      "checkpoint": "x4_s34_1.875_4259_7100.checkpoint",
+      "cer_all300": 8.65,
+      "wer_all300": 20.55,
+      "cer_sel98": 9.24,
+      "wer_sel98": 23.11,
+      "cer_rep202": 8.38,
+      "wer_rep202": 19.33
+    },
+    "7400": {
+      "checkpoint": "x4_s34_1.806_4414_7400.checkpoint",
+      "cer_all300": 8.45,
+      "wer_all300": 20.73,
+      "cer_sel98": 9.34,
+      "wer_sel98": 23.86,
+      "cer_rep202": 8.04,
+      "wer_rep202": 19.24
+    },
+    "10500": {
+      "checkpoint": "x4_s34_1.703_5817_10500.checkpoint",
+      "cer_all300": 9.04,
+      "wer_all300": 20.91,
+      "cer_sel98": 9.5,
+      "wer_sel98": 24.24,
+      "cer_rep202": 8.82,
+      "wer_rep202": 19.33
+    },
+    "10800": {
+      "checkpoint": "x4_s34_1.593_5930_10800.checkpoint",
+      "cer_all300": 9.28,
+      "wer_all300": 20.49,
+      "cer_sel98": 9.7,
+      "wer_sel98": 22.73,
+      "cer_rep202": 9.08,
+      "wer_rep202": 19.42
+    },
+    "11100": {
+      "checkpoint": "x4_s34_1.482_6062_11100.checkpoint",
+      "cer_all300": 9.38,
+      "wer_all300": 21.4,
+      "cer_sel98": 10.4,
+      "wer_sel98": 24.62,
+      "cer_rep202": 8.89,
+      "wer_rep202": 19.87
+    },
+    "11200": {
+      "checkpoint": "x4_s34_1.402_6103_11200.checkpoint",
+      "cer_all300": 9.78,
+      "wer_all300": 21.71,
+      "cer_sel98": 10.6,
+      "wer_sel98": 24.43,
+      "cer_rep202": 9.39,
+      "wer_rep202": 20.41
+    },
+    "16700": {
+      "checkpoint": "x4_s34_1.312_8332_16700.checkpoint",
+      "cer_all300": 9.2,
+      "wer_all300": 21.71,
+      "cer_sel98": 9.94,
+      "wer_sel98": 25.95,
+      "cer_rep202": 8.85,
+      "wer_rep202": 19.69
+    },
+    "17200": {
+      "checkpoint": "x4_s34_1.267_8511_17200.checkpoint",
+      "cer_all300": 9.15,
+      "wer_all300": 22.5,
+      "cer_sel98": 10.44,
+      "wer_sel98": 26.52,
+      "cer_rep202": 8.55,
+      "wer_rep202": 20.59
+    },
+    "20400": {
+      "checkpoint": "x4_s34_1.204_9684_20400.checkpoint",
+      "cer_all300": 9.6,
+      "wer_all300": 23.29,
+      "cer_sel98": 10.93,
+      "wer_sel98": 27.46,
+      "cer_rep202": 8.97,
+      "wer_rep202": 21.31
+    },
+    "24300": {
+      "checkpoint": "x4_s34_1.120_11074_24300.checkpoint",
+      "cer_all300": 10.12,
+      "wer_all300": 23.17,
+      "cer_sel98": 11.23,
+      "wer_sel98": 27.65,
+      "cer_rep202": 9.6,
+      "wer_rep202": 21.04
+    },
+    "24900": {
+      "checkpoint": "x4_s34_1.084_11285_24900.checkpoint",
+      "cer_all300": 10.23,
+      "wer_all300": 23.35,
+      "cer_sel98": 11.4,
+      "wer_sel98": 27.46,
+      "cer_rep202": 9.67,
+      "wer_rep202": 21.4
+    },
+    "28900": {
+      "checkpoint": "x4_s34_1.017_12651_28900.checkpoint",
+      "cer_all300": 10.66,
+      "wer_all300": 25.06,
+      "cer_sel98": 12.2,
+      "wer_sel98": 30.87,
+      "cer_rep202": 9.94,
+      "wer_rep202": 22.3
+    },
+    "35500": {
+      "checkpoint": "x4_s34_0.963_14828_35500.checkpoint",
+      "cer_all300": 10.55,
+      "wer_all300": 24.63,
+      "cer_sel98": 11.47,
+      "wer_sel98": 28.6,
+      "cer_rep202": 10.13,
+      "wer_rep202": 22.75
+    },
+    "35600": {
+      "checkpoint": "x4_s34_0.922_14855_35600.checkpoint",
+      "cer_all300": 10.61,
+      "wer_all300": 24.27,
+      "cer_sel98": 11.47,
+      "wer_sel98": 28.22,
+      "cer_rep202": 10.2,
+      "wer_rep202": 22.39
+    },
+    "37900": {
+      "checkpoint": "x4_s34_0.887_15543_37900.checkpoint",
+      "cer_all300": 10.25,
+      "wer_all300": 23.78,
+      "cer_sel98": 11.03,
+      "wer_sel98": 25.95,
+      "cer_rep202": 9.88,
+      "wer_rep202": 22.75
+    },
+    "38000": {
+      "checkpoint": "x4_s34_0.854_15578_38000.checkpoint",
+      "cer_all300": 10.56,
+      "wer_all300": 23.84,
+      "cer_sel98": 10.97,
+      "wer_sel98": 25.19,
+      "cer_rep202": 10.38,
+      "wer_rep202": 23.2
+    },
+    "50200": {
+      "checkpoint": "x4_s34_0.815_19354_50200.checkpoint",
+      "cer_all300": 11.64,
+      "wer_all300": 27.07,
+      "cer_sel98": 12.13,
+      "wer_sel98": 29.73,
+      "cer_rep202": 11.41,
+      "wer_rep202": 25.81
+    },
+    "62400": {
+      "checkpoint": "x4_s34_0.782_23010_62400.checkpoint",
+      "cer_all300": 11.52,
+      "wer_all300": 26.71,
+      "cer_sel98": 11.67,
+      "wer_sel98": 28.22,
+      "cer_rep202": 11.45,
+      "wer_rep202": 25.99
+    },
+    "62700": {
+      "checkpoint": "x4_s34_0.753_23096_62700.checkpoint",
+      "cer_all300": 11.73,
+      "wer_all300": 27.26,
+      "cer_sel98": 12.16,
+      "wer_sel98": 29.55,
+      "cer_rep202": 11.53,
+      "wer_rep202": 26.17
+    }
+  },
+  "selected_on_sel98": {
+    "iteration": 5900,
+    "checkpoint": "x4_s34_2.422_3660_5900.checkpoint",
+    "cer_all300": 8.58,
+    "wer_all300": 19.94,
+    "cer_sel98": 8.64,
+    "wer_sel98": 21.4,
+    "cer_rep202": 8.55,
+    "wer_rep202": 19.24
+  }
+}

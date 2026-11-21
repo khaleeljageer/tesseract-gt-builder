@@ -1,0 +1,134 @@
+{
+  "n_resamples": 10000,
+  "seed": 0,
+  "view": "rep202",
+  "unit": "line",
+  "note": "A is better in a resample when its rate is strictly lower; diff = A - B in percentage points",
+  "comparisons": {
+    "ft_model_vs_zeroshot": {
+      "A": "paddle:ft_model_s4000",
+      "B": "paddle:zeroshot",
+      "lines": 202,
+      "cer": {
+        "A": 7.18,
+        "B": 6.71,
+        "diff": 0.47,
+        "a_better": 1356,
+        "ci95": [
+          -0.38,
+          1.33
+        ]
+      },
+      "wer": {
+        "A": 26.35,
+        "B": 28.15,
+        "diff": -1.8,
+        "a_better": 8073,
+        "ci95": [
+          -5.87,
+          2.13
+        ]
+      }
+    },
+    "ft_rebuilt_vs_zeroshot": {
+      "A": "paddle:ft_rebuilt_s9000",
+      "B": "paddle:zeroshot",
+      "lines": 202,
+      "cer": {
+        "A": 10.84,
+        "B": 6.71,
+        "diff": 4.13,
+        "a_better": 0,
+        "ci95": [
+          2.7,
+          5.65
+        ]
+      },
+      "wer": {
+        "A": 35.43,
+        "B": 28.15,
+        "diff": 7.28,
+        "a_better": 9,
+        "ci95": [
+          2.88,
+          11.83
+        ]
+      }
+    },
+    "model_vs_rebuilt_dict": {
+      "A": "paddle:ft_model_s4000",
+      "B": "paddle:ft_rebuilt_s9000",
+      "lines": 202,
+      "cer": {
+        "A": 7.18,
+        "B": 10.84,
+        "diff": -3.67,
+        "a_better": 10000,
+        "ci95": [
+          -5.01,
+          -2.44
+        ]
+      },
+      "wer": {
+        "A": 26.35,
+        "B": 35.43,
+        "diff": -9.08,
+        "a_better": 10000,
+        "ci95": [
+          -12.37,
+          -5.87
+        ]
+      }
+    },
+    "tess_release_vs_zeroshot": {
+      "A": "tamv3_dawg_corpus",
+      "B": "paddle:zeroshot",
+      "lines": 202,
+      "cer": {
+        "A": 7.36,
+        "B": 6.71,
+        "diff": 0.66,
+        "a_better": 2612,
+        "ci95": [
+          -1.1,
+          2.77
+        ]
+      },
+      "wer": {
+        "A": 18.79,
+        "B": 28.15,
+        "diff": -9.35,
+        "a_better": 9999,
+        "ci95": [
+          -14.67,
+          -4.32
+        ]
+      }
+    },
+    "tess_release_vs_ft_model": {
+      "A": "tamv3_dawg_corpus",
+      "B": "paddle:ft_model_s4000",
+      "lines": 202,
+      "cer": {
+        "A": 7.36,
+        "B": 7.18,
+        "diff": 0.19,
+        "a_better": 4276,
+        "ci95": [
+          -1.42,
+          2.11
+        ]
+      },
+      "wer": {
+        "A": 18.79,
+        "B": 26.35,
+        "diff": -7.55,
+        "a_better": 9997,
+        "ci95": [
+          -11.77,
+          -3.29
+        ]
+      }
+    }
+  }
+}

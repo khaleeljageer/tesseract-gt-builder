@@ -1,0 +1,26 @@
+--- a/tools/program.py
++++ b/tools/program.py
+@@ -612,6 +612,23 @@
+                 if _ema_train_state is not None:
+                     model.set_state_dict(_ema_train_state)
+ 
++            # X5 short runs (IJDAR revision): save at listed steps, stop at a
++            # maximum step. Inert unless X5_SAVE_STEPS / X5_MAX_STEP are set.
++            _x5_steps = os.environ.get("X5_SAVE_STEPS", "")
++            if _x5_steps and dist.get_rank() == 0 and str(global_step) in _x5_steps.split(","):
++                _x5_state = None
++                if ema is not None:
++                    _x5_state = copy.deepcopy(model.state_dict())
++                    model.set_state_dict(ema.apply())
++                save_model(model, optimizer, save_model_dir, logger, config,
++                           is_best=False, prefix="iter_step_{}".format(global_step),
++                           best_model_dict=best_model_dict, epoch=epoch,
++                           global_step=global_step)
++                if _x5_state is not None:
++                    model.set_state_dict(_x5_state)
++            if int(os.environ.get("X5_MAX_STEP", "0") or 0) and global_step >= int(os.environ["X5_MAX_STEP"]):
++                logger.info("X5_MAX_STEP {} reached, stopping".format(global_step))
++                sys.exit(0)
+             reader_start = time.time()
+         if dist.get_rank() == 0:
+             prefix = "latest"

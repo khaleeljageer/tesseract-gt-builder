@@ -1,0 +1,179 @@
+{
+ "model": "gemma3:12b",
+ "cpu": true,
+ "prompt": "This image is one line of printed Tamil text. Transcribe it exactly, character for character, in Tamil Unicode. Output only the text of the line: no translation, no explanation, no quotation marks.",
+ "lines": {
+  "books_002_l001": {
+   "raw": "இதற்கு காரணம், முதலீடு செய்வதுற்கும்,",
+   "cleaned": false,
+   "wall_s": 1.791,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_007_l004": {
+   "raw": "மதிப்பிட்டார். பாசிக்கு மாற்று முதலானித்ததுவம் அல்ல- “சோவியத்தியம்” அதாவது",
+   "cleaned": false,
+   "wall_s": 30.24,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_011_l002": {
+   "raw": "இதன் காரணமாக 1936ஆம் ஆண்டு ஏப்ரல் மாதம் 27ஆம் நாள் நீங்கள் சிறைவாசத்தின் பொழுதே",
+   "cleaned": false,
+   "wall_s": 30.439,
+   "eval_count": 28,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_022_l007": {
+   "raw": "மையப்படுத்தப்பட்டு, ஒரு பெரிய தொகுப்பாக இணைந்து, சர்வதேச அளவில்",
+   "cleaned": false,
+   "wall_s": 28.506,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_024_l007": {
+   "raw": "போரை அவைக் நடத்தக் கொண்டிருந்தன. ஏகாதிபதித்தால் மூன்றாம் உலகிற்கி",
+   "cleaned": false,
+   "wall_s": 29.29,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_039_l005": {
+   "raw": "என்றால், தனிநபர் பாதுகாப்பாகவுள்ளா மற்றச் சட்டங்களைக்",
+   "cleaned": false,
+   "wall_s": 28.739,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_040_l001": {
+   "raw": "முடியுமோ அல்லது குடியரசோ எது ஏற்படுத்தப்படணும் அது",
+   "cleaned": false,
+   "wall_s": 28.323,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_041_l014": {
+   "raw": "விரும்புகிறேன்.",
+   "cleaned": false,
+   "wall_s": 27.581,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_042_l007": {
+   "raw": "எம்பாடு எழுத்துகளால் எழுதப்படுவது",
+   "cleaned": false,
+   "wall_s": 28.031,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_046_l006": {
+   "raw": "கனோத் தீர்ப்பதில் உணவு, விவசாயச் சங்கம்",
+   "cleaned": false,
+   "wall_s": 28.581,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_048_l017": {
+   "raw": "கீறன்.",
+   "cleaned": false,
+   "wall_s": 27.496,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_050_l005": {
+   "raw": "என்னவோ இப்பொழுதுதான் ஏதோ ஒரு கெட்ட கனு கண்டு",
+   "cleaned": false,
+   "wall_s": 28.673,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_051_l001": {
+   "raw": "\"இந்தப் புரட்சிகரமான பிரெஞ்சு சட்டடம் மிகவும் நல்ல\"",
+   "cleaned": true,
+   "wall_s": 29.022,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_053_l006": {
+   "raw": "களைத் திருப்பதிப் படுத்தற்பவளாகவும் காட்டிக் கொள்கின்றன என்று",
+   "cleaned": false,
+   "wall_s": 29.088,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_054_l003": {
+   "raw": "பங்கு பெரும் முக்கியத்துவமளிக்கும் சமூகத்தின் அனுதாபனின் அரசியல் ஸ்தாபனம்",
+   "cleaned": false,
+   "wall_s": 29.593,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_055_l005": {
+   "raw": "கட்சியின் நடவடிக்கை மற்றும் அதன் தலைமையா யாங்கு",
+   "cleaned": false,
+   "wall_s": 28.139,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_061_l007": {
+   "raw": "உள்ளிட்ட ஆயுதங்களுடன் வாஃபாத்தி கிராமத்தின மீ து ஒருசீர",
+   "cleaned": false,
+   "wall_s": 29.1,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_063_l010": {
+   "raw": "பயப்பாடாீர்கள். அனைத்தையும் சந்திக்கலாம். நாம் எதிர் நடவடிக்கை",
+   "cleaned": false,
+   "wall_s": 29.029,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_065_l011": {
+   "raw": "இளைஞர்களை வெண்கிடு, கட்டக்குள் ஈர்த்தார். அவைகளைச் செய்யூடாகம் மிகை",
+   "cleaned": false,
+   "wall_s": 29.982,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_068_l005": {
+   "raw": "“கட்சியின் மாவட்டக்குமுவிளிருந்து நேரடியாக போராட்டக்க",
+   "cleaned": false,
+   "wall_s": 28.598,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  }
+ },
+ "summary": {
+  "n": 20,
+  "total_s": 550.3,
+  "mean_s_per_line": 27.512,
+  "median_s_per_line": 28.739,
+  "peak_gpu_mib": 524,
+  "n_cleaned": 1,
+  "n_empty": 0,
+  "n_truncated": 0
+ },
+ "ollama_show": "  Model\n    architecture        gemma3    \n    parameters          11.8B     \n    context length      131072    \n    embedding length    3840      \n    quantization        Q4_K_M    \n    requires            0.30.0    \n\n  Capabilities\n    completion    \n    vision        \n\n  Projector\n    architecture        clip       \n    parameters          421.29M    \n    embedding length    1152       \n    dimensions          3840       \n\n  Parameters\n    stop           \"<end_of_turn>\"    \n    temperature    1                  \n    top_k          64                 \n    top_p          0.95               \n\n  License\n    Gemma Terms of Use                  \n    Last modified: February 21, 2024    \n    ...                                 \n\n",
+ "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \ngemma3:12b    b92b218582c5    8.1 GB    100% CPU     4096       29 minutes from now    \n"
+}

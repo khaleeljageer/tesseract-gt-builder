@@ -1,0 +1,142 @@
+[
+  {
+    "label": "x5short_model_s250",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s250",
+    "cer_all300": 45.13,
+    "wer_all300": 90.61,
+    "cer_sel98": 47.72,
+    "wer_sel98": 93.18,
+    "cer_rep202": 43.91,
+    "wer_rep202": 89.39
+  },
+  {
+    "label": "x5short_model_s500",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s500",
+    "cer_all300": 30.28,
+    "wer_all300": 81.77,
+    "cer_sel98": 32.07,
+    "wer_sel98": 83.33,
+    "cer_rep202": 29.44,
+    "wer_rep202": 81.03
+  },
+  {
+    "label": "x5short_model_s1000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s1000",
+    "cer_all300": 14.75,
+    "wer_all300": 52.38,
+    "cer_sel98": 15.62,
+    "wer_sel98": 53.41,
+    "cer_rep202": 14.34,
+    "wer_rep202": 51.89
+  },
+  {
+    "label": "x5short_model_s2000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s2000",
+    "cer_all300": 9.56,
+    "wer_all300": 37.8,
+    "cer_sel98": 10.7,
+    "wer_sel98": 41.48,
+    "cer_rep202": 9.02,
+    "wer_rep202": 36.06
+  },
+  {
+    "label": "x5short_model_s3000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s3000",
+    "cer_all300": 8.08,
+    "wer_all300": 31.28,
+    "cer_sel98": 8.94,
+    "wer_sel98": 36.17,
+    "cer_rep202": 7.68,
+    "wer_rep202": 28.96
+  },
+  {
+    "label": "x5short_model_s4000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s4000",
+    "cer_all300": 7.64,
+    "wer_all300": 28.41,
+    "cer_sel98": 8.64,
+    "wer_sel98": 32.77,
+    "cer_rep202": 7.18,
+    "wer_rep202": 26.35
+  },
+  {
+    "label": "x5short_model_s5000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s5000",
+    "cer_all300": 7.75,
+    "wer_all300": 27.74,
+    "cer_sel98": 9.24,
+    "wer_sel98": 33.14,
+    "cer_rep202": 7.05,
+    "wer_rep202": 25.18
+  },
+  {
+    "label": "x5short_model_s6000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s6000",
+    "cer_all300": 8.76,
+    "wer_all300": 31.46,
+    "cer_sel98": 9.9,
+    "wer_sel98": 33.71,
+    "cer_rep202": 8.22,
+    "wer_rep202": 30.4
+  },
+  {
+    "label": "x5short_model_s7000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s7000",
+    "cer_all300": 8.2,
+    "wer_all300": 31.04,
+    "cer_sel98": 8.71,
+    "wer_sel98": 33.14,
+    "cer_rep202": 7.96,
+    "wer_rep202": 30.04
+  },
+  {
+    "label": "x5short_model_s8000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s8000",
+    "cer_all300": 9.32,
+    "wer_all300": 34.82,
+    "cer_sel98": 10.2,
+    "wer_sel98": 38.07,
+    "cer_rep202": 8.91,
+    "wer_rep202": 33.27
+  },
+  {
+    "label": "x5short_model_s9000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s9000",
+    "cer_all300": 10.71,
+    "wer_all300": 40.67,
+    "cer_sel98": 11.93,
+    "wer_sel98": 46.4,
+    "cer_rep202": 10.14,
+    "wer_rep202": 37.95
+  },
+  {
+    "label": "x5short_model_s10000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s10000",
+    "cer_all300": 10.31,
+    "wer_all300": 36.28,
+    "cer_sel98": 11.37,
+    "wer_sel98": 41.48,
+    "cer_rep202": 9.81,
+    "wer_rep202": 33.81
+  },
+  {
+    "label": "x5short_model_s11000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s11000",
+    "cer_all300": 11.46,
+    "wer_all300": 42.8,
+    "cer_sel98": 12.4,
+    "wer_sel98": 46.4,
+    "cer_rep202": 11.02,
+    "wer_rep202": 41.1
+  },
+  {
+    "label": "x5short_model_s12000",
+    "pred_dir": "/home/asuran/revision/rec/output/x5short_model/preds_s12000",
+    "cer_all300": 10.5,
+    "wer_all300": 37.74,
+    "cer_sel98": 11.6,
+    "wer_sel98": 43.37,
+    "cer_rep202": 9.99,
+    "wer_rep202": 35.07
+  }
+]

@@ -1,0 +1,13 @@
+n_threads = 12 (n_threads_batch = 12) / 24 
+n_threads = 12 (n_threads_batch = 12) / 24 
+ollama version is 0.30.9
+gemma3:12b  parameters 11.8B   quantization Q4_K_M   parameters 421.29M  
+gemma3:4b  parameters 3.9B   quantization Q4_K_M   parameters 419.82M  
+qwen2.5vl:7b  parameters 8.3B   quantization Q4_K_M  
+qwen3-vl:8b-instruct  parameters 8.2B   quantization Q4_K_M   parameters 576.39M  
+NAME                    ID              SIZE      MODIFIED          
+qwen3-vl:8b-instruct    70e58e37beb1    6.2 GB    29 minutes ago       
+gemma3:4b               68ceab7e468a    3.4 GB    44 minutes ago       
+qwen3-vl:8b             9cf69da2b16d    6.2 GB    50 minutes ago       
+qwen2.5vl:7b            5ced39dfa4ba    6.0 GB    About an hour ago    
+gemma3:12b              b92b218582c5    8.2 GB    About an hour ago    

@@ -1,0 +1,290 @@
+{
+  "n_resamples": 10000,
+  "seed": 0,
+  "scores": {
+    "av:anuvaad_tam": {
+      "all300": [
+        8.64,
+        21.95
+      ],
+      "sel98": [
+        8.77,
+        22.35
+      ],
+      "rep202": [
+        8.58,
+        21.76
+      ]
+    },
+    "av:anuvad_tam_scene_text_real": {
+      "all300": [
+        7.18,
+        21.22
+      ],
+      "sel98": [
+        7.64,
+        21.78
+      ],
+      "rep202": [
+        6.96,
+        20.95
+      ]
+    },
+    "stock": {
+      "all300": [
+        8.87,
+        24.57
+      ],
+      "sel98": [
+        9.9,
+        24.05
+      ],
+      "rep202": [
+        8.38,
+        24.82
+      ]
+    },
+    "tamv3_dawg_corpus": {
+      "all300": [
+        7.77,
+        19.57
+      ],
+      "sel98": [
+        8.64,
+        21.21
+      ],
+      "rep202": [
+        7.36,
+        18.79
+      ]
+    },
+    "tamv3_i1400": {
+      "all300": [
+        8.4,
+        20.0
+      ],
+      "sel98": [
+        9.01,
+        21.4
+      ],
+      "rep202": [
+        8.11,
+        19.33
+      ]
+    }
+  },
+  "by_stratum": {
+    "av:anuvaad_tam": {
+      "books": [
+        10.26,
+        22.74
+      ],
+      "degraded": [
+        9.56,
+        24.53
+      ],
+      "forms": [
+        12.7,
+        29.91
+      ],
+      "newsprint": [
+        6.34,
+        19.61
+      ],
+      "signage": [
+        0.61,
+        5.36
+      ]
+    },
+    "av:anuvad_tam_scene_text_real": {
+      "books": [
+        7.37,
+        18.38
+      ],
+      "degraded": [
+        7.91,
+        27.04
+      ],
+      "forms": [
+        11.31,
+        29.91
+      ],
+      "newsprint": [
+        5.01,
+        18.3
+      ],
+      "signage": [
+        1.51,
+        9.82
+      ]
+    },
+    "stock": {
+      "books": [
+        7.47,
+        20.25
+      ],
+      "degraded": [
+        10.22,
+        31.45
+      ],
+      "forms": [
+        15.0,
+        40.19
+      ],
+      "newsprint": [
+        6.34,
+        22.55
+      ],
+      "signage": [
+        1.51,
+        5.36
+      ]
+    },
+    "tamv3_dawg_corpus": {
+      "books": [
+        6.68,
+        14.64
+      ],
+      "degraded": [
+        11.65,
+        23.9
+      ],
+      "forms": [
+        12.38,
+        33.18
+      ],
+      "newsprint": [
+        4.66,
+        15.69
+      ],
+      "signage": [
+        1.21,
+        4.46
+      ]
+    },
+    "tamv3_i1400": {
+      "books": [
+        7.58,
+        14.95
+      ],
+      "degraded": [
+        12.97,
+        22.64
+      ],
+      "forms": [
+        13.52,
+        35.05
+      ],
+      "newsprint": [
+        4.83,
+        16.01
+      ],
+      "signage": [
+        1.51,
+        6.25
+      ]
+    }
+  },
+  "comparisons": {
+    "anuvaad_vs_stock": {
+      "A": "av:anuvaad_tam",
+      "B": "stock",
+      "cer": {
+        "diff": 0.2,
+        "a_better": 3823,
+        "ci95": [
+          -1.16,
+          1.56
+        ]
+      },
+      "wer": {
+        "diff": -3.06,
+        "a_better": 9530,
+        "ci95": [
+          -6.68,
+          0.46
+        ]
+      }
+    },
+    "scene_vs_stock": {
+      "A": "av:anuvad_tam_scene_text_real",
+      "B": "stock",
+      "cer": {
+        "diff": -1.42,
+        "a_better": 9892,
+        "ci95": [
+          -2.76,
+          -0.22
+        ]
+      },
+      "wer": {
+        "diff": -3.87,
+        "a_better": 9872,
+        "ci95": [
+          -7.41,
+          -0.45
+        ]
+      }
+    },
+    "release_vs_anuvaad": {
+      "A": "tamv3_dawg_corpus",
+      "B": "av:anuvaad_tam",
+      "cer": {
+        "diff": -1.22,
+        "a_better": 9567,
+        "ci95": [
+          -2.48,
+          0.18
+        ]
+      },
+      "wer": {
+        "diff": -2.97,
+        "a_better": 9524,
+        "ci95": [
+          -6.3,
+          0.45
+        ]
+      }
+    },
+    "nodict_vs_anuvaad": {
+      "A": "tamv3_i1400",
+      "B": "av:anuvaad_tam",
+      "cer": {
+        "diff": -0.47,
+        "a_better": 7669,
+        "ci95": [
+          -1.73,
+          0.88
+        ]
+      },
+      "wer": {
+        "diff": -2.43,
+        "a_better": 9283,
+        "ci95": [
+          -5.61,
+          0.81
+        ]
+      }
+    },
+    "release_vs_scene": {
+      "A": "tamv3_dawg_corpus",
+      "B": "av:anuvad_tam_scene_text_real",
+      "cer": {
+        "diff": 0.41,
+        "a_better": 3142,
+        "ci95": [
+          -0.96,
+          2.12
+        ]
+      },
+      "wer": {
+        "diff": -2.16,
+        "a_better": 8904,
+        "ci95": [
+          -5.35,
+          1.21
+        ]
+      }
+    }
+  }
+}

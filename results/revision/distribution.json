@@ -1,0 +1,233 @@
+{
+ "corpus_lines": 218125,
+ "test_lines": 300,
+ "corpus_graphemes": 11239592,
+ "test_graphemes": 8078,
+ "distinct": {
+  "corpus": 362,
+  "test": 206,
+  "test_not_in_corpus": []
+ },
+ "jsd": {
+  "corpus_vs_test": 0.0232,
+  "sampling_floor_mean": 0.0063,
+  "sampling_floor_p95": 0.0072,
+  "per_stratum": {
+   "books": {
+    "graphemes": 2328,
+    "vs_corpus": 0.0276,
+    "floor_mean": 0.02,
+    "vs_other_strata": 0.0467
+   },
+   "degraded": {
+    "graphemes": 1160,
+    "vs_corpus": 0.0443,
+    "floor_mean": 0.0367,
+    "vs_other_strata": 0.0507
+   },
+   "forms": {
+    "graphemes": 1624,
+    "vs_corpus": 0.0962,
+    "floor_mean": 0.0278,
+    "vs_other_strata": 0.0822
+   },
+   "newsprint": {
+    "graphemes": 2134,
+    "vs_corpus": 0.0236,
+    "floor_mean": 0.0217,
+    "vs_other_strata": 0.032
+   },
+   "signage": {
+    "graphemes": 832,
+    "vs_corpus": 0.13,
+    "floor_mean": 0.0491,
+    "vs_other_strata": 0.1037
+   }
+  },
+  "tamil_only": 0.0134,
+  "tamil_only_floor_mean": 0.006
+ },
+ "over_in_test": [
+  [
+   "ய",
+   2.005,
+   1.436
+  ],
+  [
+   "0",
+   0.607,
+   0.045
+  ],
+  [
+   "-",
+   0.495,
+   0.085
+  ],
+  [
+   "ப",
+   2.377,
+   1.972
+  ],
+  [
+   "1",
+   0.396,
+   0.04
+  ],
+  [
+   "சி",
+   1.04,
+   0.716
+  ],
+  [
+   "க",
+   4.766,
+   4.448
+  ],
+  [
+   "ம்",
+   3.38,
+   3.088
+  ],
+  [
+   "றை",
+   0.545,
+   0.278
+  ],
+  [
+   "ற்",
+   1.25,
+   0.997
+  ],
+  [
+   ",",
+   1.25,
+   1.001
+  ],
+  [
+   "ள",
+   0.842,
+   0.607
+  ]
+ ],
+ "under_in_test": [
+  [
+   "ன்",
+   2.142,
+   3.163
+  ],
+  [
+   "ல்",
+   1.869,
+   2.42
+  ],
+  [
+   ".",
+   1.807,
+   2.316
+  ],
+  [
+   "எ",
+   0.904,
+   1.289
+  ],
+  [
+   "க்",
+   2.488,
+   2.856
+  ],
+  [
+   "ந்",
+   1.238,
+   1.587
+  ],
+  [
+   "ரு",
+   1.3,
+   1.637
+  ],
+  [
+   "டி",
+   0.755,
+   1.071
+  ],
+  [
+   "கொ",
+   0.248,
+   0.484
+  ],
+  [
+   "கி",
+   0.817,
+   1.047
+  ],
+  [
+   "இ",
+   1.213,
+   1.424
+  ],
+  [
+   "போ",
+   0.285,
+   0.49
+  ]
+ ],
+ "classes_pct": {
+  "corpus": {
+   "digit": 0.19,
+   "punct_symbol": 3.49,
+   "space": 15.96,
+   "tamil": 80.36,
+   "tamil_digit": 0.0
+  },
+  "test": {
+   "digit": 1.87,
+   "punct_symbol": 3.91,
+   "space": 14.23,
+   "tamil": 80.0
+  }
+ },
+ "test_by_corpus_tier": {
+  "never": {
+   "units": 20,
+   "units_in_test": 0,
+   "test_occurrences": 0,
+   "test_units": []
+  },
+  "1-28": {
+   "units": 17,
+   "units_in_test": 0,
+   "test_occurrences": 0,
+   "test_units": []
+  },
+  "29-289": {
+   "units": 14,
+   "units_in_test": 2,
+   "test_occurrences": 2,
+   "test_units": [
+    "ங",
+    "ளீ"
+   ]
+  },
+  "290+": {
+   "units": 196,
+   "units_in_test": 174,
+   "test_occurrences": 7510,
+   "test_units": null
+  }
+ },
+ "test_graphemes_outside_247": 566,
+ "words": {
+  "test_types": 1366,
+  "test_tokens": 1640,
+  "oov_types": 243,
+  "oov_tokens": 248,
+  "oov_token_pct": 15.12,
+  "per_stratum_oov_token_pct": {
+   "books": 14.81,
+   "degraded": 14.35,
+   "forms": 18.48,
+   "newsprint": 12.64,
+   "signage": 17.18
+  }
+ }
+}

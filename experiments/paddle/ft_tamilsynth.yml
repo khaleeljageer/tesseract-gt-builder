@@ -1,0 +1,140 @@
+# X5 (IJDAR revision): fine-tune PaddleOCR's pretrained Tamil text-line
+# recogniser (ta_PP-OCRv5_mobile_rec, SVTR_LCNet + CTC/NRTR multi-head) on
+# TamilSynth. Derived from configs/rec/PP-OCRv5/multi_language/
+# ta_PP-OCRv5_mobile_rec.yaml with these changes, each for line-level data:
+#   - pretrained_model: the published Tamil weights
+#   - character dict: the model's own (513 entries; covers all 84 TamilSynth
+#     characters), so the output layer is kept, not reinitialised
+#   - max_text_length 25 -> 200 (TamilSynth lines reach 177 code points)
+#   - fixed 48 x 2000 input instead of 48 x 320 multi-scale; RecConAug off
+#     (it concatenates crops, and these are already full lines)
+#   - learning rate 5e-4 -> 1e-4, 1 warm-up epoch (fine-tuning)
+# Training lines are exactly the Tesseract runs' list.train (196,312 lines).
+Global:
+  model_name: ta_PP-OCRv5_mobile_rec
+  debug: false
+  use_gpu: true
+  epoch_num: 10
+  log_smooth_window: 20
+  print_batch_step: 50
+  save_model_dir: /home/asuran/revision/rec/output/ft_tamilsynth
+  save_epoch_step: 1
+  eval_batch_step: [0, 3000]
+  cal_metric_during_train: true
+  pretrained_model: /home/asuran/revision/rec/pretrained/ta_PP-OCRv5_mobile_rec_pretrained
+  checkpoints:
+  save_inference_dir:
+  use_visualdl: false
+  infer_img:
+  character_dict_path: /home/asuran/revision/rec/PaddleOCR/ppocr/utils/dict/ppocrv5_ta_dict.txt
+  max_text_length: &max_text_length 200
+  infer_mode: false
+  use_space_char: true
+  distributed: false
+  save_res_path: /home/asuran/revision/rec/output/ft_tamilsynth/predicts.txt
+  d2s_train_image_shape: [3, 48, 2000]
+
+Optimizer:
+  name: Adam
+  beta1: 0.9
+  beta2: 0.999
+  lr:
+    name: Cosine
+    learning_rate: 0.0001
+    warmup_epoch: 1
+  regularizer:
+    name: L2
+    factor: 3.0e-05
+
+Architecture:
+  model_type: rec
+  algorithm: SVTR_LCNet
+  Transform:
+  Backbone:
+    name: PPLCNetV3
+    scale: 0.95
+  Head:
+    name: MultiHead
+    head_list:
+      - CTCHead:
+          Neck:
+            name: svtr
+            dims: 120
+            depth: 2
+            hidden_dims: 120
+            kernel_size: [1, 3]
+            use_guide: True
+          Head:
+            fc_decay: 0.00001
+      - NRTRHead:
+          nrtr_dim: 384
+          max_text_length: *max_text_length
+
+Loss:
+  name: MultiLoss
+  loss_config_list:
+    - CTCLoss:
+    - NRTRLoss:
+
+PostProcess:
+  name: CTCLabelDecode
+
+Metric:
+  name: RecMetric
+  main_indicator: acc
+  ignore_space: False
+
+Train:
+  dataset:
+    name: SimpleDataSet
+    data_dir: /
+    label_file_list:
+    - /home/asuran/revision/rec/data/train.txt
+    transforms:
+    - DecodeImage:
+        img_mode: BGR
+        channel_first: false
+    - RecAug:
+    - MultiLabelEncode:
+        gtc_encode: NRTRLabelEncode
+    - RecResizeImg:
+        image_shape: [3, 48, 2000]
+    - KeepKeys:
+        keep_keys:
+        - image
+        - label_ctc
+        - label_gtc
+        - length
+        - valid_ratio
+  loader:
+    shuffle: true
+    batch_size_per_card: 64
+    drop_last: true
+    num_workers: 6
+
+Eval:
+  dataset:
+    name: SimpleDataSet
+    data_dir: /
+    label_file_list:
+    - /home/asuran/revision/rec/data/val.txt
+    transforms:
+    - DecodeImage:
+        img_mode: BGR
+        channel_first: false
+    - MultiLabelEncode:
+        gtc_encode: NRTRLabelEncode
+    - RecResizeImg:
+        image_shape: [3, 48, 2000]
+    - KeepKeys:
+        keep_keys:
+        - image
+        - label_ctc
+        - label_gtc
+        - length
+        - valid_ratio
+  loader:
+    shuffle: false
+    drop_last: false
+    batch_size_per_card: 64
+    num_workers: 4

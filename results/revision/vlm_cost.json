@@ -1,0 +1,67 @@
+{
+  "gemma3_12b": {
+    "n": 300,
+    "total_s": 307.5,
+    "mean_s_per_line": 1.018,
+    "median_s_per_line": 1.009,
+    "peak_gpu_mib": 9630,
+    "n_cleaned": 2,
+    "n_empty": 0,
+    "n_truncated": 0,
+    "model": "gemma3:12b",
+    "cpu": false,
+    "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \ngemma3:12b    b92b218582c5    8.0 GB    100% GPU     4096       29 minutes from now    \n"
+  },
+  "gemma3_12b_cpu": {
+    "n": 20,
+    "total_s": 550.3,
+    "mean_s_per_line": 27.512,
+    "median_s_per_line": 28.739,
+    "peak_gpu_mib": 524,
+    "n_cleaned": 1,
+    "n_empty": 0,
+    "n_truncated": 0,
+    "model": "gemma3:12b",
+    "cpu": true,
+    "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \ngemma3:12b    b92b218582c5    8.1 GB    100% CPU     4096       29 minutes from now    \n"
+  },
+  "gemma3_4b": {
+    "n": 300,
+    "total_s": 231.1,
+    "mean_s_per_line": 0.764,
+    "median_s_per_line": 0.744,
+    "peak_gpu_mib": 4395,
+    "n_cleaned": 8,
+    "n_empty": 0,
+    "n_truncated": 1,
+    "model": "gemma3:4b",
+    "cpu": false,
+    "ollama_ps": "NAME         ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \ngemma3:4b    68ceab7e468a    2.9 GB    100% GPU     4096       29 minutes from now    \n"
+  },
+  "qwen2_5vl_7b": {
+    "n": 300,
+    "total_s": 349.9,
+    "mean_s_per_line": 1.162,
+    "median_s_per_line": 1.144,
+    "peak_gpu_mib": 7390,
+    "n_cleaned": 0,
+    "n_empty": 0,
+    "n_truncated": 0,
+    "model": "qwen2.5vl:7b",
+    "cpu": false,
+    "ollama_ps": "NAME            ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \nqwen2.5vl:7b    5ced39dfa4ba    5.5 GB    100% GPU     4096       29 minutes from now    \n"
+  },
+  "qwen3-vl_8b-instruct": {
+    "n": 300,
+    "total_s": 429.8,
+    "mean_s_per_line": 1.428,
+    "median_s_per_line": 1.4,
+    "peak_gpu_mib": 7387,
+    "n_cleaned": 0,
+    "n_empty": 0,
+    "n_truncated": 1,
+    "model": "qwen3-vl:8b-instruct",
+    "cpu": false,
+    "ollama_ps": "NAME                    ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \nqwen3-vl:8b-instruct    70e58e37beb1    5.8 GB    100% GPU     4096       29 minutes from now    \n"
+  }
+}

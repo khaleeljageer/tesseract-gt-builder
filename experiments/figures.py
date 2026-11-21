@@ -32,7 +32,14 @@ def main():
     stock_cer = cer(stock, names)
 
     v3 = {int(k): v for k, v in sweep["checkpoints"].items()}
-    v2 = {int(k): v for k, v in sweep["v2_checkpoints"].items()}
+    # Panel (a) is the controlled defaults run: same 218,125 lines, same line
+    # order and schedule as v3, LANG_TYPE unset (IJDAR revision; the earlier
+    # figure plotted v2, a run on the first 198,503-line corpus). Swept by
+    # sweep_checkpoints.py; training BCER is the error in each checkpoint name.
+    unset_sweep = json.loads((RES / "revision" / "sweep_tam_unset_orig.json").read_text())
+    v2 = {int(k): {"cer": v["cer_all300"] / 100,
+                   "train_bcer": float(v["checkpoint"].split("_")[2]) / 100}
+          for k, v in unset_sweep["checkpoints"].items()}
 
     # ---- Figure 1: real-page CER against training iteration, both runs.
     fig, (ax, bx) = plt.subplots(1, 2, figsize=(7.0, 2.5), sharey=True)
@@ -48,7 +55,7 @@ def main():
                   ms=3.5, lw=1.6, label="real pages", zorder=3)
         axis.plot(its, [100 * data[i]["train_bcer"] for i in its], "--s",
                   color=colour, ms=3, lw=1.1, alpha=0.45,
-                  label="synthetic held-out", zorder=2)
+                  label="synthetic training error", zorder=2)
         axis.set_xscale("log")
         axis.set_xlabel("training iteration")
         axis.set_title(title, fontsize=9)

@@ -1,0 +1,19 @@
+diff --git a/ppocr/modeling/backbones/rec_lcnetv3.py b/ppocr/modeling/backbones/rec_lcnetv3.py
+index 387c761..d9b4e32 100644
+--- a/ppocr/modeling/backbones/rec_lcnetv3.py
++++ b/ppocr/modeling/backbones/rec_lcnetv3.py
+@@ -560,8 +560,10 @@ class PPLCNetV3(nn.Layer):
+             out_list[3] = self.layer_list[3](out_list[3])
+             return out_list
+ 
+-        if self.training:
+-            x = F.adaptive_avg_pool2d(x, [1, 40])
+-        else:
+-            x = F.avg_pool2d(x, [3, 2])
++        # TamilSynth line-level patch (IJDAR revision, X5): use the inference
++        # pooling in training too, giving W/8 CTC time steps in both modes.
++        # At the native 48x320 input both branches already give 40 steps, so
++        # this changes nothing there; for full text lines the original
++        # training branch would squeeze 100-180 characters into 40 steps.
++        x = F.avg_pool2d(x, [3, 2])
+         return x

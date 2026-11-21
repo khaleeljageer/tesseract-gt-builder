@@ -1,0 +1,2419 @@
+{
+ "model": "gemma3:12b",
+ "cpu": false,
+ "prompt": "This image is one line of printed Tamil text. Transcribe it exactly, character for character, in Tamil Unicode. Output only the text of the line: no translation, no explanation, no quotation marks.",
+ "lines": {
+  "books_001_l005": {
+   "raw": "ஆக்கிரமிப்பு, துறையாலத் தன்மை கொடுக்காதாகும்.",
+   "cleaned": false,
+   "wall_s": 0.581,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_002_l001": {
+   "raw": "இதற்கு காரணம், முதலீடு செய்வதுற்கும்,",
+   "cleaned": false,
+   "wall_s": 0.543,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_003_l001": {
+   "raw": "ஏகாதிபத்தியம், புதிய சந்தைகள், வனாங்கன் மற்றும்",
+   "cleaned": false,
+   "wall_s": 1.035,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_004_l009": {
+   "raw": "காலத்தித்தான் இத்தாலியில் பாசிமும் ஜெர்மனியில் நாஜிசமும் ண்டு",
+   "cleaned": false,
+   "wall_s": 1.123,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_005_l005": {
+   "raw": "தன்னு பாதுகாப்பை சிந்திக்க வேண்டும்” எனக்கூறி அதற்கு மறுத்துவிட்டார். சிறையில் பல",
+   "cleaned": false,
+   "wall_s": 1.098,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_006_l002": {
+   "raw": "“முதலாளித்துவத்தின் மிகவும் பிற்போக்குத்தனமான பிரதிவின் சர்வாதிகாரம்தான்” என கூறலாம்.",
+   "cleaned": false,
+   "wall_s": 1.206,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_007_l004": {
+   "raw": "மதிப்பிட்டார். பாசிக்கு மாற்று முதலானித்ததுவம் அல்ல- “சோவியத்தியம்” அதாவது",
+   "cleaned": false,
+   "wall_s": 0.804,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_009_l004": {
+   "raw": "சித்தாந்தத்தை உழைக்கும் மக்களின் சிந்தனையில் புகுத்துகிறது. எனவேதான் உழைக்கும் கூட்டாளிகளுடன்",
+   "cleaned": false,
+   "wall_s": 1.204,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_010_l001": {
+   "raw": "எனவே ஒரு தொழிலாளிற்க்க கட்சி, அரசியல், பொருளாதார தளங்களில் மட்டுமல்லாது,",
+   "cleaned": false,
+   "wall_s": 1.105,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_011_l002": {
+   "raw": "இதன் காரணமாக 1936ஆம் ஆண்டு ஏப்ரல் மாதம் 27ஆம் நாள் நான் சிறைவாசத்தின் பொழுதே",
+   "cleaned": false,
+   "wall_s": 0.879,
+   "eval_count": 28,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_013_l005": {
+   "raw": "அமெரிக்க ராணுவ தளங்கள் மீதான ஈரானின் தாக்குதலை மட்டும் ஒருதலைபட்சமாக",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_014_l002": {
+   "raw": "பின்பற்றிருக்கும் பாலகவையும், அதனுடன் இணைந்து ஓரணியில் நிற்கும் அதிக முக",
+   "cleaned": false,
+   "wall_s": 1.082,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_015_l004": {
+   "raw": "அனைத்து கட்சிகளின் கடமைமாகும்.",
+   "cleaned": false,
+   "wall_s": 0.915,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_016_l004": {
+   "raw": "கூட்டணியை வலுவாக தோற்கடிப்பதுதான். அதேசயம், தேர்தல் களம் நமது",
+   "cleaned": false,
+   "wall_s": 1.128,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_017_l004": {
+   "raw": "துறைகளில் ஓரளவுக்கு மக்களுக்கு பயன்பட வந்துள்ளன. எனினும் விவசாயிகள்,",
+   "cleaned": false,
+   "wall_s": 1.043,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_018_l001": {
+   "raw": "நிலம்பாகும் பெருமளவில் முரண்படுவதில்லை என்றாலும், உள்ளாட்சி ஜனநாயகம்",
+   "cleaned": false,
+   "wall_s": 1.093,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_020_l003": {
+   "raw": "மாரியது. இந்த நிதியுதவி என்பது மூலதனத்தைத் பெருமளவில் குவிப்பதைக்",
+   "cleaned": false,
+   "wall_s": 1.085,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_021_l003": {
+   "raw": "ஏகதிபத்திகளுக்கு இடையேயான உள்முரண்பாடுகள் மையமாக இருந்துளது.",
+   "cleaned": false,
+   "wall_s": 1.099,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_022_l007": {
+   "raw": "மையப்படுத்தப்பட்டு, ஒரு பெரிய தொகுப்பாக இணைந்து, சர்வதேச அளவில்",
+   "cleaned": false,
+   "wall_s": 0.6,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_023_l002": {
+   "raw": "மாரியதானது ஏகாதித்தின் கட்டமைப்புக்கும் செயலப்பாட்டிற்கும் முக்கியமான",
+   "cleaned": false,
+   "wall_s": 1.052,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_024_l002": {
+   "raw": "அணு ஆயுதங்களின் இருப்பினால், ஏகதிபத்திய முகாமிற்கும் சோஷலிச",
+   "cleaned": false,
+   "wall_s": 1.115,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_024_l007": {
+   "raw": "போரை அவe நடத்தக் கொண்டிருந்தன. எகாதிபதித்ததால் மூன்றாம் உலகில்",
+   "cleaned": false,
+   "wall_s": 0.73,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_025_l001": {
+   "raw": "நிறைந்து ஆதிமனிதனை பயமுறுத்தின. அவற்றிற்ற்கு உயிர்ப் பலிகள் எஞ்சவிட்",
+   "cleaned": false,
+   "wall_s": 1.226,
+   "eval_count": 27,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_026_l007": {
+   "raw": "விபரீதமாகிறது போனால் துக்கம் தானாது குலம் முமுமையுமே",
+   "cleaned": false,
+   "wall_s": 1.082,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_027_l001": {
+   "raw": "மலையடிச்சியிலிருந்து கீழே குதிப்பது, காட்டாற்று வெள்ளத்தில்",
+   "cleaned": false,
+   "wall_s": 1.047,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_028_l004": {
+   "raw": "காக்கும். வேட்டையின் போது வழிகாட்டடும். வேட்டையாடும் போது",
+   "cleaned": false,
+   "wall_s": 1.074,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_029_l004": {
+   "raw": "மிரூருங்களின் ஆவி நம்மைப் பழி தீர்க்கும் என்பதுதான் அந்தக்",
+   "cleaned": false,
+   "wall_s": 1.086,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_030_l005": {
+   "raw": "ஓரளவுக்கு உபரியை பொருளை உற்பத்தி செய்ய முடிந்தபொழுதுதான்,",
+   "cleaned": false,
+   "wall_s": 1.026,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_031_l005": {
+   "raw": "யாக வேண்டி, அரசு தோன்ற வேண்டியது அவசியமாயிற்று.",
+   "cleaned": false,
+   "wall_s": 1.006,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_032_l003": {
+   "raw": "ஆட்சி புரியும் திறனுடையவராக அவர்களை ஆக்கிய ஓர் இயன்றிரும்",
+   "cleaned": false,
+   "wall_s": 1.037,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_033_l001": {
+   "raw": "அரசு உருவாக்கு தற்காலத்துடன் ஒப்பினிம்பொழுமது மிகக் குறு",
+   "cleaned": false,
+   "wall_s": 1.069,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_034_l005": {
+   "raw": "பகுதிியைச் சமுதாயத்தின் மற்ற்ப் பகுதிக்காக முறையாக உழைக்கும்",
+   "cleaned": false,
+   "wall_s": 1.063,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_035_l003": {
+   "raw": "எப்போழுதும் இந்தப் பிரிவினை வளர்ச்சி பெற்று வலுவடைந்த",
+   "cleaned": false,
+   "wall_s": 0.964,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_036_l006": {
+   "raw": "நிலைபெற்றுள்ள பண்டைய கிரேக்க, ரோம தேசங்களில் — அரசின்",
+   "cleaned": false,
+   "wall_s": 1.008,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_037_l009": {
+   "raw": "அடிமை முறையின் காலக் கட்டத்தில் எழுந்தன. இவ்வேறுற்றுகளைகள்",
+   "cleaned": false,
+   "wall_s": 1.065,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_038_l004": {
+   "raw": "பற்றி நீங்கள் கேட்கீர்கள். ஆயினும் அடிப்படைகள் மனிதப் பிறவிக",
+   "cleaned": false,
+   "wall_s": 1.035,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_039_l005": {
+   "raw": "என்றால், தனிநபர் பாதுகாப்பாகவுள்ளா மற்றச் சட்டங்களைக்",
+   "cleaned": false,
+   "wall_s": 1.025,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_040_l001": {
+   "raw": "முடியுமோ அல்லது குடியரசோ எது ஏற்படுத்தப்படணும் அது",
+   "cleaned": false,
+   "wall_s": 0.967,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_041_l014": {
+   "raw": "விரும்புகிறேன்.",
+   "cleaned": false,
+   "wall_s": 0.841,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_042_l007": {
+   "raw": "எம்பாடு எழுத்துகளால் எழுதப்படுவது",
+   "cleaned": false,
+   "wall_s": 0.937,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_043_l004": {
+   "raw": "புரட்சிைய விட கூட அதிகமானதாக",
+   "cleaned": false,
+   "wall_s": 0.946,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_044_l011": {
+   "raw": "வதந்தியாகக் கூறகத்திற்கோ அதிக வசதிகள அளிக்கப் பட",
+   "cleaned": false,
+   "wall_s": 1.048,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_045_l006": {
+   "raw": "படும் முறைகளும், சாதனங்களும் பெரும்பாலும் நம்முடைய",
+   "cleaned": false,
+   "wall_s": 0.931,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_046_l006": {
+   "raw": "கனோத் தீர்ப்பதில் உணவு, விவசாயச் சங்கம்",
+   "cleaned": false,
+   "wall_s": 1.003,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_047_l014": {
+   "raw": "எதுகைசேர்த்து வைக்குப் பேசுகையில்",
+   "cleaned": false,
+   "wall_s": 0.941,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_048_l004": {
+   "raw": "சமுதாயத்தின் மாற்றும் சிக்கலானது. தற்போது அறிவுத்",
+   "cleaned": false,
+   "wall_s": 1.042,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_048_l017": {
+   "raw": "கீழேண்.",
+   "cleaned": false,
+   "wall_s": 0.857,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_049_l001": {
+   "raw": "\"வகுப்புவாதமானது, பழமை வாதம் எனும் புதிய",
+   "cleaned": false,
+   "wall_s": 1.019,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_050_l005": {
+   "raw": "என்னவோ இப்பொழுதுதான் ஏதோ ஒரு கெட்ட கனு கண்டு",
+   "cleaned": false,
+   "wall_s": 1.001,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_051_l001": {
+   "raw": "\"இந்தப் புரட்சிகரமான பிரெஞ்சு சட்டடம் மிகவும் நல்ல\"",
+   "cleaned": true,
+   "wall_s": 1.038,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_052_l006": {
+   "raw": "பரிதாபப்படக்கூடிய அளவு இஜர்மன் மத்தியதர வர்க்கம்",
+   "cleaned": false,
+   "wall_s": 1.05,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_053_l006": {
+   "raw": "களைத் திருப்பதிப் படுத்தற்பவளாகவும் காட்டிக் கொள்கின்றன என்று",
+   "cleaned": false,
+   "wall_s": 1.044,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_054_l003": {
+   "raw": "பங்கு பெரும் முக்கியத்துவமளிக்கும் சமூகத்தின் அனுதாபனின் அரசியல் ஸ்தாபனம்",
+   "cleaned": false,
+   "wall_s": 1.1,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_055_l005": {
+   "raw": "கட்சியின் நடவடிக்கை மற்றும் அதன் தலைமையா ய பங்கு",
+   "cleaned": false,
+   "wall_s": 0.937,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_055_l008": {
+   "raw": "கினையும் கட்சியின் மீது மக்கள் கொண்டுள்ள நம்பிக்கையையும் அது",
+   "cleaned": false,
+   "wall_s": 1.003,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_056_l005": {
+   "raw": "இளைஞர்களிடையே நாம் முழுமையான அரசியல் நம்பிக்கை",
+   "cleaned": false,
+   "wall_s": 0.923,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_057_l014": {
+   "raw": "நாம் தயாராகியிருக்கிறோம்.",
+   "cleaned": false,
+   "wall_s": 0.881,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_058_l006": {
+   "raw": "இருங்கள் என உறுதிளித்து சேலம் மத்திய சிறைச்சாலைக்கு",
+   "cleaned": false,
+   "wall_s": 1.009,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_059_l001": {
+   "raw": "அருள் வளைத்துறை அலுவலகத்தில் வைத்து பிடித்துச் சென்றற",
+   "cleaned": false,
+   "wall_s": 1.01,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_060_l011": {
+   "raw": "மொத்தமும் அமரும் அளவுக்கு மிகப்பெரிய அழகான ஆலமரம்.",
+   "cleaned": false,
+   "wall_s": 0.971,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_061_l007": {
+   "raw": "உள்ளிட்ட ஆயுதங்களுடன் வாஃபாத்தி கிராமத்தின மீ து ஒருசீர",
+   "cleaned": false,
+   "wall_s": 1.069,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_062_l001": {
+   "raw": "இந்த நீண்ட நெடிய போராட்டத்திற்கு நிதி எங்கிருந்து",
+   "cleaned": false,
+   "wall_s": 0.931,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_063_l010": {
+   "raw": "பயப்பாடாீர்கள். அனைத்தையும் சந்திக்கலாம். நாம் எதிர் நடவடிக்கை",
+   "cleaned": false,
+   "wall_s": 1.044,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_064_l004": {
+   "raw": "களை உருவாக்குறீர்கள். உங்கள் மீது கேஸ் போட்டு உன்னே தள்ளி விடுவேன்\" என மிரட்டினார்.",
+   "cleaned": false,
+   "wall_s": 1.207,
+   "eval_count": 25,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_065_l011": {
+   "raw": "இளைஞர்களை வெங்கிடு, கட்டக்குள் ஈர்த்தார்.",
+   "cleaned": false,
+   "wall_s": 0.992,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_067_l009": {
+   "raw": "திருப்பூர் என்.ஆறுமுகம் திட்டவட்டமாகச் கூறுகிறார்.",
+   "cleaned": false,
+   "wall_s": 1.034,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_068_l005": {
+   "raw": "“கட்சியின் மாவட்டக்குமுவிளிருந்து நேரடியாக போராட்டக்க",
+   "cleaned": false,
+   "wall_s": 0.995,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_069_l005": {
+   "raw": "கூறுகிறார் பொங்கலூர் எம். நாாராயணசாமி.",
+   "cleaned": false,
+   "wall_s": 1.012,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_070_l009": {
+   "raw": "வகையிலாவது உதவி செய்யவே விரும்பவார். அப்படிப்பட்ட",
+   "cleaned": false,
+   "wall_s": 0.976,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_071_l014": {
+   "raw": "என்னால் பொறுத்துக்கொள்ள முடியவில்லை.",
+   "cleaned": false,
+   "wall_s": 0.879,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_072_l006": {
+   "raw": "வருட்களும் எங்கள் ஊரில் தங்கி இரும் தடி, பணிகளிலும் எங்கள்டன் சேர்ந்து பணியாற்றிணர்.",
+   "cleaned": false,
+   "wall_s": 1.187,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_073_l004": {
+   "raw": "சாலிகள்; எவ்வளவு தூரமானாலும் நடந்தே சென்றனர்.",
+   "cleaned": false,
+   "wall_s": 0.996,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_074_l002": {
+   "raw": "அவர்கள் பலாத்த்காரமாக எங்களுக்கு உணவுட்ட முயற்சி",
+   "cleaned": false,
+   "wall_s": 0.969,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_075_l005": {
+   "raw": "சமுகப் போராளிகளிள் கைககளில் அவை தீப்பந்தங்களாகாய் ஒளி தந்து",
+   "cleaned": false,
+   "wall_s": 1.117,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_076_l008": {
+   "raw": "ஒன்றுமில்லை. அடுத்தடுத்து நடந்த அடக்குமுறைகள், துப்பாக்கிக் கூடுகள்.",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_076_l022": {
+   "raw": "ஆட்டம் போடுகின்றன.",
+   "cleaned": false,
+   "wall_s": 0.86,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_077_l010": {
+   "raw": "பாராட்டுக்கள்! எல்லோரும் பழடியுங்கள்! கொடுமைக்கு எதிராக வெழடியுங்கள்!!",
+   "cleaned": false,
+   "wall_s": 1.113,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_078_l016": {
+   "raw": "உயர்வு கேட்டும் நோய் வாய்ப்பட்ட நாளுக்கு கூலி கேட்கும்",
+   "cleaned": false,
+   "wall_s": 1.014,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_079_l003": {
+   "raw": "விளங்கு தோழர் அமீர் ஹைதர்கான் சென்னை வந்தார். அவர்",
+   "cleaned": false,
+   "wall_s": 1.04,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "books_080_l006": {
+   "raw": "வாரநாள், 1930ம் ஆண்டில் ஆங்கிலேய அரசாங்கத்தை தூக்கி",
+   "cleaned": false,
+   "wall_s": 1.061,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_001_l027": {
+   "raw": "தின் புரட்சிகரமான ஞானத்தை பிரதிநிதித்துவப்படுத்தும் மார்க்ஸியத்",
+   "cleaned": false,
+   "wall_s": 1.086,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_002_l018": {
+   "raw": "PEOPLE) என்ற பத்தினிக்கையின் ஆசிரியரான பாரிப், 1793ம் ஆண்டு அரசு",
+   "cleaned": false,
+   "wall_s": 1.16,
+   "eval_count": 23,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_003_l015": {
+   "raw": "கோள் விடுத்திருந்தார்கள். சட்ட மன்ற உறுப்பினர்கள், தங்கள் நட",
+   "cleaned": false,
+   "wall_s": 1.009,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_004_l039": {
+   "raw": "தொடங்கினர். இது, தொழிலாளர்கள் மத்தியில் ராபர்ட் ஓவன் கொண்டு",
+   "cleaned": false,
+   "wall_s": 1.071,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_005_l005": {
+   "raw": "மனிதர்களின் குணத்தின் தன்மை சூழ்நிலையைப் பொருத்துக்கொள்கிறது",
+   "cleaned": false,
+   "wall_s": 0.993,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_006_l040": {
+   "raw": "யானை ஓடுவொரு முன்னோன்றும் ராப்ட் ஓவனின் பெயருடன்",
+   "cleaned": false,
+   "wall_s": 1.069,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_007_l022": {
+   "raw": "பொழுது வளர்ச்சியடைந்த தொழிலாளீ யார்க்கு இயக்கங்களால் ஏற்றுக்",
+   "cleaned": false,
+   "wall_s": 1.041,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_008_l006": {
+   "raw": "பாட்டாளீ யார்க்குதக்கும் இடையிலான பெரும்பினையும் அப்பொழுது",
+   "cleaned": false,
+   "wall_s": 1.055,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_009_l017": {
+   "raw": "எாயத, தார்மீக துயரங்களை அப்பீட்டமாக எடுத்து வைக்கிறார். இவை",
+   "cleaned": false,
+   "wall_s": 1.141,
+   "eval_count": 22,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_009_l039": {
+   "raw": "3. ரகசிய வாக்குெடுப்பு முறை",
+   "cleaned": false,
+   "wall_s": 0.928,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_011_l029": {
+   "raw": "கருடைய சொந்த ‘மக்கள் நாடாள்மன்றத்தை’ அமைப்பதென்று பிறே",
+   "cleaned": false,
+   "wall_s": 1.077,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_012_l008": {
+   "raw": "கப்பல் சாட் டிஸ்ட் தொழிலாளர்கள், காவலில் இருந்து பிரபல",
+   "cleaned": false,
+   "wall_s": 1.023,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_014_l012": {
+   "raw": "பக்கம் 521)",
+   "cleaned": false,
+   "wall_s": 0.888,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_015_l032": {
+   "raw": "அனைத்து அரசியல் சட்டங்களையும் தூக்கி யெறிவதற்கு போதுமான",
+   "cleaned": false,
+   "wall_s": 1.014,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_016_l028": {
+   "raw": "இல்லை. அவருடைய சோஷலிசம் கொஞ்சம்மும் வளர்ச்சி அடையா",
+   "cleaned": false,
+   "wall_s": 1.002,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_016_l033": {
+   "raw": "கொண்டதாக இருந்தாலும், இந்த நடவடிக்கைக்கள், ஒன்று, அவர்கள்",
+   "cleaned": false,
+   "wall_s": 0.986,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_017_l007": {
+   "raw": "வீரமிக்க போர் நடத்தினர். நூற்றுக்கணக்கானோர் கொல்லப்பட்டு,",
+   "cleaned": false,
+   "wall_s": 1.048,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_017_l036": {
+   "raw": "துயரத்தில் தள்ளப்பட்டனர். இதில் தப்பிப் பிழைத்தவர்கள் நாடு கடந்த",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_018_l003": {
+   "raw": "சிகாகோ நகர துப்பாக்கி குட்டுக்கு நாற்பது ஆண்டுகளுக்கு முன்",
+   "cleaned": false,
+   "wall_s": 1.036,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_019_l011": {
+   "raw": "மான வர்க்கம்” என்று கூறுகிறது முந்தைய அனைத்து வரவாவற்று",
+   "cleaned": false,
+   "wall_s": 1.041,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_020_l002": {
+   "raw": "வேண்டும் என்ற உணர்வு, பகுதி கோரிக்கைகளுக்கான உணர்வை விட",
+   "cleaned": false,
+   "wall_s": 1.02,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_021_l001": {
+   "raw": "எவ்வளவ செக்கும் அதன (பாட்டாளிவர்க்கத்தின) நடைமுறை நடவா",
+   "cleaned": false,
+   "wall_s": 1.139,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_022_l023": {
+   "raw": "பரஸ்பர உதவி சங்கங்கள், கூட்டுறவுள் மற்றும் கல்விக் கழகங்கள்",
+   "cleaned": false,
+   "wall_s": 1.059,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_023_l007": {
+   "raw": "கத்தை ஒன்றுபடுத்தவது, அதாவது ஒரு பாட்டாளிக் வாங்க அரசியல்",
+   "cleaned": false,
+   "wall_s": 1.017,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_024_l010": {
+   "raw": "நாள், மனித சமூகாயம் 'வாழ்வது அல்லது சாவுதான்' என்ற இரண்டில்",
+   "cleaned": false,
+   "wall_s": 1.053,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_026_l037": {
+   "raw": "நொனிவு சுளிவுகள் செய்ய வேண்டிய அவசியமிருக்கிறது. அது சோழலி",
+   "cleaned": false,
+   "wall_s": 1.098,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_026_l038": {
+   "raw": "சந்தோஷ போட்யிட வேண்டிய நிர்பந்தம் ஏற்படுகிறது. மேலும்,",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_027_l037": {
+   "raw": "மாற்றியமைப்பதாகும். அரங்கில மையத்தில் நிறுத்தப்பட்டுள்ள வர்க்",
+   "cleaned": false,
+   "wall_s": 1.021,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_028_l014": {
+   "raw": "ரின் அடிப்பதையோ இணைந்தவை. அதாவது, நமது பூமி, உயிர்",
+   "cleaned": false,
+   "wall_s": 1.041,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_028_l023": {
+   "raw": "அரசியல் அரங்கில் வளர்ந்து வரும் புதிய காரணீ என்ற அம்சம் புதிது.",
+   "cleaned": false,
+   "wall_s": 1.068,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_029_l003": {
+   "raw": "மனித இனத்தை பாதுகாப்பதற்கான போராட்டத்தின் ஒற்றுமை எங்கிருக்கிறது?",
+   "cleaned": false,
+   "wall_s": 1.002,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_029_l021": {
+   "raw": "கொள்வதில்லை. இது அவசியம் இல்லாததற்குக் காரணம் இந்த இரண்டு மட்டும்.",
+   "cleaned": false,
+   "wall_s": 1.036,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_030_l001": {
+   "raw": "காலணி ஆதிக்கத்திற்கு பலியானவர்கள் மனதில், அவர்களுடைய",
+   "cleaned": false,
+   "wall_s": 1.013,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_030_l010": {
+   "raw": "மற்றும் அதை மேலும் வாழ்வதற்கு தகுதியாக்குவது ஆகிய இரண்டை",
+   "cleaned": false,
+   "wall_s": 1.026,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_031_l002": {
+   "raw": "தோழர்களின வாழ்வை இயக்க அனுபவங்களை",
+   "cleaned": false,
+   "wall_s": 0.961,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_032_l005": {
+   "raw": "உணரமுழுகிறது. உங்கள் தலைமுறை போல்",
+   "cleaned": false,
+   "wall_s": 0.955,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_033_l013": {
+   "raw": "இயக்கமாகவே வாழ்ந்துள்ள மக்கத்தான தலைவர்.",
+   "cleaned": false,
+   "wall_s": 0.97,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_034_l007": {
+   "raw": "சுவராசியம் நிறைந்த எதார்த்தமான உரையாடல்",
+   "cleaned": false,
+   "wall_s": 0.977,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_035_l015": {
+   "raw": "அவர்களே கூற தாகும் பெருவாய்ப்பை அடுத்த",
+   "cleaned": false,
+   "wall_s": 0.958,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "degraded_040_l007": {
+   "raw": "நெறி. நாட்டிற்கு நாடு நட்பிற்கு எடுத்துக்காட்டாக விளங்க",
+   "cleaned": false,
+   "wall_s": 0.977,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_001_l008": {
+   "raw": "4. முகவரி (தொடலைபேசி எண்னுடன்) :",
+   "cleaned": false,
+   "wall_s": 1.038,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_002_l004": {
+   "raw": "இருமறை பெற்றிருக்கவில்லை என்றும், இதற்கு மைய / மாநில அரசிடமிருந்து",
+   "cleaned": false,
+   "wall_s": 1.029,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_003_l028": {
+   "raw": "21. தமிழ் மருத்துவ நூல்கள் (சித்தம், ஆயுர்வேதம்)",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_004_l024": {
+   "raw": "ஆக்கிய மூன்று தலைப்புகளுக்குக்கும் பக்க வரையறை இல்லை. கவிதை, சிறுவர் இலக்கியம்",
+   "cleaned": false,
+   "wall_s": 1.132,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_005_l029": {
+   "raw": "நிறைவு செய்யப்பெற்ற விண்ணாப்பங்கன் வந்து",
+   "cleaned": false,
+   "wall_s": 1.012,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_006_l031": {
+   "raw": "(சான்முகன் இனைக் கவும்) \n4",
+   "cleaned": true,
+   "wall_s": 0.998,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_007_l019": {
+   "raw": "இருமாதல் வேண்டும்). *",
+   "cleaned": false,
+   "wall_s": 0.888,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_008_l014": {
+   "raw": "நாள் : விண்ணப்பதாளின் ஓட்டம்",
+   "cleaned": false,
+   "wall_s": 0.907,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_009_l001": {
+   "raw": "தமிழ் வளர்ச்சி துறை",
+   "cleaned": false,
+   "wall_s": 0.852,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_010_l014": {
+   "raw": "அட்டை விவரம் (பான் கார்டு எண்)",
+   "cleaned": false,
+   "wall_s": 0.964,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_010_l032": {
+   "raw": "பெறுபட்டுள்ளதா?",
+   "cleaned": false,
+   "wall_s": 0.895,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_011_l018": {
+   "raw": "4. குடியிருக்கும் நிரந்தர முகவரி - .........................",
+   "cleaned": false,
+   "wall_s": 1.007,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_012_l006": {
+   "raw": "5. பயிலுபும் பள்ளி முகவரி / மாவட்டம் :",
+   "cleaned": false,
+   "wall_s": 0.995,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_013_l007": {
+   "raw": "5. எ எழுதிய நூல்கள் பின்வருமாறு இனம் :",
+   "cleaned": false,
+   "wall_s": 0.972,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_014_l044": {
+   "raw": "ஈ) சான்றிதழ்கள் தரமான அட்டையில் கணினியச்சு செய்து வழங்கப்பெற வேண்டும்",
+   "cleaned": false,
+   "wall_s": 1.128,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_016_l015": {
+   "raw": "கனவு இல்லம் வழங்கப்படும்.",
+   "cleaned": false,
+   "wall_s": 0.885,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_016_l020": {
+   "raw": "விடையிலோ பெற்றோிருக்கக் கூடாது என்பது குறிப்பிடத்தக்கது.",
+   "cleaned": false,
+   "wall_s": 0.986,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_017_l007": {
+   "raw": "மொழிபெயர்க்க காக்கலிற் கானாக்கவுரிக்குத் தகுந்த விதிகளையறிந்து அதற்கேற்பச் செய்யவேண்டும்.",
+   "cleaned": false,
+   "wall_s": 1.352,
+   "eval_count": 33,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_018_l001": {
+   "raw": "படிப்புச் சான்று",
+   "cleaned": false,
+   "wall_s": 0.857,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_019_l006": {
+   "raw": "தனித்தாள்களில் இணைக்கப்படுதல் வேண்டும்)",
+   "cleaned": false,
+   "wall_s": 0.956,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_020_l022": {
+   "raw": "போட்டி நடைபெறும் நாளன்று மாணவர்கள் ஒப்பம்.",
+   "cleaned": false,
+   "wall_s": 0.926,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_022_l019": {
+   "raw": "தமிழ் வளர்ச்சி இயக்குநர",
+   "cleaned": false,
+   "wall_s": 0.851,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_023_l015": {
+   "raw": "7. பரிந்துளாளரும், ஏனைய கருத்தூக்களும் :",
+   "cleaned": false,
+   "wall_s": 1.061,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_024_l019": {
+   "raw": "துறைத்தலைவர்/முதல்வர் ஒப்பம்",
+   "cleaned": false,
+   "wall_s": 0.942,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_026_l015": {
+   "raw": "4.  சார்த்துள்ள இனத்தின் பெயர் : முன்னுரிமை பெற்றவர் /",
+   "cleaned": false,
+   "wall_s": 1.065,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_027_l021": {
+   "raw": "அ) பொது வளங்கள் (Resources)",
+   "cleaned": false,
+   "wall_s": 0.894,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_028_l013": {
+   "raw": "தலைவர் சீவகன், மற்ற நினைவு",
+   "cleaned": false,
+   "wall_s": 0.921,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_029_l004": {
+   "raw": "ஆ) சமூக மனப்பான்மை சார்ந்த நடவடிக்கைகள் (Attitude and Community",
+   "cleaned": false,
+   "wall_s": 0.997,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_030_l018": {
+   "raw": "ஒப்பிட்டு விவரங்களை இணைக்கவும்.",
+   "cleaned": false,
+   "wall_s": 0.904,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_031_l016": {
+   "raw": "10. நூல்கள்/கட்டுரைகள் எழுதியிருப்பின் அதன",
+   "cleaned": false,
+   "wall_s": 1.041,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_034_l016": {
+   "raw": "இவ்வினண்பத்தில் குறிப்பிட்டுள்ள படைப்பு எனது சொந்த படைப்பு நான் ஆதாரளிடர்/",
+   "cleaned": false,
+   "wall_s": 1.086,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_035_l027": {
+   "raw": "நிலையம் எதனாறு உள்ளதா?",
+   "cleaned": false,
+   "wall_s": 0.919,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_036_l009": {
+   "raw": "சென்ற ஆண்டு இறுதித் தேர்வில் மாணவர் / மாணவியர் ஒவ்வொரு பாடப் பிரிவுளிலும்",
+   "cleaned": false,
+   "wall_s": 1.095,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_037_l010": {
+   "raw": "வெளிப்படுத்தலாம் என்பதையும் நன்கு அறிவேன்.",
+   "cleaned": false,
+   "wall_s": 0.926,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_039_l003": {
+   "raw": "2.  படிப்பறிவு",
+   "cleaned": false,
+   "wall_s": 0.872,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_040_l016": {
+   "raw": "இழப்படுபெறும் உரிமை மற்றும் நிலம் கையகப்படுத்துதல், மறுவாழ்வு மற்றும் மீள் குடியமர்வுடன்",
+   "cleaned": false,
+   "wall_s": 1.211,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_041_l008": {
+   "raw": "ரோந்து பணி மேற்கொண்டு அதியாவசியப் பண்டங்கள் கடந்ததில் மற்றறும் பாதுகாப்பில் ஈடுபடுவார் / உடனடியாக.",
+   "cleaned": false,
+   "wall_s": 1.202,
+   "eval_count": 25,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_041_l013": {
+   "raw": "முதல் 30.09.2023 வரையிலான ஒரு மாத காலத்தில் கள்ளச்சந்தையில் விற்பதற்காக கடத்த முயன்ற ரூபாய் 61,25,763/-",
+   "cleaned": false,
+   "wall_s": 1.497,
+   "eval_count": 41,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_042_l009": {
+   "raw": "இதனால் வெளியிடப்படுகிறது.",
+   "cleaned": false,
+   "wall_s": 0.837,
+   "eval_count": 5,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_043_l006": {
+   "raw": "அளிவினும் வட்டம் மற்று மாய்விட்ட அளவில் நியமிக்கப்பட்ட அரசுப்",
+   "cleaned": false,
+   "wall_s": 1.055,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_043_l007": {
+   "raw": "பணியாளர்கள் மற்றும் தேர்ந்தெடுக்கப்பட்ட பிரதிநிதிகள் தவிர, கண்காணிப்புக்",
+   "cleaned": false,
+   "wall_s": 1.015,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_044_l021": {
+   "raw": "வணணம் மேம்படுத்தப்பட்டுள்ளது என்றும் தேசிய முகர்வோர் திணத்தை மாட்ட",
+   "cleaned": false,
+   "wall_s": 1.02,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_045_l019": {
+   "raw": "தனிமைச் செயலாக்கம், சென்னான்.",
+   "cleaned": false,
+   "wall_s": 0.979,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_046_l015": {
+   "raw": "வ.எண் பொது விமுமுறை / பண்ணுறை நாள் கீழ்புறம்",
+   "cleaned": false,
+   "wall_s": 1.075,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_047_l006": {
+   "raw": "அரசாணை (நிலை) எண்.141 நாள் :30.11.2019",
+   "cleaned": false,
+   "wall_s": 1.198,
+   "eval_count": 25,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_047_l023": {
+   "raw": "முன்னுரிமைமற்ற குடும்ப அட்டைகள் அரிசி உள்ளிட்ட அனைத்துப்",
+   "cleaned": false,
+   "wall_s": 0.994,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_048_l019": {
+   "raw": "அமைச்சர் அவர்கள் 19.11.2019 அன்று அறிக்கை வெளியிடுள்ளார்கள்.",
+   "cleaned": false,
+   "wall_s": 1.18,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_049_l021": {
+   "raw": "தலைமைச் செயலாளரின் தனிச் செயலாளர், சென்னை - 9.",
+   "cleaned": false,
+   "wall_s": 1.038,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_049_l023": {
+   "raw": "நிதி (கூ..உ..(ம) நு.பா) துறை , சென்னை -9.",
+   "cleaned": false,
+   "wall_s": 1.092,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_050_l018": {
+   "raw": "பயன்படுத்தப்பட்ட 121 வாக்கியங்களும் கைப்பற்றப்பட்டிருந்தன. குற்றச்செயலில் ஈடுபட 835",
+   "cleaned": false,
+   "wall_s": 1.259,
+   "eval_count": 28,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_051_l005": {
+   "raw": "கடைக்குள் முலாம் விநி யோகம் செய்து வருகிறது. அவ்வாறு விநி யோகம் செய்யப்படும் அத்தியாவசியப்",
+   "cleaned": false,
+   "wall_s": 1.221,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_052_l018": {
+   "raw": "மண்னெண்ணெண், 565 கிலோ கோதுமை, 577 கிலோ துவரம்பருப்பு, 25 கிலோ சர்க்கரை",
+   "cleaned": false,
+   "wall_s": 1.393,
+   "eval_count": 35,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_053_l019": {
+   "raw": "சட்டம் 1980-ன் கீழ் 4 நகல்கள் கைது செய்யப்படும் எனரை. இன்றியமையாப் பண்டங்கள் கடத்தல் மற்றும் பழக்ககல",
+   "cleaned": false,
+   "wall_s": 1.352,
+   "eval_count": 33,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_054_l010": {
+   "raw": "மாற்றம் செய்தல் உள்ளிட்ட பொது விடியோகத் திட்டம் தொடர்பான சேவைகள்",
+   "cleaned": false,
+   "wall_s": 1.012,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_055_l006": {
+   "raw": "செயல்முறை எண்.உ 1/28865/2019, நாள்:15.09.2020-ன் படி",
+   "cleaned": false,
+   "wall_s": 1.4,
+   "eval_count": 36,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_056_l016": {
+   "raw": "· நியாயவிலைக் கடைக்குருகு பண்ட்டங்கள் கொணடு செல்லவும் ஆவன.",
+   "cleaned": false,
+   "wall_s": 1.13,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_057_l016": {
+   "raw": "உறுப்பினர்களுக்குத் தனியான அடையாள அட்டை வழங்கப்பட வேண்டும்.",
+   "cleaned": false,
+   "wall_s": 1.02,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_058_l003": {
+   "raw": "கண்டறிந்து குடும்ப அட்டை வழங்கும் பணி தொடர்ந்து",
+   "cleaned": false,
+   "wall_s": 0.943,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_059_l008": {
+   "raw": "நன்றியுரையுடன் இக்கூட்டம் இனிதே நிறைவுற்றது.",
+   "cleaned": false,
+   "wall_s": 1.073,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "forms_060_l012": {
+   "raw": "அனுபவோர் களம்",
+   "cleaned": false,
+   "wall_s": 0.888,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_001_l002": {
+   "raw": "அது உடனே கோவை மில் தொழிலாளர்கள் சென்னைக்கு வந்து தங்களுக்கு ",
+   "cleaned": false,
+   "wall_s": 1.021,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_002_l009": {
+   "raw": "இங்கிகலாந்திலும், ஜெர்மனியிலும், ஜப்பானியிலும் பல ஆயிரக்",
+   "cleaned": false,
+   "wall_s": 1.094,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_003_l013": {
+   "raw": "கூடத் பத்தாண்டுகளில் அந்த பள்ளியின் மானாவர் எண்ணிக்கை",
+   "cleaned": false,
+   "wall_s": 1.009,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_004_l011": {
+   "raw": "(GPU) எனும் சக்தி வாய்ந்த சிறப்பு சிப்கள் தேவை.",
+   "cleaned": false,
+   "wall_s": 1.002,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_005_l012": {
+   "raw": "அட்டப்படுகின்றது.",
+   "cleaned": false,
+   "wall_s": 0.852,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_006_l015": {
+   "raw": "தண்ணீர் பயன்படுகிறது - இது சுமார் 1,000",
+   "cleaned": false,
+   "wall_s": 0.997,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_007_l005": {
+   "raw": "வெளிச்சத்திற்கு வந்தது ஸ்ரீ அதுவும் ஏற்கனவே",
+   "cleaned": false,
+   "wall_s": 0.906,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_008_l007": {
+   "raw": "சீனாவின் ஹெழூவான் மாகாணத்தின் லிங்சியி",
+   "cleaned": false,
+   "wall_s": 1.049,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_009_l019": {
+   "raw": "லிட்டர்) பெருமளவு குறைக்கும் என நிபுணர்கள் சொல்கின்றனர்",
+   "cleaned": false,
+   "wall_s": 1.03,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_010_l006": {
+   "raw": "உண்மையே எந்த அளவுக்கு மறைக்கின்றாள",
+   "cleaned": false,
+   "wall_s": 0.943,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_011_l009": {
+   "raw": "யூட்டும் உண்மையாகும்.",
+   "cleaned": false,
+   "wall_s": 0.852,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_012_l006": {
+   "raw": "வெப்பத்தால் நிகழும் உயிரிழப்புகள் ‘வெப்பத்",
+   "cleaned": false,
+   "wall_s": 0.995,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_013_l005": {
+   "raw": "ழ்க்கைகளை மேற்கொள்ள தேவையான",
+   "cleaned": false,
+   "wall_s": 0.849,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_014_l008": {
+   "raw": "அதிகபட்சமாக எவ்வளவு தூர தமிழ்",
+   "cleaned": false,
+   "wall_s": 0.908,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_015_l003": {
+   "raw": "கார், கட்டுப்படாத இழந்த வீட்டின் சுவர் மீது மோதி",
+   "cleaned": false,
+   "wall_s": 1.003,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_016_l006": {
+   "raw": "ள்ளது. பாதுகாப்பும் மந்திரியாக விரைவில் ஆன், வெளி",
+   "cleaned": false,
+   "wall_s": 0.94,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_017_l006": {
+   "raw": "இந்த ஊனதிய உயர்வு வழங்கப்படும். மேலும், பொதுத்தகுறை",
+   "cleaned": false,
+   "wall_s": 1.036,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_018_l004": {
+   "raw": "சிங்கப்பூர் செல்கிறோம். அங்கு பிரதமர் லாரன்ஸ் வோவாங்கைச் சந்திக்கிறோம்.",
+   "cleaned": false,
+   "wall_s": 1.119,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_019_l008": {
+   "raw": "விளையில் திணரக்கு வருகிறது.",
+   "cleaned": false,
+   "wall_s": 0.923,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_020_l004": {
+   "raw": "செய்புழையாது. ஒவ்வொரு முறையும் புதுமை இருக்க",
+   "cleaned": false,
+   "wall_s": 0.999,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_021_l010": {
+   "raw": "னார். இங்குதான் பெர்கின்ஸ் இந்த புதிய ஒழுங்கமைக்க",
+   "cleaned": false,
+   "wall_s": 1.036,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_022_l006": {
+   "raw": "காலத்தில் நீதித்துறை மீதான மிகவும் பெரும்பேகம்",
+   "cleaned": false,
+   "wall_s": 0.943,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_023_l006": {
+   "raw": "யச் சொல்லாவனியைச் சேமிப்பதற்குக்காசு சிக்கனத்தைக் கூணுப்பீமெர் வேண்டுமென்று.",
+   "cleaned": false,
+   "wall_s": 1.219,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_024_l004": {
+   "raw": "தலைமையில் ஒரு புதிய சட்டக் குழுவை நியமித்த",
+   "cleaned": false,
+   "wall_s": 0.962,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_025_l012": {
+   "raw": "கொண்டாடாமலும், தனது ஆழ்ந்த நுண்ணறிவுடன்",
+   "cleaned": false,
+   "wall_s": 0.984,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_026_l008": {
+   "raw": "டந்தோறும் அதற்கெனத் தனி நிதி ஒதுக்கிடு செய்வினைச் செய்தல் வேண்டும்",
+   "cleaned": false,
+   "wall_s": 1.095,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_027_l006": {
+   "raw": "கட்டமைப்புகளை உருவாக்கி, ஏழை மக்களின்",
+   "cleaned": false,
+   "wall_s": 0.918,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_028_l006": {
+   "raw": "விருக்கும் பன்னிரைகளை மேலும் சில நாட்களுக்கு தள்ளி?",
+   "cleaned": false,
+   "wall_s": 1.002,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_029_l011": {
+   "raw": "கடந்த ஒரு வாரமாக பெயில் கொடுத்து வருகிறது. பகல் எக்‍கொண்டு இலைவிளக்குகள் எரியும் அளவிற்கு",
+   "cleaned": false,
+   "wall_s": 1.242,
+   "eval_count": 27,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_030_l004": {
+   "raw": "வேண்டும் என்று கோரிக்கை வந்துள்ளது. அரசு இதனைச்",
+   "cleaned": false,
+   "wall_s": 0.94,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_031_l001": {
+   "raw": "வணகுடா நாடுகளுக்கு சுற்றுலா",
+   "cleaned": false,
+   "wall_s": 0.877,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_032_l008": {
+   "raw": "படகாக அவர் கூறினார்.",
+   "cleaned": false,
+   "wall_s": 0.861,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_033_l007": {
+   "raw": "வணர்ச்சி வாய்ப்புகளிலிருந்தோடர்ந்து கவனம் செலுத்தி வரு",
+   "cleaned": false,
+   "wall_s": 1.01,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_034_l003": {
+   "raw": "ருந்த இனையான ஓர் உரிமைியல் வழக்கையும்,",
+   "cleaned": false,
+   "wall_s": 0.934,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_035_l015": {
+   "raw": "யும், ஒழுக்கமும் தான் ஒரு தலைவனுக்கு முக்கியம் என்பதை அன்றோ",
+   "cleaned": false,
+   "wall_s": 1.048,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_036_l015": {
+   "raw": "இறங்குகும்.",
+   "cleaned": false,
+   "wall_s": 0.855,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_037_l007": {
+   "raw": "உலகமயமாக்கலின் ஆரம்ப நாடுகளில் தெளிவாகத்",
+   "cleaned": false,
+   "wall_s": 0.933,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_038_l008": {
+   "raw": "தெரிவித்தது. இது, ஜனாதிபதி டொனால்டு டிரம்ப்",
+   "cleaned": false,
+   "wall_s": 1.088,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_039_l001": {
+   "raw": "அதானி விவகாரமும்",
+   "cleaned": false,
+   "wall_s": 0.884,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_040_l001": {
+   "raw": "சென்னை, ஜூன் 1 -",
+   "cleaned": false,
+   "wall_s": 0.893,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_041_l001": {
+   "raw": "சென்னை: சுதந்திர போராட்ட வீரர்களை நினைவு கூரும்",
+   "cleaned": false,
+   "wall_s": 0.953,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_042_l001": {
+   "raw": "முழுமையானதொரு நிலைக்குந்தம் மற்றும் விவகார உற்பத்தி",
+   "cleaned": false,
+   "wall_s": 1.03,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_043_l002": {
+   "raw": "அடிப்படையான சேவைக் துறைகளிலும் பொதுத் துறைக்கு",
+   "cleaned": false,
+   "wall_s": 0.992,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_044_l002": {
+   "raw": "மதச்சார்பின்மையின் அடிப்படையில் குறிக்கோள் அரசியல் அமைப்பு",
+   "cleaned": false,
+   "wall_s": 0.996,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_045_l005": {
+   "raw": "அங்க்காரம்பெறுவதை உறுதிப்படுத்துவது; சமூகப்பாதாகாப்பிற்கான",
+   "cleaned": false,
+   "wall_s": 1.093,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_046_l003": {
+   "raw": "களை மேற்கொள்வது; விவ சாயத்தை வாபகராமாக மாற்றுவது;",
+   "cleaned": false,
+   "wall_s": 1.089,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_047_l004": {
+   "raw": "வசதி ஆகியவற்றை வழங்குவது.",
+   "cleaned": false,
+   "wall_s": 0.89,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_048_l003": {
+   "raw": "மூலதனத்தை கவரக்கூடிய, லாபத்தை ஊக்குவிக்கக் கூடிய நடவடிக்கை",
+   "cleaned": false,
+   "wall_s": 1.063,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_049_l003": {
+   "raw": "கூட்டத்தைப் பெருக்கியுள்ளது. மொத்தத்தில் 33 கோடியாக இருக்கும்",
+   "cleaned": false,
+   "wall_s": 1.052,
+   "eval_count": 17,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_050_l011": {
+   "raw": "பெண்கள் குடியிருப்புகள் மீதான தாக்குதல்கள் அதிகரிக்கிறதுன்றன.",
+   "cleaned": false,
+   "wall_s": 0.99,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_051_l005": {
+   "raw": "ஆனாலும் இன்று ஆட்சியில் உள்ளவர்கள் தங்கள்",
+   "cleaned": false,
+   "wall_s": 0.922,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_052_l002": {
+   "raw": "கவுரவக் கொணலுகள், பாலியில் வன்முறைகள் மூலம்",
+   "cleaned": false,
+   "wall_s": 1.071,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_053_l001": {
+   "raw": "இது ஒரு சரி. முதலில் அவர்கள் இங்க்துதுவா",
+   "cleaned": false,
+   "wall_s": 0.957,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_054_l001": {
+   "raw": "இந்து ஆடவர்களைக் கலப்புத்திருமணம் செய்து",
+   "cleaned": false,
+   "wall_s": 0.961,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_055_l004": {
+   "raw": "பாராட்டுகிறோம். எத்தனை போராடங்கள், எத்தனை மேடைகள் எல்லாமும் இணைந்துதான் இந்த சிறப்பு.",
+   "cleaned": false,
+   "wall_s": 1.163,
+   "eval_count": 23,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_056_l002": {
+   "raw": "2010-ம் ஆண்டு பாராளமன்றத்தில் சகோதரி பிரெந்தா காமாத் அவர்கள் முன்பு எழுந்தார். அனைத்து இந்திய",
+   "cleaned": false,
+   "wall_s": 1.265,
+   "eval_count": 29,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_057_l007": {
+   "raw": "பிறப்பற்ற அமைச்சர்ப் நாடுகள்தோ, கொலை செய்யும் அந்தக் கூர்மை என்று பேசினாள்.",
+   "cleaned": false,
+   "wall_s": 1.188,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_058_l003": {
+   "raw": "வாழ்ப்புவர்களை, ஆண்டாள் வாழ்த்தாக சொல்லப்படும் 7ம் நூற்றாண்டு உள்ளிட்டு ஒரு குறிப்பிட காலம்",
+   "cleaned": false,
+   "wall_s": 1.165,
+   "eval_count": 23,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_059_l008": {
+   "raw": "நாகரீகச் சிவலில் தர்க்கத்துக்கு கூட வாய்ப்பு இல்லையா? வைரமுத்து வருத்தும் தெரிவித்த பிறகும்",
+   "cleaned": false,
+   "wall_s": 1.228,
+   "eval_count": 27,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_060_l001": {
+   "raw": "மருபக்கம், நிதியாளர்தாவியின் மடக்கைத் சேர்ந்த சிறுமிகள்/இளம் பெண்கள், சந்தர்பாசினி உடடையை அணிந்",
+   "cleaned": false,
+   "wall_s": 1.327,
+   "eval_count": 32,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_061_l007": {
+   "raw": "சோர்ந்தவர் சம்பந்த மகன ரூபாவதி. இவருக்கு 7 வருடத்துக்கு",
+   "cleaned": false,
+   "wall_s": 1.064,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_062_l008": {
+   "raw": "வரவேண்டும் என கட்டாயப்படுத்தாதீர்கள். பிறகு.",
+   "cleaned": false,
+   "wall_s": 0.949,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_063_l008": {
+   "raw": "வாக்கு மூலத்தை தனது செல்லபோனில் வீடியோ எடுத்து",
+   "cleaned": false,
+   "wall_s": 0.942,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_064_l003": {
+   "raw": "வேளாண்மை கூட்டுறவு சங்கத் தலைவவரும் ஆனரும் ஆட்சி",
+   "cleaned": false,
+   "wall_s": 0.996,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_065_l019": {
+   "raw": "சூடும்பத்தார். தருமைப்ரி அரசு மஞ்ஜந்துவமனையில் சிக்ஸ்ஸக் கொடு.",
+   "cleaned": false,
+   "wall_s": 1.185,
+   "eval_count": 24,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_066_l017": {
+   "raw": "எழுதி வங்கி யே கோரகுல் காந்தி, அவளுக்கு துணை நின்ற",
+   "cleaned": false,
+   "wall_s": 1.091,
+   "eval_count": 19,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_067_l002": {
+   "raw": "செய்திகள் வெளியாகிள. அதே சமயம் தமிழக",
+   "cleaned": false,
+   "wall_s": 0.97,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_068_l001": {
+   "raw": "இத்தகைய விசாரணையை முறையாக நடைபெற ண்டுமென செம்மைட்டுச் செம்மைப்பள்ளா கறியதை",
+   "cleaned": false,
+   "wall_s": 1.297,
+   "eval_count": 30,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_069_l008": {
+   "raw": "வன்மை யான கண்டைக்குரியது. பேராசிரியரின்",
+   "cleaned": false,
+   "wall_s": 0.966,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_070_l020": {
+   "raw": "இயக்கியவர்கள் உயர் அரசியல்மற்றும் அதிகார",
+   "cleaned": false,
+   "wall_s": 0.91,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_071_l007": {
+   "raw": "அளவு நிதி இருந்தால் மாறாகூடச் செய்ய இந்த வேலையை செய்து விடலாமே?",
+   "cleaned": false,
+   "wall_s": 1.068,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_072_l008": {
+   "raw": "பொருட்களை நடத்தினேனா... ஊனானவை எததனை அறைகள் இருக்கின்றன என்பதை பொழுது கட்டணம் விதிப்பதுமாகவும், ஓர் அறை இருந்தாலோ,",
+   "cleaned": false,
+   "wall_s": 1.385,
+   "eval_count": 35,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_073_l007": {
+   "raw": "போராந்ததை யோனசகாயும் பாளையன் சேரவும், அவை கடந்து அது உயர்த்தப்பட்டது என்று கட்டணம் மாந்தராதிக்குத் தான் வரும் என்று கூறப்பட்டாலும், அவை கொண்டு அழிக்கப்படும்",
+   "cleaned": false,
+   "wall_s": 1.574,
+   "eval_count": 45,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_074_l008": {
+   "raw": "எடுக்கப்படலாம். கல்விய்துறையின் இடை நீக்க",
+   "cleaned": false,
+   "wall_s": 0.961,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_075_l020": {
+   "raw": "பெற்று அனைத்து ஓய்வுதிய பலன்களையும் பெற்றுக்",
+   "cleaned": false,
+   "wall_s": 0.959,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_076_l018": {
+   "raw": "அதிகாலை 5 மணிக்கு வீடு திரும்பினேன்.\" சாதிக்கு",
+   "cleaned": false,
+   "wall_s": 0.993,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_077_l013": {
+   "raw": "நீதிமன்றத்துக்கு நீதிபதி நியமனம் செய்ய வேண்டும், என",
+   "cleaned": false,
+   "wall_s": 0.997,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_078_l002": {
+   "raw": "காலம் இல்லாமல் வேலை செய்வது பார்த்திருப்போம். இவர்களுக்கு உட்கார பல இடங்களில் எங்கே கூட இருக்காது.",
+   "cleaned": false,
+   "wall_s": 1.142,
+   "eval_count": 22,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_079_l001": {
+   "raw": "போதுமான பாதுகாப்பு சூழயிருப்பருக்கு செல்வதற்க்கான பயண் வசதி போன்றவற்றை உறுதி செய்து. 9 மணி வரை",
+   "cleaned": false,
+   "wall_s": 1.207,
+   "eval_count": 26,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "newsprint_080_l004": {
+   "raw": "பானிடைச் சமத்துவமும் கடைப்பிடிக்கப்படும் என கேளா அரசின் தொழில் துறை கொள்கையில் பிரகடனம் செய்யப்பட்டிருந்தது",
+   "cleaned": false,
+   "wall_s": 1.203,
+   "eval_count": 25,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_001_l004": {
+   "raw": "தமிழீ வளர்ச்சித் துறை",
+   "cleaned": false,
+   "wall_s": 0.869,
+   "eval_count": 7,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_002_l007": {
+   "raw": "உயர்த்தப்படுவதுபோல் ஆண்டுடான்றுக்கு ரூ.30.90",
+   "cleaned": false,
+   "wall_s": 1.075,
+   "eval_count": 18,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_004_l004": {
+   "raw": "பள்ளி மற்றும் கல்லூரி மாணவர்களுக்க்கு",
+   "cleaned": false,
+   "wall_s": 0.914,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_005_l012": {
+   "raw": "தமிழ்ப் பல்கலைக்கழகத்தில் தமிழ்பண்பாட்டு மையம்",
+   "cleaned": false,
+   "wall_s": 0.941,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_006_l005": {
+   "raw": "முதல் பாகி ரூ.5,000த்திலிருந்து ரூ.15,000",
+   "cleaned": false,
+   "wall_s": 1.112,
+   "eval_count": 20,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_007_l011": {
+   "raw": "ஆணையின்படி ஓவ்வொரு ஆண்டுக்கும்",
+   "cleaned": false,
+   "wall_s": 0.928,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_008_l015": {
+   "raw": "சேகரிக்கப்பட்ட தரவுகளைக் கணினியில் உள்ளீடு",
+   "cleaned": false,
+   "wall_s": 0.976,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_009_l007": {
+   "raw": "3 ஆம் பரிசு ரூ. 2,000த்திலிருந்து ரூ.10,000",
+   "cleaned": false,
+   "wall_s": 1.13,
+   "eval_count": 21,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_010_l024": {
+   "raw": "ஆகிய மாவட்டங்களிள் உள்ளா உதவி",
+   "cleaned": false,
+   "wall_s": 0.955,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_011_l011": {
+   "raw": "நாற்காலிகள் வாங்குவதற்குள், மானாவார்களுக்கு",
+   "cleaned": false,
+   "wall_s": 0.995,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_012_l013": {
+   "raw": "ரூ.20.00 இலட்சம் வழங்கப்படும்.",
+   "cleaned": false,
+   "wall_s": 0.975,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_013_l004": {
+   "raw": "மாவட்டம் தோறும் செய்யப்பட்ட்ட 100",
+   "cleaned": false,
+   "wall_s": 0.962,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_014_l008": {
+   "raw": "உடனகத் தமிழ்ச் சங்கப் பெருந்திட்ட வளாகத்தில்",
+   "cleaned": false,
+   "wall_s": 1.016,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_015_l005": {
+   "raw": "மொழியிலிலும் மொழிபெயர்த்து நூல்களாகவும்,",
+   "cleaned": false,
+   "wall_s": 0.977,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_016_l008": {
+   "raw": "என்ற அரிய நோக்கோடு மாண்புமிகு",
+   "cleaned": false,
+   "wall_s": 0.939,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_017_l011": {
+   "raw": "16 கணினிகள் மற்றும் அச்சு கருவிகள்",
+   "cleaned": false,
+   "wall_s": 0.948,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_018_l004": {
+   "raw": "தலைமுறை உறுதி ஏற்க வேண்டும்.",
+   "cleaned": false,
+   "wall_s": 0.884,
+   "eval_count": 8,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_019_l008": {
+   "raw": "சிற்பங்களாகவும் காட்சிப்படுத்தும் வகையில",
+   "cleaned": false,
+   "wall_s": 0.927,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_020_l001": {
+   "raw": "7. உலகத் தமிழாராய்ச்சி நிறுவனத்தில் தமிழ்மொழி",
+   "cleaned": false,
+   "wall_s": 0.962,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_021_l005": {
+   "raw": "வேர்களைக் கண்டு, கேட்டு இன்புற",
+   "cleaned": false,
+   "wall_s": 0.924,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_021_l017": {
+   "raw": "பள்ளிக்கல்வி, விளையாட்டுக்கள் மற்றும்",
+   "cleaned": false,
+   "wall_s": 0.914,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_022_l004": {
+   "raw": "மான்புமிகு இதயத் தெய்வம் புரட்சித் தலைவி",
+   "cleaned": false,
+   "wall_s": 1.015,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_023_l002": {
+   "raw": "வசதி ஏற்படுத்தும் வகையில் சீர்வணிக்",
+   "cleaned": false,
+   "wall_s": 0.906,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_023_l004": {
+   "raw": "வழங்கப்படும்.",
+   "cleaned": false,
+   "wall_s": 0.86,
+   "eval_count": 6,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_024_l005": {
+   "raw": "புரட்சித்தலைவி அம்மா அவர்கள்",
+   "cleaned": false,
+   "wall_s": 0.914,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_025_l002": {
+   "raw": "பட்டறைகள் நடத்த ரூபாய் 5 இலட்சம்",
+   "cleaned": false,
+   "wall_s": 0.945,
+   "eval_count": 11,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_026_l015": {
+   "raw": "4 இலட்சத்து 80 ஆயிரம் ஒதுக்கிடு செய்யப்படும்.",
+   "cleaned": false,
+   "wall_s": 1.014,
+   "eval_count": 15,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_027_l006": {
+   "raw": "அம்மா அவர்கள் ஆசியுடன், மாண்புமிகு",
+   "cleaned": false,
+   "wall_s": 0.964,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_028_l014": {
+   "raw": "கண்காணிப்படிக் கருவி பொருத்தப்படும்.",
+   "cleaned": false,
+   "wall_s": 0.964,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_029_l006": {
+   "raw": "அம்மா அவர்கள் ஆசிடிடன், மாண்புமிகு",
+   "cleaned": false,
+   "wall_s": 0.986,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_030_l009": {
+   "raw": "உலகத் தமிழாராய்ச்சி நிறுவனத்தில் பணிபுரியும் கல்வியி",
+   "cleaned": false,
+   "wall_s": 0.998,
+   "eval_count": 14,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_031_l019": {
+   "raw": "ரூபாய் 10,000/-லிருந்து ரூபாய் 20,000/-ஆக",
+   "cleaned": false,
+   "wall_s": 1.163,
+   "eval_count": 23,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_032_l011": {
+   "raw": "அளிக்கப்படும். ஓராண்டில் 32 மாட்டடங்களுக்கும்",
+   "cleaned": false,
+   "wall_s": 1.036,
+   "eval_count": 16,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_033_l011": {
+   "raw": "இதற்கென ஏற்படும் அரங்கேற்றச் செலவினங்களுக்கு",
+   "cleaned": false,
+   "wall_s": 0.958,
+   "eval_count": 12,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_034_l012": {
+   "raw": "தூண்களுக்கு மாலை அணிவித்து மலர்தூவிச் சிறப்பு",
+   "cleaned": false,
+   "wall_s": 0.974,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_036_l008": {
+   "raw": "சென்னை அண்ணா சதுக்கத்தில் அமைந்துள்ள கம்பர்",
+   "cleaned": false,
+   "wall_s": 0.93,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_037_l017": {
+   "raw": "வருகிறது. மரபுரிமையாள்கள் நல்லனைக்",
+   "cleaned": false,
+   "wall_s": 0.98,
+   "eval_count": 13,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_038_l010": {
+   "raw": "தமிழ வளர்ச்சி துறை வாயிலாகச் சிறந்த நூல்",
+   "cleaned": false,
+   "wall_s": 0.926,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_039_l002": {
+   "raw": "உதவித்தொகை பெற ஆண்டு வருவாய்",
+   "cleaned": false,
+   "wall_s": 0.93,
+   "eval_count": 10,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  },
+  "signage_040_l015": {
+   "raw": "தமிழ்ப் பண்பாட்டுத் துறை அமைச்சர்",
+   "cleaned": false,
+   "wall_s": 0.908,
+   "eval_count": 9,
+   "prompt_eval_count": 321,
+   "done_reason": "stop"
+  }
+ },
+ "summary": {
+  "n": 300,
+  "total_s": 307.5,
+  "mean_s_per_line": 1.018,
+  "median_s_per_line": 1.009,
+  "peak_gpu_mib": 9630,
+  "n_cleaned": 2,
+  "n_empty": 0,
+  "n_truncated": 0
+ },
+ "ollama_show": "  Model\n    architecture        gemma3    \n    parameters          11.8B     \n    context length      131072    \n    embedding length    3840      \n    quantization        Q4_K_M    \n    requires            0.30.0    \n\n  Capabilities\n    completion    \n    vision        \n\n  Projector\n    architecture        clip       \n    parameters          421.29M    \n    embedding length    1152       \n    dimensions          3840       \n\n  Parameters\n    stop           \"<end_of_turn>\"    \n    temperature    1                  \n    top_k          64                 \n    top_p          0.95               \n\n  License\n    Gemma Terms of Use                  \n    Last modified: February 21, 2024    \n    ...                                 \n\n",
+ "ollama_ps": "NAME          ID              SIZE      PROCESSOR    CONTEXT    UNTIL               \ngemma3:12b    b92b218582c5    8.0 GB    100% GPU     4096       29 minutes from now    \n"
+}

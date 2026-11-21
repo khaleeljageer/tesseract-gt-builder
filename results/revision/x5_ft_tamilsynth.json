@@ -1,0 +1,42 @@
+[
+  {
+    "label": "ft_tamilsynth_e1",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_tamilsynth/preds_e1",
+    "cer_all300": 24.03,
+    "wer_all300": 48.96,
+    "cer_sel98": 25.12,
+    "wer_sel98": 53.98,
+    "cer_rep202": 23.51,
+    "wer_rep202": 46.58
+  },
+  {
+    "label": "ft_tamilsynth_e2",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_tamilsynth/preds_e2",
+    "cer_all300": 28.18,
+    "wer_all300": 60.73,
+    "cer_sel98": 29.91,
+    "wer_sel98": 62.12,
+    "cer_rep202": 27.37,
+    "wer_rep202": 60.07
+  },
+  {
+    "label": "ft_tamilsynth_e3",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_tamilsynth/preds_e3",
+    "cer_all300": 35.42,
+    "wer_all300": 72.07,
+    "cer_sel98": 38.92,
+    "wer_sel98": 74.24,
+    "cer_rep202": 33.78,
+    "wer_rep202": 71.04
+  },
+  {
+    "label": "ft_tamilsynth_e4",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_tamilsynth/preds_e4",
+    "cer_all300": 37.0,
+    "wer_all300": 70.3,
+    "cer_sel98": 40.61,
+    "wer_sel98": 71.97,
+    "cer_rep202": 35.31,
+    "wer_rep202": 69.51
+  }
+]

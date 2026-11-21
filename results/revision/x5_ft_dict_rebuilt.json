@@ -1,0 +1,42 @@
+[
+  {
+    "label": "ft_dict_rebuilt_e1",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_dict_rebuilt/preds_e1",
+    "cer_all300": 23.92,
+    "wer_all300": 55.49,
+    "cer_sel98": 25.82,
+    "wer_sel98": 60.8,
+    "cer_rep202": 23.03,
+    "wer_rep202": 52.97
+  },
+  {
+    "label": "ft_dict_rebuilt_e2",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_dict_rebuilt/preds_e2",
+    "cer_all300": 35.06,
+    "wer_all300": 68.72,
+    "cer_sel98": 38.32,
+    "wer_sel98": 71.97,
+    "cer_rep202": 33.53,
+    "wer_rep202": 67.18
+  },
+  {
+    "label": "ft_dict_rebuilt_e3",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_dict_rebuilt/preds_e3",
+    "cer_all300": 43.02,
+    "wer_all300": 76.71,
+    "cer_sel98": 47.66,
+    "wer_sel98": 77.46,
+    "cer_rep202": 40.85,
+    "wer_rep202": 76.35
+  },
+  {
+    "label": "ft_dict_rebuilt_e4",
+    "pred_dir": "/home/asuran/revision/rec/output/ft_dict_rebuilt/preds_e4",
+    "cer_all300": 40.56,
+    "wer_all300": 75.24,
+    "cer_sel98": 44.07,
+    "wer_sel98": 76.89,
+    "cer_rep202": 38.91,
+    "wer_rep202": 74.46
+  }
+]
