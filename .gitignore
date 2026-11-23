@@ -246,3 +246,5 @@ testset/gt_pass2/*.tif
 !testset/gt_pass2b/
 !testset/gt_pass2b/*.gt.txt
 testset/gt_pass2b/*.tif
+hybrid/raw/
+hybrid/pool/

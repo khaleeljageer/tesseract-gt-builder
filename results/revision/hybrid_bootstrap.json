@@ -1,0 +1,1119 @@
+{
+  "n_resamples": 10000,
+  "seed": 0,
+  "view": "rep202",
+  "unit": "line",
+  "note": "A is better in a resample when its rate is strictly lower; diff = A - B in percentage points; pool = three seeds summed line by line",
+  "systems": {
+    "syn": [
+      "p:tam_x9_i1400",
+      "p:tam_v3_s1_i4700",
+      "p:tam_v3_s2_i6500"
+    ],
+    "hyb": [
+      "p:tam_hyb_s0_i6000",
+      "p:tam_hyb_s1_i5700",
+      "p:tam_hyb_s2_i3900"
+    ],
+    "real": [
+      "p:tam_realsh_s0_i1000",
+      "p:tam_realsh_s1_i3200",
+      "p:tam_realsh_s2_i1400"
+    ],
+    "release": "tamv3_dawg_corpus"
+  },
+  "comparisons": {
+    "hyb_s0_vs_syn_s0": {
+      "A": "p:tam_hyb_s0_i6000",
+      "B": "p:tam_x9_i1400",
+      "lines": 202,
+      "cer": {
+        "A": 7.57,
+        "B": 8.07,
+        "diff": -0.5,
+        "a_better": 9014,
+        "ci95": [
+          -1.33,
+          0.27
+        ]
+      },
+      "wer": {
+        "A": 19.15,
+        "B": 19.33,
+        "diff": -0.18,
+        "a_better": 5552,
+        "ci95": [
+          -2.09,
+          1.67
+        ]
+      }
+    },
+    "hyb_s1_vs_syn_s1": {
+      "A": "p:tam_hyb_s1_i5700",
+      "B": "p:tam_v3_s1_i4700",
+      "lines": 202,
+      "cer": {
+        "A": 7.61,
+        "B": 8.33,
+        "diff": -0.72,
+        "a_better": 9842,
+        "ci95": [
+          -1.47,
+          -0.06
+        ]
+      },
+      "wer": {
+        "A": 18.62,
+        "B": 18.79,
+        "diff": -0.18,
+        "a_better": 5607,
+        "ci95": [
+          -1.87,
+          1.51
+        ]
+      }
+    },
+    "hyb_s2_vs_syn_s2": {
+      "A": "p:tam_hyb_s2_i3900",
+      "B": "p:tam_v3_s2_i6500",
+      "lines": 202,
+      "cer": {
+        "A": 7.26,
+        "B": 8.78,
+        "diff": -1.53,
+        "a_better": 10000,
+        "ci95": [
+          -2.47,
+          -0.74
+        ]
+      },
+      "wer": {
+        "A": 17.72,
+        "B": 20.14,
+        "diff": -2.43,
+        "a_better": 9994,
+        "ci95": [
+          -3.94,
+          -0.93
+        ]
+      }
+    },
+    "hyb_pooled_vs_syn_pooled": {
+      "A": "pool:hyb",
+      "B": "pool:syn",
+      "lines": 202,
+      "cer": {
+        "A": 7.48,
+        "B": 8.39,
+        "diff": -0.92,
+        "a_better": 9998,
+        "ci95": [
+          -1.54,
+          -0.39
+        ]
+      },
+      "wer": {
+        "A": 18.5,
+        "B": 19.42,
+        "diff": -0.93,
+        "a_better": 9669,
+        "ci95": [
+          -1.94,
+          0.03
+        ]
+      }
+    },
+    "hyb_s0_vs_stock": {
+      "A": "p:tam_hyb_s0_i6000",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 7.57,
+        "B": 8.38,
+        "diff": -0.81,
+        "a_better": 9520,
+        "ci95": [
+          -1.8,
+          0.14
+        ]
+      },
+      "wer": {
+        "A": 19.15,
+        "B": 24.82,
+        "diff": -5.67,
+        "a_better": 10000,
+        "ci95": [
+          -8.33,
+          -3.19
+        ]
+      }
+    },
+    "hyb_s1_vs_stock": {
+      "A": "p:tam_hyb_s1_i5700",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 7.61,
+        "B": 8.38,
+        "diff": -0.76,
+        "a_better": 8820,
+        "ci95": [
+          -1.98,
+          0.53
+        ]
+      },
+      "wer": {
+        "A": 18.62,
+        "B": 24.82,
+        "diff": -6.21,
+        "a_better": 10000,
+        "ci95": [
+          -8.77,
+          -3.79
+        ]
+      }
+    },
+    "hyb_s2_vs_stock": {
+      "A": "p:tam_hyb_s2_i3900",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 7.26,
+        "B": 8.38,
+        "diff": -1.12,
+        "a_better": 9811,
+        "ci95": [
+          -2.11,
+          -0.07
+        ]
+      },
+      "wer": {
+        "A": 17.72,
+        "B": 24.82,
+        "diff": -7.1,
+        "a_better": 10000,
+        "ci95": [
+          -9.57,
+          -4.88
+        ]
+      }
+    },
+    "hyb_pooled_vs_stock": {
+      "A": "pool:hyb",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 7.48,
+        "B": 8.38,
+        "diff": -0.9,
+        "a_better": 9586,
+        "ci95": [
+          -1.91,
+          0.12
+        ]
+      },
+      "wer": {
+        "A": 18.5,
+        "B": 24.82,
+        "diff": -6.32,
+        "a_better": 10000,
+        "ci95": [
+          -8.74,
+          -4.08
+        ]
+      }
+    },
+    "hyb_pooled_vs_release": {
+      "A": "pool:hyb",
+      "B": "tamv3_dawg_corpus",
+      "lines": 202,
+      "cer": {
+        "A": 7.48,
+        "B": 7.36,
+        "diff": 0.11,
+        "a_better": 3277,
+        "ci95": [
+          -0.41,
+          0.62
+        ]
+      },
+      "wer": {
+        "A": 18.5,
+        "B": 18.79,
+        "diff": -0.3,
+        "a_better": 6076,
+        "ci95": [
+          -2.41,
+          1.59
+        ]
+      }
+    },
+    "real_pooled_vs_stock": {
+      "A": "pool:real",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 6.84,
+        "B": 8.38,
+        "diff": -1.53,
+        "a_better": 9998,
+        "ci95": [
+          -2.53,
+          -0.69
+        ]
+      },
+      "wer": {
+        "A": 18.85,
+        "B": 24.82,
+        "diff": -5.97,
+        "a_better": 10000,
+        "ci95": [
+          -8.76,
+          -3.48
+        ]
+      }
+    },
+    "real_pooled_vs_syn_pooled": {
+      "A": "pool:real",
+      "B": "pool:syn",
+      "lines": 202,
+      "cer": {
+        "A": 6.84,
+        "B": 8.39,
+        "diff": -1.55,
+        "a_better": 9925,
+        "ci95": [
+          -3.3,
+          -0.24
+        ]
+      },
+      "wer": {
+        "A": 18.85,
+        "B": 19.42,
+        "diff": -0.57,
+        "a_better": 7477,
+        "ci95": [
+          -2.24,
+          1.02
+        ]
+      }
+    },
+    "real_pooled_vs_release": {
+      "A": "pool:real",
+      "B": "tamv3_dawg_corpus",
+      "lines": 202,
+      "cer": {
+        "A": 6.84,
+        "B": 7.36,
+        "diff": -0.52,
+        "a_better": 7638,
+        "ci95": [
+          -2.07,
+          0.63
+        ]
+      },
+      "wer": {
+        "A": 18.85,
+        "B": 18.79,
+        "diff": 0.06,
+        "a_better": 4617,
+        "ci95": [
+          -2.51,
+          2.27
+        ]
+      }
+    },
+    "real_pooled_vs_hyb_pooled": {
+      "A": "pool:real",
+      "B": "pool:hyb",
+      "lines": 202,
+      "cer": {
+        "A": 6.84,
+        "B": 7.48,
+        "diff": -0.63,
+        "a_better": 8617,
+        "ci95": [
+          -2.0,
+          0.36
+        ]
+      },
+      "wer": {
+        "A": 18.85,
+        "B": 18.5,
+        "diff": 0.36,
+        "a_better": 3324,
+        "ci95": [
+          -1.42,
+          2.05
+        ]
+      }
+    },
+    "real_s0_vs_stock": {
+      "A": "p:tam_realsh_s0_i1000",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 6.82,
+        "B": 8.38,
+        "diff": -1.56,
+        "a_better": 9996,
+        "ci95": [
+          -2.65,
+          -0.6
+        ]
+      },
+      "wer": {
+        "A": 19.42,
+        "B": 24.82,
+        "diff": -5.4,
+        "a_better": 9999,
+        "ci95": [
+          -8.19,
+          -2.81
+        ]
+      }
+    },
+    "real_s1_vs_stock": {
+      "A": "p:tam_realsh_s1_i3200",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 6.55,
+        "B": 8.38,
+        "diff": -1.83,
+        "a_better": 9998,
+        "ci95": [
+          -2.9,
+          -0.86
+        ]
+      },
+      "wer": {
+        "A": 18.08,
+        "B": 24.82,
+        "diff": -6.74,
+        "a_better": 10000,
+        "ci95": [
+          -9.59,
+          -4.08
+        ]
+      }
+    },
+    "real_s2_vs_stock": {
+      "A": "p:tam_realsh_s2_i1400",
+      "B": "stock",
+      "lines": 202,
+      "cer": {
+        "A": 7.16,
+        "B": 8.38,
+        "diff": -1.22,
+        "a_better": 9987,
+        "ci95": [
+          -2.16,
+          -0.38
+        ]
+      },
+      "wer": {
+        "A": 19.06,
+        "B": 24.82,
+        "diff": -5.76,
+        "a_better": 10000,
+        "ci95": [
+          -8.58,
+          -3.14
+        ]
+      }
+    }
+  },
+  "strata": {
+    "newsprint": {
+      "lines": 54,
+      "rates": {
+        "stock": {
+          "cer": 6.34,
+          "wer": 22.55
+        },
+        "tamv3_dawg_corpus": {
+          "cer": 4.66,
+          "wer": 15.69
+        },
+        "pool:syn": {
+          "cer": 5.8,
+          "wer": 17.32
+        },
+        "pool:hyb": {
+          "cer": 4.89,
+          "wer": 16.01
+        },
+        "pool:real": {
+          "cer": 4.37,
+          "wer": 16.01
+        },
+        "p:tam_x9_i1400": {
+          "cer": 5.06,
+          "wer": 16.34
+        },
+        "p:tam_v3_s1_i4700": {
+          "cer": 5.65,
+          "wer": 16.67
+        },
+        "p:tam_v3_s2_i6500": {
+          "cer": 6.69,
+          "wer": 18.95
+        },
+        "p:tam_hyb_s0_i6000": {
+          "cer": 5.41,
+          "wer": 16.67
+        },
+        "p:tam_hyb_s1_i5700": {
+          "cer": 4.54,
+          "wer": 15.36
+        },
+        "p:tam_hyb_s2_i3900": {
+          "cer": 4.71,
+          "wer": 16.01
+        },
+        "p:tam_realsh_s0_i1000": {
+          "cer": 4.19,
+          "wer": 15.69
+        },
+        "p:tam_realsh_s1_i3200": {
+          "cer": 4.25,
+          "wer": 16.34
+        },
+        "p:tam_realsh_s2_i1400": {
+          "cer": 4.66,
+          "wer": 16.01
+        }
+      },
+      "comparisons": {
+        "hyb_pooled_vs_syn_pooled": {
+          "A": "pool:hyb",
+          "B": "pool:syn",
+          "lines": 54,
+          "cer": {
+            "A": 4.89,
+            "B": 5.8,
+            "diff": -0.91,
+            "a_better": 9668,
+            "ci95": [
+              -2.28,
+              0.04
+            ]
+          },
+          "wer": {
+            "A": 16.01,
+            "B": 17.32,
+            "diff": -1.31,
+            "a_better": 8843,
+            "ci95": [
+              -3.63,
+              0.65
+            ]
+          }
+        },
+        "real_pooled_vs_syn_pooled": {
+          "A": "pool:real",
+          "B": "pool:syn",
+          "lines": 54,
+          "cer": {
+            "A": 4.37,
+            "B": 5.8,
+            "diff": -1.44,
+            "a_better": 9424,
+            "ci95": [
+              -3.8,
+              0.23
+            ]
+          },
+          "wer": {
+            "A": 16.01,
+            "B": 17.32,
+            "diff": -1.31,
+            "a_better": 7312,
+            "ci95": [
+              -5.7,
+              2.45
+            ]
+          }
+        },
+        "real_pooled_vs_hyb_pooled": {
+          "A": "pool:real",
+          "B": "pool:hyb",
+          "lines": 54,
+          "cer": {
+            "A": 4.37,
+            "B": 4.89,
+            "diff": -0.52,
+            "a_better": 8072,
+            "ci95": [
+              -1.83,
+              0.53
+            ]
+          },
+          "wer": {
+            "A": 16.01,
+            "B": 16.01,
+            "diff": 0.0,
+            "a_better": 4864,
+            "ci95": [
+              -3.86,
+              3.37
+            ]
+          }
+        }
+      }
+    },
+    "books": {
+      "lines": 54,
+      "rates": {
+        "stock": {
+          "cer": 7.47,
+          "wer": 20.25
+        },
+        "tamv3_dawg_corpus": {
+          "cer": 6.68,
+          "wer": 14.64
+        },
+        "pool:syn": {
+          "cer": 7.95,
+          "wer": 16.61
+        },
+        "pool:hyb": {
+          "cer": 7.44,
+          "wer": 16.1
+        },
+        "pool:real": {
+          "cer": 6.32,
+          "wer": 14.02
+        },
+        "p:tam_x9_i1400": {
+          "cer": 7.47,
+          "wer": 14.95
+        },
+        "p:tam_v3_s1_i4700": {
+          "cer": 7.84,
+          "wer": 16.82
+        },
+        "p:tam_v3_s2_i6500": {
+          "cer": 8.53,
+          "wer": 18.07
+        },
+        "p:tam_hyb_s0_i6000": {
+          "cer": 7.58,
+          "wer": 16.51
+        },
+        "p:tam_hyb_s1_i5700": {
+          "cer": 7.68,
+          "wer": 16.82
+        },
+        "p:tam_hyb_s2_i3900": {
+          "cer": 7.05,
+          "wer": 14.95
+        },
+        "p:tam_realsh_s0_i1000": {
+          "cer": 6.21,
+          "wer": 14.95
+        },
+        "p:tam_realsh_s1_i3200": {
+          "cer": 6.37,
+          "wer": 13.71
+        },
+        "p:tam_realsh_s2_i1400": {
+          "cer": 6.37,
+          "wer": 13.4
+        }
+      },
+      "comparisons": {
+        "hyb_pooled_vs_syn_pooled": {
+          "A": "pool:hyb",
+          "B": "pool:syn",
+          "lines": 54,
+          "cer": {
+            "A": 7.44,
+            "B": 7.95,
+            "diff": -0.51,
+            "a_better": 9254,
+            "ci95": [
+              -1.49,
+              0.07
+            ]
+          },
+          "wer": {
+            "A": 16.1,
+            "B": 16.61,
+            "diff": -0.52,
+            "a_better": 8216,
+            "ci95": [
+              -1.53,
+              0.44
+            ]
+          }
+        },
+        "real_pooled_vs_syn_pooled": {
+          "A": "pool:real",
+          "B": "pool:syn",
+          "lines": 54,
+          "cer": {
+            "A": 6.32,
+            "B": 7.95,
+            "diff": -1.63,
+            "a_better": 9976,
+            "ci95": [
+              -3.3,
+              -0.38
+            ]
+          },
+          "wer": {
+            "A": 14.02,
+            "B": 16.61,
+            "diff": -2.6,
+            "a_better": 9757,
+            "ci95": [
+              -5.21,
+              -0.1
+            ]
+          }
+        },
+        "real_pooled_vs_hyb_pooled": {
+          "A": "pool:real",
+          "B": "pool:hyb",
+          "lines": 54,
+          "cer": {
+            "A": 6.32,
+            "B": 7.44,
+            "diff": -1.12,
+            "a_better": 9946,
+            "ci95": [
+              -2.09,
+              -0.26
+            ]
+          },
+          "wer": {
+            "A": 14.02,
+            "B": 16.1,
+            "diff": -2.08,
+            "a_better": 9484,
+            "ci95": [
+              -4.55,
+              0.38
+            ]
+          }
+        }
+      }
+    },
+    "forms": {
+      "lines": 40,
+      "rates": {
+        "stock": {
+          "cer": 15.0,
+          "wer": 40.19
+        },
+        "tamv3_dawg_corpus": {
+          "cer": 12.38,
+          "wer": 33.18
+        },
+        "pool:syn": {
+          "cer": 13.03,
+          "wer": 33.96
+        },
+        "pool:hyb": {
+          "cer": 12.19,
+          "wer": 32.24
+        },
+        "pool:real": {
+          "cer": 14.29,
+          "wer": 35.05
+        },
+        "p:tam_x9_i1400": {
+          "cer": 13.03,
+          "wer": 35.05
+        },
+        "p:tam_v3_s1_i4700": {
+          "cer": 13.44,
+          "wer": 33.18
+        },
+        "p:tam_v3_s2_i6500": {
+          "cer": 12.62,
+          "wer": 33.64
+        },
+        "p:tam_hyb_s0_i6000": {
+          "cer": 12.79,
+          "wer": 32.71
+        },
+        "p:tam_hyb_s1_i5700": {
+          "cer": 11.97,
+          "wer": 33.18
+        },
+        "p:tam_hyb_s2_i3900": {
+          "cer": 11.8,
+          "wer": 30.84
+        },
+        "p:tam_realsh_s0_i1000": {
+          "cer": 14.59,
+          "wer": 35.05
+        },
+        "p:tam_realsh_s1_i3200": {
+          "cer": 12.95,
+          "wer": 33.64
+        },
+        "p:tam_realsh_s2_i1400": {
+          "cer": 15.33,
+          "wer": 36.45
+        }
+      },
+      "comparisons": {
+        "hyb_pooled_vs_syn_pooled": {
+          "A": "pool:hyb",
+          "B": "pool:syn",
+          "lines": 40,
+          "cer": {
+            "A": 12.19,
+            "B": 13.03,
+            "diff": -0.85,
+            "a_better": 9172,
+            "ci95": [
+              -2.22,
+              0.33
+            ]
+          },
+          "wer": {
+            "A": 32.24,
+            "B": 33.96,
+            "diff": -1.71,
+            "a_better": 8976,
+            "ci95": [
+              -4.48,
+              0.74
+            ]
+          }
+        },
+        "real_pooled_vs_syn_pooled": {
+          "A": "pool:real",
+          "B": "pool:syn",
+          "lines": 40,
+          "cer": {
+            "A": 14.29,
+            "B": 13.03,
+            "diff": 1.26,
+            "a_better": 656,
+            "ci95": [
+              -0.34,
+              3.11
+            ]
+          },
+          "wer": {
+            "A": 35.05,
+            "B": 33.96,
+            "diff": 1.09,
+            "a_better": 2596,
+            "ci95": [
+              -2.54,
+              4.72
+            ]
+          }
+        },
+        "real_pooled_vs_hyb_pooled": {
+          "A": "pool:real",
+          "B": "pool:hyb",
+          "lines": 40,
+          "cer": {
+            "A": 14.29,
+            "B": 12.19,
+            "diff": 2.1,
+            "a_better": 101,
+            "ci95": [
+              0.3,
+              4.35
+            ]
+          },
+          "wer": {
+            "A": 35.05,
+            "B": 32.24,
+            "diff": 2.8,
+            "a_better": 856,
+            "ci95": [
+              -1.28,
+              7.22
+            ]
+          }
+        }
+      }
+    },
+    "degraded": {
+      "lines": 27,
+      "rates": {
+        "stock": {
+          "cer": 10.22,
+          "wer": 31.45
+        },
+        "tamv3_dawg_corpus": {
+          "cer": 11.65,
+          "wer": 23.9
+        },
+        "pool:syn": {
+          "cer": 12.97,
+          "wer": 19.5
+        },
+        "pool:hyb": {
+          "cer": 10.48,
+          "wer": 18.03
+        },
+        "pool:real": {
+          "cer": 6.52,
+          "wer": 20.96
+        },
+        "p:tam_x9_i1400": {
+          "cer": 12.97,
+          "wer": 22.01
+        },
+        "p:tam_v3_s1_i4700": {
+          "cer": 12.53,
+          "wer": 16.98
+        },
+        "p:tam_v3_s2_i6500": {
+          "cer": 13.41,
+          "wer": 19.5
+        },
+        "p:tam_hyb_s0_i6000": {
+          "cer": 8.9,
+          "wer": 18.24
+        },
+        "p:tam_hyb_s1_i5700": {
+          "cer": 11.76,
+          "wer": 16.98
+        },
+        "p:tam_hyb_s2_i3900": {
+          "cer": 10.77,
+          "wer": 18.87
+        },
+        "p:tam_realsh_s0_i1000": {
+          "cer": 6.59,
+          "wer": 23.9
+        },
+        "p:tam_realsh_s1_i3200": {
+          "cer": 6.37,
+          "wer": 17.61
+        },
+        "p:tam_realsh_s2_i1400": {
+          "cer": 6.59,
+          "wer": 21.38
+        }
+      },
+      "comparisons": {
+        "hyb_pooled_vs_syn_pooled": {
+          "A": "pool:hyb",
+          "B": "pool:syn",
+          "lines": 27,
+          "cer": {
+            "A": 10.48,
+            "B": 12.97,
+            "diff": -2.49,
+            "a_better": 9994,
+            "ci95": [
+              -5.28,
+              -0.61
+            ]
+          },
+          "wer": {
+            "A": 18.03,
+            "B": 19.5,
+            "diff": -1.47,
+            "a_better": 8673,
+            "ci95": [
+              -3.84,
+              0.92
+            ]
+          }
+        },
+        "real_pooled_vs_syn_pooled": {
+          "A": "pool:real",
+          "B": "pool:syn",
+          "lines": 27,
+          "cer": {
+            "A": 6.52,
+            "B": 12.97,
+            "diff": -6.45,
+            "a_better": 9387,
+            "ci95": [
+              -18.46,
+              0.41
+            ]
+          },
+          "wer": {
+            "A": 20.96,
+            "B": 19.5,
+            "diff": 1.47,
+            "a_better": 2359,
+            "ci95": [
+              -2.86,
+              5.59
+            ]
+          }
+        },
+        "real_pooled_vs_hyb_pooled": {
+          "A": "pool:real",
+          "B": "pool:hyb",
+          "lines": 27,
+          "cer": {
+            "A": 6.52,
+            "B": 10.48,
+            "diff": -3.96,
+            "a_better": 8589,
+            "ci95": [
+              -13.23,
+              1.31
+            ]
+          },
+          "wer": {
+            "A": 20.96,
+            "B": 18.03,
+            "diff": 2.94,
+            "a_better": 1234,
+            "ci95": [
+              -2.47,
+              7.69
+            ]
+          }
+        }
+      }
+    },
+    "signage": {
+      "lines": 27,
+      "rates": {
+        "stock": {
+          "cer": 1.51,
+          "wer": 5.36
+        },
+        "tamv3_dawg_corpus": {
+          "cer": 1.21,
+          "wer": 4.46
+        },
+        "pool:syn": {
+          "cer": 1.56,
+          "wer": 5.36
+        },
+        "pool:hyb": {
+          "cer": 1.51,
+          "wer": 6.55
+        },
+        "pool:real": {
+          "cer": 1.51,
+          "wer": 6.55
+        },
+        "p:tam_x9_i1400": {
+          "cer": 1.66,
+          "wer": 6.25
+        },
+        "p:tam_v3_s1_i4700": {
+          "cer": 1.51,
+          "wer": 5.36
+        },
+        "p:tam_v3_s2_i6500": {
+          "cer": 1.51,
+          "wer": 4.46
+        },
+        "p:tam_hyb_s0_i6000": {
+          "cer": 1.66,
+          "wer": 8.93
+        },
+        "p:tam_hyb_s1_i5700": {
+          "cer": 1.66,
+          "wer": 7.14
+        },
+        "p:tam_hyb_s2_i3900": {
+          "cer": 1.21,
+          "wer": 3.57
+        },
+        "p:tam_realsh_s0_i1000": {
+          "cer": 1.36,
+          "wer": 6.25
+        },
+        "p:tam_realsh_s1_i3200": {
+          "cer": 1.51,
+          "wer": 6.25
+        },
+        "p:tam_realsh_s2_i1400": {
+          "cer": 1.66,
+          "wer": 7.14
+        }
+      },
+      "comparisons": {
+        "hyb_pooled_vs_syn_pooled": {
+          "A": "pool:hyb",
+          "B": "pool:syn",
+          "lines": 27,
+          "cer": {
+            "A": 1.51,
+            "B": 1.56,
+            "diff": -0.05,
+            "a_better": 5263,
+            "ci95": [
+              -0.66,
+              0.51
+            ]
+          },
+          "wer": {
+            "A": 6.55,
+            "B": 5.36,
+            "diff": 1.19,
+            "a_better": 2542,
+            "ci95": [
+              -2.61,
+              5.25
+            ]
+          }
+        },
+        "real_pooled_vs_syn_pooled": {
+          "A": "pool:real",
+          "B": "pool:syn",
+          "lines": 27,
+          "cer": {
+            "A": 1.51,
+            "B": 1.56,
+            "diff": -0.05,
+            "a_better": 5856,
+            "ci95": [
+              -0.27,
+              0.16
+            ]
+          },
+          "wer": {
+            "A": 6.55,
+            "B": 5.36,
+            "diff": 1.19,
+            "a_better": 1533,
+            "ci95": [
+              -1.2,
+              4.01
+            ]
+          }
+        },
+        "real_pooled_vs_hyb_pooled": {
+          "A": "pool:real",
+          "B": "pool:hyb",
+          "lines": 27,
+          "cer": {
+            "A": 1.51,
+            "B": 1.51,
+            "diff": 0.0,
+            "a_better": 4649,
+            "ci95": [
+              -0.56,
+              0.58
+            ]
+          },
+          "wer": {
+            "A": 6.55,
+            "B": 6.55,
+            "diff": 0.0,
+            "a_better": 4774,
+            "ci95": [
+              -4.93,
+              5.03
+            ]
+          }
+        }
+      }
+    }
+  }
+}

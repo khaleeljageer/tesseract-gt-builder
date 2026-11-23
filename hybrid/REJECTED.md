@@ -1,0 +1,1 @@
+- journal1_p01_l001: crop cuts through the drop capital; replaced by the next reserve line (make_testset.py replace).
