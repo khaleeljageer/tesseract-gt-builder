@@ -287,6 +287,9 @@ The generated corpus is released under CC BY-SA 4.0.
 
 Code is licensed GPL-3.0 — see [LICENSE](LICENSE). Typefaces in `fonts/` and
 texts in `raw_data/` are third-party works under their own terms.
+The real-document test set in `testset/` (line images, transcriptions,
+splits and manifest) is released under CC BY-SA 4.0
+(https://creativecommons.org/licenses/by-sa/4.0/).
 
 ## Citation
 

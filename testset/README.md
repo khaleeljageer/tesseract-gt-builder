@@ -1,5 +1,9 @@
 # Real-document test set
 
+Licence: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) for the
+line images, transcriptions, splits and manifest. The code that uses them is
+GPL-3.0 (see the repository LICENSE).
+
 300 hand-transcribed lines of printed Tamil, drawn from 281 source pages.
 This is the material the headline number is measured on. Nothing here comes
 from the generation pipeline — see `paper/TESTSET.md` for why that matters.
