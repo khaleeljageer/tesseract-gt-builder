@@ -78,8 +78,11 @@ def report(lines, label):
     return out
 
 
-def figure(counts, out_path, top=40):
-    """Rank-frequency plot of the grapheme distribution."""
+def figure(counts, out_path, top=15):
+    """Rank-frequency plot of the grapheme distribution, drawn at the width
+    it is printed (one column of Online Resource 1, about 3.4 in) so that the
+    Tamil tick labels stay legible: (a) rank-frequency, (b) the most frequent
+    graphemes."""
     try:
         import matplotlib
         matplotlib.use("Agg")
@@ -92,13 +95,16 @@ def figure(counts, out_path, top=40):
     ranked = counts.most_common()
     y = [n for _, n in ranked]
 
-    fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7.0, 2.6))
+    fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(3.4, 5.0),
+                                   gridspec_kw={"height_ratios": [1, 1.6]})
 
     ax1.plot(range(1, len(y) + 1), y, color="#0072B2", linewidth=1.4)
     ax1.set_xscale("log")
     ax1.set_yscale("log")
-    ax1.set_xlabel("Grapheme rank")
-    ax1.set_ylabel("Occurrences")
+    ax1.set_xlabel("Grapheme rank (all graphemes, space included)", fontsize=8)
+    ax1.set_ylabel("Occurrences", fontsize=8)
+    ax1.tick_params(labelsize=7)
+    ax1.set_title("(a)", fontsize=8, loc="left")
     ax1.grid(alpha=0.25, linewidth=0.5)
     ax1.spines[["top", "right"]].set_visible(False)
 
@@ -107,20 +113,26 @@ def figure(counts, out_path, top=40):
     for cand in ("fonts/NotoSerifTamil.ttf", "fonts/AnekTamil.ttf",
                  "fonts/Catamaran.ttf"):
         if Path(cand).exists():
-            tfont = font_manager.FontProperties(fname=cand, size=7)
+            tfont = font_manager.FontProperties(fname=cand, size=9)
             break
 
-    head = ranked[:top]
-    ax2.bar(range(len(head)), [n for _, n in head], color="#0072B2", width=0.8)
-    ax2.set_xticks(range(len(head)))
-    ax2.set_xticklabels([g for g, _ in head], fontproperties=tfont, rotation=0)
-    ax2.set_xlabel(f"{top} most frequent graphemes")
-    ax2.set_yscale("log")
-    ax2.grid(alpha=0.25, linewidth=0.5, axis="y")
+    # One grapheme per row so the labels cannot collide; the space, rank 1,
+    # is left out of this panel.
+    head = [(g, n) for g, n in ranked if g.strip()][:top]
+    ax2.barh(range(len(head)), [n / 1000 for _, n in head], color="#0072B2",
+             height=0.7)
+    ax2.set_yticks(range(len(head)))
+    ax2.set_yticklabels([g for g, _ in head], fontproperties=tfont)
+    ax2.invert_yaxis()
+    ax2.tick_params(axis="y", length=0, pad=3)
+    ax2.tick_params(axis="x", labelsize=7)
+    ax2.set_xlabel("Occurrences (thousands)", fontsize=8)
+    ax2.set_title(f"(b) the {top} most frequent graphemes", fontsize=8, loc="left")
+    ax2.grid(alpha=0.25, linewidth=0.5, axis="x")
     ax2.spines[["top", "right"]].set_visible(False)
-    ax2.margins(x=0.01)
+    ax2.margins(y=0.01)
 
-    fig.tight_layout()
+    fig.tight_layout(h_pad=0.8)
     Path(out_path).parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, bbox_inches="tight")
     print(f"wrote {out_path}")
@@ -243,6 +255,9 @@ def main():
     ap.add_argument("--json", default="results/corpus_stats.json")
     ap.add_argument("--latex", default="../paper/tables/corpus_stats.tex")
     ap.add_argument("--figure", default="../paper/figures/grapheme_freq.pdf")
+    ap.add_argument("--figure-only", action="store_true",
+                    help="redraw the figure from the released corpus and "
+                         "write nothing else")
     ap.add_argument("--repair", action="store_true",
                     help="apply repair_tamil and drop lines that stay "
                          "ill-formed. OFF by default: the released v3 corpus "
@@ -268,6 +283,10 @@ def main():
         print(f"[warn] typeface-coverage filter skipped ({exc}); "
               f"statistics describe the pre-coverage set")
     full = report(released, "released")
+    if args.figure_only:
+        print(f"released lines {full['lines']:,}, graphemes {full['graphemes']:,}")
+        figure(full["_counts"], args.figure)
+        return 0
 
     print(f"{'source':<34} {'lines':>9} {'graphemes':>12} {'247':>8} {'grantha':>8}")
     print("-" * 76)

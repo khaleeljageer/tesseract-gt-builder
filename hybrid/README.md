@@ -1,5 +1,10 @@
 # Hybrid real-plus-synthetic training lines (IJDAR revision 3, R2.7)
 
+Licence: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/) for the
+line images, transcriptions, pre-fills and manifests in `set/`, and for
+`raw_pages.csv`. The scripts that use them are GPL-3.0 (see the repository
+LICENSE).
+
 448 real printed-Tamil line images with hand-corrected transcriptions, used
 only for TRAINING in the hybrid run. None comes from a test-set page, and none of its sources (four books, two journals,
 three newspaper issues) was a test-set source (author's confirmation, 2026-11-23); no line
